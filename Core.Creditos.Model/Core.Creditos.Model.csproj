@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entidad\" />
     <Folder Include="General\" />
-    <Folder Include="Transaccion\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Core.Common.Model" Version="1.1.2" />
   </ItemGroup>
 
 </Project>

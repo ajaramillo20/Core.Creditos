@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Ejecucion\" />
-    <Folder Include="Interna\" />
+    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Creditos.Model\Core.Creditos.Model.csproj" />
   </ItemGroup>
 
 </Project>
