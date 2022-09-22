@@ -13,7 +13,8 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         public static void AgregarsolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
         {
             var agregarSolicitudCreditoResult = AgregarSolicitudCreditoDAL.Execute(objetoTransaccional);
-            objetoTransaccional.NumeroSolicitud = agregarSolicitudCreditoResult.NumeroSolicitud;
+            objetoTransaccional.NumeroSolicitudCredito = agregarSolicitudCreditoResult.NumeroSolicitudCredito;
+            objetoTransaccional.ClienteNombre = agregarSolicitudCreditoResult.ClienteNombre;
         }
     }
 }

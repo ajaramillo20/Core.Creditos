@@ -31,9 +31,14 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         public string CodigoEstadoSolicitudCredito { get; set; }
 
         /// <summary>
+        /// Nombre del cliente
+        /// </summary>
+        public string ClienteNombre { get; set; }
+
+        /// <summary>
         /// Respuesta número de solicitud
         /// </summary>
-        public int NumeroSolicitud { get; set; }
+        public int NumeroSolicitudCredito { get; set; }
 
         /// <summary>
         /// Datos Solicitud Crédito

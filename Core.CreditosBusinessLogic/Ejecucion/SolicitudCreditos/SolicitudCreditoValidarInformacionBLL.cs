@@ -56,16 +56,12 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             {
                 var politicaEdadMinima = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.POLITICA_VALIDACION_EDAD_MINIMA);
                 var politicaEdadMaxima = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.POLITICA_VALIDACION_EDAD_MAXIMA);
-
                 var cliente = objetoTransaccional?.SolicitudCredito?.Solicitud?.Cliente;
                 var fechaNacimiento = cliente.FechaNacimiento;
                 int edadDeudor = DateTime.Today.AddTicks(-fechaNacimiento.Ticks).Year - 1;
-
                 int edadMinima = Convert.ToInt32(politicaEdadMinima.Valor);
                 var edadMaxima = Convert.ToInt32(politicaEdadMaxima.Valor);
-
                 var result = ValidarPoliticaEdadSolicitudCreditoDAL.Execute(edadMinima, edadMaxima, edadDeudor);
-
                 objetoTransaccional.CumplePoliticaEdad = (result != (int)CodigosSolicitudCredito.OK) ? false : true;
                 objetoTransaccional.Respuesta.CodigoInternoRespuesta = result;
             }
@@ -96,8 +92,19 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             }
         }
 
+
+        /// <summary>
+        /// Metodo para realizar validaciones a campos,
+        /// estos campos se define en base de datos
+        /// Campos Base de datos:
+        /// Campo Json, obligaatorio, requiere homologacion, tabla homologacion, codigo errror
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ValidarReglasCamposRequest(SolicitudCreditoTrx objetoTransaccional)
         {
+           
             var reglasCamposRequest = ObtenerReglasCamposRequestDAL.Execute(objetoTransaccional.CodigoEntidad);
 
             JObject objOrigen = JObject.Parse(objetoTransaccional.SolicitudCreditoJsonRequest);
@@ -111,13 +118,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 string codigoTabla = campo.CodigoTabla;
                 int codigoError = campo.CodigoError;
                 var campoOrigen = objOrigen.SelectToken(nombreCampo);
-
+                
                 if (esObligatorio)
                 {
                     if (campoOrigen == null || string.IsNullOrEmpty(campoOrigen.Value<string>()))
-                    {
-                        throw new Exception($"{nombreCampo} - Obligatorio");
-                    }
+                        throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, nombreCampo);
                 }
 
                 if (requiereHomologacion)
@@ -125,7 +130,8 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                     var codigoHomologcion = HomologarCatalogoExternoDAL.Execute(campoOrigen.Value<string>(), codigoTabla);
                     if (codigoHomologcion == null)
                     {
-                        throw new ExcepcionServicio(codigoError);
+                       throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, nombreCampo);
+                        
                     }
                     objDestino.SelectToken(nombreCampo).Replace(codigoHomologcion.CodigoInterno);
                 }
@@ -134,7 +140,5 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             var solicitud = JsonConvert.DeserializeObject<SolicitudCredito>(objDestino.ToString());
             objetoTransaccional.SolicitudCredito = solicitud;
         }
-
-
     }
 }

@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Core.Common.Model" Version="1.1.8" />
-    <PackageReference Include="Core.Common.Util" Version="1.1.8" />
+    <PackageReference Include="Core.Common.Model" Version="1.1.9.1" />
+    <PackageReference Include="Core.Common.Util" Version="1.1.9.1" />
     <PackageReference Include="Dapper" Version="2.0.123" />
   </ItemGroup>
 

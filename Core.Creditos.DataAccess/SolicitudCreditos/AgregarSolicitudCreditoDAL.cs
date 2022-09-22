@@ -37,12 +37,12 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             #region VEHICULO
             //Vehiculo
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MARCA, vehiculo?.CodigoMarca, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MODELOS, vehiculo?.CodigoModelo, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_TIPO_USO, vehiculo?.CodigoTipoUso, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_VEHICULO_PRECIO_IVA, vehiculo?.PrecioConIva, System.Data.DbType.VarNumeric);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_CODIGO, vehiculo?.PrecioConIva, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_PRECIO, vehiculo?.PrecioConIva, System.Data.DbType.VarNumeric);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MARCA, vehiculo?.CodigoMarca, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MODELOS, vehiculo?.CodigoModelo, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_TIPO_USO, vehiculo?.CodigoTipoUso, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_PRECIO_IVA, vehiculo?.PrecioConIva, System.Data.DbType.Decimal);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_CODIGO, vehiculo?.DispositivoRastreo?.CodigoDispositivoRastreo, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_PRECIO, vehiculo?.DispositivoRastreo?.Precio, System.Data.DbType.Decimal);
             #endregion
 
             #region Cliente
@@ -82,7 +82,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             #region Conyuge
             ////Conyuge
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_IDENTIFICACION, conyuge?.Identificacion, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_IDENTIFICACION, conyuge?.Identificacion, System.Data.DbType.String);
             //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PRIMER_NOMBRE, conyuge?.PrimerNombre, System.Data.DbType.String);
             //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEGUNDO_NOMBRE, conyuge?.SegundoNombre, System.Data.DbType.String);
             //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_PATERNO, conyuge?.ApellidoPaterno, System.Data.DbType.String);
@@ -98,7 +98,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             #endregion
 
             //Información Crédito            
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TASA, informacionCredito.Tasa, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TASA, informacionCredito.Tasa, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_PLAZO_MESES, informacionCredito.PlazoMeses, System.Data.DbType.Int32);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_MONTO, informacionCredito.MontoCredito, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_VALOR_ENTRADA, informacionCredito.ValorEntrada, System.Data.DbType.Decimal);
@@ -133,7 +133,8 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
         public class AgregarSolicitudCreditoResult
         {
-            public int NumeroSolicitud { get; set; }
+            public int NumeroSolicitudCredito { get; set; }
+            public string ClienteNombre { get; set; }
         }
     }
 }

@@ -19,11 +19,11 @@ namespace Core.Creditos.Model.Transaccion.Response.SolicitudCreditos
         /// <summary>
         /// Id solicitud registrada
         /// </summary>
-        public int NumeroSolicitud { get; set; }
+        public int NumeroSolicitudCredito { get; set; }
 
         /// <summary>
         /// Codigo del estado de la solicitud
         /// </summary>
-        public string CodigoEstadoSolicitudCredito { get; set; }
+        public string ClienteNombre { get; set; }
     }
 }
