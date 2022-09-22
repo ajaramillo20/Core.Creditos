@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Response.SolicitudCreditos
 {
+    /// <summary>
+    /// Respuesta
+    /// </summary>
     public class SolicitudCreditoResponse
     {
-        public string Respuesta { get; set; }
+        /// <summary>
+        /// Mensaje de respuesta, Aprobado o Negado
+        /// </summary>
+        public string MensajeRespuestaSolicitudCredito { get; set; } = "";
+
+        /// <summary>
+        /// Id solicitud registrada
+        /// </summary>
+        public int NumeroSolicitud { get; set; }
+
+        /// <summary>
+        /// Codigo del estado de la solicitud
+        /// </summary>
+        public string CodigoEstadoSolicitudCredito { get; set; }
     }
 }

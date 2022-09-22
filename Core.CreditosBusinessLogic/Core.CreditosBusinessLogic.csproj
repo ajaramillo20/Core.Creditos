@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.2" />
+    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.8" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Creditos.DataAccess\Core.Creditos.DataAccess.csproj" />
     <ProjectReference Include="..\Core.Creditos.Model\Core.Creditos.Model.csproj" />
   </ItemGroup>
 
