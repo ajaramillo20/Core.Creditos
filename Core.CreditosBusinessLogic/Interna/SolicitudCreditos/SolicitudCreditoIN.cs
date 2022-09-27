@@ -2,11 +2,6 @@
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
 using Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
 {
@@ -19,7 +14,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
 
         public void HomologarInformacion(SolicitudCreditoTrx objetoTransaccional)
         {            
-            SolicitudCreditoHomologarInformacionBLL.HomologarCodigosExternos(objetoTransaccional);
+            //SolicitudCreditoHomologarInformacionBLL.HomologarCodigosExternos(objetoTransaccional);
         }
 
         public void InsertarInformacion(SolicitudCreditoTrx objetoTransaccional)

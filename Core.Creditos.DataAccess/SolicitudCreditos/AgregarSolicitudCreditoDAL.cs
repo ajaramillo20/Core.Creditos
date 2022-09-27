@@ -83,18 +83,18 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             #region Conyuge
             ////Conyuge
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_IDENTIFICACION, conyuge?.Identificacion, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PRIMER_NOMBRE, conyuge?.PrimerNombre, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEGUNDO_NOMBRE, conyuge?.SegundoNombre, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_PATERNO, conyuge?.ApellidoPaterno, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_NACIONALIDAD, conyuge?.Nacionalidad, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEXO, conyuge?.Sexo, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEXO, conyuge?.Sexo, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_EMAIL, conyuge?.Email, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_FECHA_NACIMIENTO, conyuge?.Email, System.Data.DbType.DateTime);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PROFESION, conyuge?.Profesion, System.Data.DbType.DateTime);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_ANTIGUEDAD_ECONOMICA, conyuge?.AntiguedadEconomica, System.Data.DbType.DateTime);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_CARGO, conyuge?.Cargo, System.Data.DbType.DateTime);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_TELEFONO, conyuge?.ConyugeTelefono, System.Data.DbType.DateTime);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PRIMER_NOMBRE, conyuge?.PrimerNombre, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEGUNDO_NOMBRE, conyuge?.SegundoNombre, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_PATERNO, conyuge?.ApellidoPaterno, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_MATERNO, conyuge?.ApellidoMaterno, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_NACIONALIDAD, conyuge?.Nacionalidad, System.Data.DbType.String);            
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEXO, conyuge?.Sexo, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_EMAIL, conyuge?.Email, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_FECHA_NACIMIENTO, conyuge?.FechaNacimiento, System.Data.DbType.DateTime);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PROFESION, conyuge?.Profesion, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_ANTIGUEDAD_ECONOMICA, conyuge?.AntiguedadEconomica, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_CARGO, conyuge?.Cargo, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_TELEFONO, conyuge?.ConyugeTelefono, System.Data.DbType.String);
             #endregion
 
             //Información Crédito            
@@ -105,7 +105,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_DIA_PAGO, informacionCredito.DiaPago, System.Data.DbType.Int32);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TIENE_GARANTE, informacionCredito.TieneGarante, System.Data.DbType.Boolean);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_GARATE_IDENTIFICACION, informacionCredito?.GaranteIdentificacion, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_CONSUMO_TARJETA, informacionCredito?.ConsumoTarjeta, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_CONSUMO_TARJETA, informacionCredito?.ConsumoTarjeta, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_SALGO_PROMEDIO_CUENTAS, informacionCredito?.SaldoPromedioCuentas, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_INGRESOS_DEUDOR, informacionCredito?.IngresosDeudor, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_INGRESOS_CONYUGE, informacionCredito?.IngresosConyuge, System.Data.DbType.Decimal);

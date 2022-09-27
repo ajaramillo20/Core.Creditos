@@ -8,12 +8,6 @@ using Core.Creditos.Model.General;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoValidarInformacionBLL
@@ -36,7 +30,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                                                                                 informacionCredito.IngresosConyuge,
                                                                                 informacionCredito.OtrosIngresosConyuge,
                                                                                 ParametrizacionCreditos.POLITICA_VALIDACION_INGRESO_REQUERIDO.ToString());
-                objetoTransaccional.CumplePoliticaIngresos = result == (int)CodigosSolicitudCredito.OK;
+                objetoTransaccional.CumplePoliticaIngresos = (result == (int)CodigosSolicitudCredito.OK);
                 objetoTransaccional.Respuesta.CodigoInternoRespuesta = result;
             }
             catch (Exception ex)
@@ -104,7 +98,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         /// <exception cref="ExcepcionServicio"></exception>
         public static void ValidarReglasCamposRequest(SolicitudCreditoTrx objetoTransaccional)
         {
-           
+
             var reglasCamposRequest = ObtenerReglasCamposRequestDAL.Execute(objetoTransaccional.CodigoEntidad);
 
             JObject objOrigen = JObject.Parse(objetoTransaccional.SolicitudCreditoJsonRequest);
@@ -118,22 +112,25 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 string codigoTabla = campo.CodigoTabla;
                 int codigoError = campo.CodigoError;
                 var campoOrigen = objOrigen.SelectToken(nombreCampo);
-                
-                if (esObligatorio)
+                var esnulo = string.IsNullOrEmpty(campoOrigen?.Value<string>());
+                if (esObligatorio && esnulo)
                 {
-                    if (campoOrigen == null || string.IsNullOrEmpty(campoOrigen.Value<string>()))
-                        throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, nombreCampo);
+                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, nombreCampo);
                 }
 
                 if (requiereHomologacion)
                 {
-                    var codigoHomologcion = HomologarCatalogoExternoDAL.Execute(campoOrigen.Value<string>(), codigoTabla);
-                    if (codigoHomologcion == null)
+
+                    if (!esnulo)
                     {
-                       throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, nombreCampo);
-                        
+                        var codigoHomologcion = HomologarCatalogoExternoDAL.Execute(campoOrigen.Value<string>(), codigoTabla);
+                        if (codigoHomologcion == null)
+                        {
+                            throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, nombreCampo);
+
+                        }
+                        objDestino.SelectToken(nombreCampo).Replace(codigoHomologcion.CodigoInterno);
                     }
-                    objDestino.SelectToken(nombreCampo).Replace(codigoHomologcion.CodigoInterno);
                 }
             }
 

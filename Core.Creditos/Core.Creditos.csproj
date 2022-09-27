@@ -4,11 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Core.Common.Model" Version="1.1.9.1" />
-    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.9.1" />
+    <PackageReference Include="Core.Common.Model" Version="1.1.10" />
+    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 

@@ -82,7 +82,7 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
         public string? GaranteIdentificacion { get; set; }
 
         [JsonPropertyName("consumoTarjeta")]
-        public string? ConsumoTarjeta { get; set; }
+        public decimal? ConsumoTarjeta { get; set; }
 
         [JsonPropertyName("saldoPromedioCuentas")]
         public decimal? SaldoPromedioCuentas { get; set; }
@@ -132,7 +132,7 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
         [JsonPropertyName("primerNombre")]
         public string? PrimerNombre { get; set; }
 
-        [JsonPropertyName("degundoNombre")]
+        [JsonPropertyName("segundoNombre")]
         public string? SegundoNombre { get; set; }
 
         [JsonPropertyName("apellidoPaterno")]

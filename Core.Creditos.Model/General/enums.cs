@@ -11,8 +11,7 @@ namespace Core.Creditos.Model.General
     /// </summary>
     public enum ErroresSolicitudCredito
     {
-        FormatoIncorrectoResponse = 30010,
-        NoExisteCodigoHomologacion = 30011,
+        FormatoIncorrectoResponse = 30010,        
         DeudorNoCumplePoliticaEdad = 30012,
         DeudorNoCumplePoliticaIngresos = 30013,
         PoliticaIngresosNoDefinida = 30014,
