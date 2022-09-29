@@ -1,5 +1,7 @@
 ﻿using Core.Common.Model.ExcepcionServicio;
+using Core.Common.Util.Helper.Internal;
 using Core.Creditos.DataAccess.Catalogos;
+using Core.Creditos.DataAccess.EstadoSolicitudCreditos;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.DataAccess.SolicitudCreditos;
@@ -67,22 +69,31 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         }
 
         /// <summary>
-        /// Valida los resultados de las politicas
+        /// Valida si contienen algun resultado que indique error
         /// </summary>
         /// <param name="objetoTransaccional"></param>
         public static void ValidarResultadoPoliticas(SolicitudCreditoTrx objetoTransaccional)
         {
-            if (objetoTransaccional.CumplePoliticaEdad && objetoTransaccional.CumplePoliticaIngresos)
+
+            if (objetoTransaccional.ResultadoEvaluacionPoliticas.Where(w => w.Value == true).Count() > 0)
             {
-                var estadoAprobado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ESTADO_APROBAR_SOLICITUD_CREDITO);
-                objetoTransaccional.MensajeRespuestaSolicitudCredito = estadoAprobado.Valor;
-                objetoTransaccional.CodigoEstadoSolicitudCredito = estadoAprobado.Codigo;
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_NEGADO, objetoTransaccional.CodigoEntidad);
+                var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
+                                                                       codigoEstado: codigoEstado.Valor
+                                                                      );
+
+                objetoTransaccional.MensajeRespuestaSolicitudCredito = estado.NombreEstado;
+                objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;
             }
             else
             {
-                var estadoNegado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ESTADO_NEGAR_SOLICITUD_CREDITO);
-                objetoTransaccional.MensajeRespuestaSolicitudCredito = estadoNegado.Valor;
-                objetoTransaccional.CodigoEstadoSolicitudCredito = estadoNegado.Codigo;
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_PRE_APROBADO, objetoTransaccional.CodigoEntidad);
+                var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
+                                                                       codigoEstado: codigoEstado.Valor
+                                                                      );
+
+                objetoTransaccional.MensajeRespuestaSolicitudCredito = estado.NombreEstado;
+                objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;
             }
         }
 
@@ -98,7 +109,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         /// <exception cref="ExcepcionServicio"></exception>
         public static void ValidarReglasCamposRequest(SolicitudCreditoTrx objetoTransaccional)
         {
-
+            LogHelper.Write("LOG VALIDAR CAMPOS REQUEST");
             var reglasCamposRequest = ObtenerReglasCamposRequestDAL.Execute(objetoTransaccional.CodigoEntidad);
 
             JObject objOrigen = JObject.Parse(objetoTransaccional.SolicitudCreditoJsonRequest);
@@ -136,6 +147,139 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 
             var solicitud = JsonConvert.DeserializeObject<SolicitudCredito>(objDestino.ToString());
             objetoTransaccional.SolicitudCredito = solicitud;
+        }
+
+        /// <summary>
+        /// Valida todas las reglas definidas en bases de datos
+        /// </summary>
+        public static void ValidarReglasSolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
+        {
+            Dictionary<string, bool> resultValidacion = new Dictionary<string, bool>();
+            var reglasSolicitudCredito = ObtenerReglasSolicitudCreditoDAL.Execute(objetoTransaccional.CodigoEntidad);
+
+            TipoDatoParametroEvaluacion tipoDato;
+            decimal valorNumericoRegla = 0;
+            decimal valorNumericoCampoRequest = 0;
+
+            string valorAlfaNumericoRegla = string.Empty;
+            string valorAlfaNumericoCampoRequest = string.Empty; ;
+
+            foreach (var regla in reglasSolicitudCredito)
+            {
+                if (!Enum.TryParse(regla.TipoDato, out tipoDato))
+                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.FormatoIncorrectoResponse, regla.TipoDato);
+
+                if (tipoDato == TipoDatoParametroEvaluacion.ALFANUMERICO)
+                {
+                    valorAlfaNumericoRegla = regla.ValorEsperado.ToString();
+                    valorAlfaNumericoCampoRequest = objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional).ToString();
+                }
+
+                switch (regla.Operador)
+                {
+                    case "=":
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.NUMERICO)
+                        {
+                            valorNumericoRegla = decimal.Parse(regla.ValorEsperado);
+                            valorNumericoCampoRequest = Convert.ToDecimal(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+                            if (!valorNumericoRegla.Equals(valorNumericoCampoRequest))
+                            {
+                                resultValidacion.Add($"{valorNumericoRegla} != {valorNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.ALFANUMERICO)
+                        {
+                            if (!valorAlfaNumericoRegla.Equals(valorAlfaNumericoCampoRequest))
+                            {
+                                resultValidacion.Add($"{valorAlfaNumericoRegla} != {valorAlfaNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+                        break;
+
+
+                    case "!=":
+                        if (tipoDato == TipoDatoParametroEvaluacion.NUMERICO)
+                        {
+                            valorNumericoRegla = decimal.Parse(regla.ValorEsperado);
+                            valorNumericoCampoRequest = Convert.ToDecimal(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+                            if (valorNumericoRegla.Equals(valorNumericoCampoRequest))
+                            {
+                                resultValidacion.Add($"{valorNumericoRegla} != {valorNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.ALFANUMERICO)
+                        {
+                            if (valorAlfaNumericoRegla.Equals(valorAlfaNumericoCampoRequest))
+                            {
+                                resultValidacion.Add($"{valorAlfaNumericoRegla} != {valorAlfaNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+                        break;
+
+                    case "<=":
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.NUMERICO)
+                        {
+                            valorNumericoRegla = decimal.Parse(regla.ValorEsperado);
+                            valorNumericoCampoRequest = Convert.ToDecimal(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+                            if (valorNumericoCampoRequest > valorNumericoRegla)
+                            {
+                                resultValidacion.Add($"{valorNumericoRegla} != {valorNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+                        break;
+
+                    case ">=":
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.NUMERICO)
+                        {
+                            valorNumericoRegla = decimal.Parse(regla.ValorEsperado);
+                            valorNumericoCampoRequest = Convert.ToDecimal(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+                            if (valorNumericoCampoRequest < valorNumericoRegla)
+                            {
+                                resultValidacion.Add($"{valorNumericoRegla}  {valorNumericoCampoRequest}", regla.IndicaError);
+                            }
+                        }
+                        break;
+
+                    case "CONTIENE":
+                        if (tipoDato == TipoDatoParametroEvaluacion.ALFANUMERICO)
+                        {
+                            valorAlfaNumericoCampoRequest = valorAlfaNumericoCampoRequest == null ? String.Empty : valorAlfaNumericoCampoRequest;
+                            if (!valorAlfaNumericoCampoRequest.Contains(valorAlfaNumericoRegla))
+                            {
+                                resultValidacion.Add($"{valorAlfaNumericoCampoRequest} no contiene {valorAlfaNumericoRegla} ", regla.IndicaError);
+                            }
+                        }
+                        break;
+
+                    case "RANGO":
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.NUMERICO)
+                        {
+                            var rangoValores = regla.ValorEsperado.Split('-');
+                            valorNumericoCampoRequest = Convert.ToDecimal(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+
+                            var valorInicio = decimal.Parse(rangoValores[0]);
+                            var valorFinal = decimal.Parse(rangoValores[1]);
+
+                            if (valorNumericoCampoRequest < valorInicio || valorNumericoCampoRequest > valorFinal)
+                            {
+                                resultValidacion.Add($"Valor {valorAlfaNumericoCampoRequest} fuera del rango {valorInicio} - {valorFinal}", regla.IndicaError);
+                            }
+                        }
+
+                        break;
+
+                    default:
+                        throw new ExcepcionServicio((int)ErroresSolicitudCredito.FormatoIncorrectoResponse);
+                }
+            }
+
+            objetoTransaccional.ResultadoEvaluacionPoliticas = resultValidacion;
         }
     }
 }

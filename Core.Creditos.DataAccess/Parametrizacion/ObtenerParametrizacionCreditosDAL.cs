@@ -12,13 +12,14 @@ namespace Core.Creditos.DataAccess.Parametrizacion
 {
     public static class ObtenerParametrizacionCreditosDAL
     {
-        public static ObtenerParametrizacionCreditosResult Execute(ParametrizacionCreditos codigoParametrizacion)
+        public static ObtenerParametrizacionCreditosResult Execute(ParametrizacionCreditos codigoParametrizacion, string codigoCredencial="")
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
             var dynamicParameters = new DynamicParameters();
 
-            var codigo = codigoParametrizacion.ToString();
+                        
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_PARAMETRIZACION.PARAM_CODIGO_PARAMETRIZACION, codigoParametrizacion.ToString(), System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_PARAMETRIZACION.PARAM_CODIGO_CREDENCIAL, string.IsNullOrEmpty(codigoCredencial)?null: codigoCredencial, System.Data.DbType.String);
 
             var resultado = coneccion.ObtenerListaDatos<ObtenerParametrizacionCreditosResult>(ConstantesPA.PA_CRE_OBTENER_PARAMETRIZACION.PA_NOMBRE, dynamicParameters);
             return resultado.First();

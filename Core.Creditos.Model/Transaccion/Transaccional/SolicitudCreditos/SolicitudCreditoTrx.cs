@@ -18,7 +18,7 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         /// <summary>
         /// Codigo entidad, se obtiene del JWT
         /// </summary>
-        public string CodigoEntidad { get; set; }        
+        public string CodigoEntidad { get; set; }
 
         /// <summary>
         /// Respuesta aprobado o negado
@@ -56,5 +56,17 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         public bool CumplePoliticaIngresos { get; set; }
 
         public string SolicitudCreditoJsonRequest { get; set; } = "";
+
+        /// <summary>
+        /// Almacena temporalmente los ingresos totales del cliente
+        /// </summary>
+        public decimal IngresoTotalCliente { get; set; }
+
+        /// <summary>
+        /// Almacena temporalmente la edad del cliente
+        /// </summary>
+        public int EdadCliente { get; set; }
+
+        public Dictionary<string, bool> ResultadoEvaluacionPoliticas { get; set; }
     }
 }

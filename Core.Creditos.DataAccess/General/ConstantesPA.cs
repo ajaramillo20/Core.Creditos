@@ -110,6 +110,7 @@ namespace Core.Creditos.DataAccess.General
         {
             public const string PA_NOMBRE = "PA_CRE_OBTENER_PARAMETRIZACION";
             public const string PARAM_CODIGO_PARAMETRIZACION = "@CodigoParametrizacion";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
         }
 
         /// <summary>
@@ -143,6 +144,21 @@ namespace Core.Creditos.DataAccess.General
         {
             public const string PA_NOMBRE = "PA_CRE_OBTENER_REGLAS_CAMPOS_REQUEST";
             public const string PARMA_CODIGO_ENTIDAD = "@CodigoEntidad";
+        }
+
+        public static class PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO";
+            public const string PARAM_CODIGO_ENTIDAD = "@CodigoEntidad";
+        }
+
+        public static class PA_CRE_OBTENER_ESTADO_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_ESTADO_SOLICITUD_CREDITO";
+            public const string PARAM_ID_ESTADO = "@IdEstado";
+            public const string PARAM_CODIGO_ESTADO = "@CodigoEstado";
+            public const string PARAM_NOMBRE_ESTADO = "@NombreEstado";
+
         }
     }
 }

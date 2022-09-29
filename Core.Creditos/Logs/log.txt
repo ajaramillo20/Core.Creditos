@@ -1,0 +1,332 @@
+2022-09-29 00:02:48.371 -05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-09-29 00:02:48.459 -05:00 [DBG] Hosting starting
+2022-09-29 00:02:48.485 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-29 00:02:48.489 -05:00 [DBG] Reading data from file 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys\key-064a4827-2123-4c0a-b9a2-9933c5e88d6d.xml'.
+2022-09-29 00:02:48.496 -05:00 [DBG] Found key {064a4827-2123-4c0a-b9a2-9933c5e88d6d}.
+2022-09-29 00:02:48.504 -05:00 [DBG] Considering key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} with expiration date 2022-11-10 03:05:23Z as default key.
+2022-09-29 00:02:48.506 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:02:48.509 -05:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-09-29 00:02:48.510 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:02:48.514 -05:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-09-29 00:02:48.516 -05:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-09-29 00:02:48.518 -05:00 [DBG] Using key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} as the default key.
+2022-09-29 00:02:48.520 -05:00 [DBG] Key ring with default key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} was loaded during application startup.
+2022-09-29 00:02:48.652 -05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 99869A12D526D8FD65051D6D36DB88303C4FC083)
+2022-09-29 00:02:48.684 -05:00 [INF] Now listening on: https://localhost:7244
+2022-09-29 00:02:48.684 -05:00 [INF] Now listening on: http://localhost:5244
+2022-09-29 00:02:48.685 -05:00 [DBG] Loaded hosting startup assembly Core.Creditos
+2022-09-29 00:02:48.686 -05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-09-29 00:02:48.686 -05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-09-29 00:02:48.687 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-29 00:02:48.687 -05:00 [INF] Hosting environment: Development
+2022-09-29 00:02:48.688 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-09-29 00:02:48.689 -05:00 [DBG] Hosting started
+2022-09-29 00:02:49.152 -05:00 [DBG] Connection id "0HML1QVDGQT93" accepted.
+2022-09-29 00:02:49.152 -05:00 [DBG] Connection id "0HML1QVDGQT94" accepted.
+2022-09-29 00:02:49.153 -05:00 [DBG] Connection id "0HML1QVDGQT93" started.
+2022-09-29 00:02:49.153 -05:00 [DBG] Connection id "0HML1QVDGQT94" started.
+2022-09-29 00:02:49.161 -05:00 [DBG] Connection id "0HML1QVDGQT93" received FIN.
+2022-09-29 00:02:49.161 -05:00 [DBG] Connection id "0HML1QVDGQT94" received FIN.
+2022-09-29 00:02:49.175 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:02:49.175 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:02:49.313 -05:00 [DBG] Connection id "0HML1QVDGQT94" stopped.
+2022-09-29 00:02:49.313 -05:00 [DBG] Connection id "0HML1QVDGQT93" stopped.
+2022-09-29 00:02:49.315 -05:00 [DBG] Connection id "0HML1QVDGQT93" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:02:49.315 -05:00 [DBG] Connection id "0HML1QVDGQT94" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:02:49.462 -05:00 [DBG] Connection id "0HML1QVDGQT95" accepted.
+2022-09-29 00:02:49.463 -05:00 [DBG] Connection id "0HML1QVDGQT95" started.
+2022-09-29 00:02:49.491 -05:00 [DBG] Connection 0HML1QVDGQT95 established using the following protocol: "Tls12"
+2022-09-29 00:02:49.527 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-09-29 00:02:49.551 -05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-09-29 00:02:49.566 -05:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2022-09-29 00:02:49.566 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:02:49.632 -05:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-09-29 00:02:49.720 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-09-29 00:02:49.720 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-09-29 00:02:49.722 -05:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-09-29 00:02:49.728 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.3658ms
+2022-09-29 00:02:49.728 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 204.7868ms
+2022-09-29 00:02:49.741 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 20.5366ms
+2022-09-29 00:02:49.799 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-09-29 00:02:49.800 -05:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2022-09-29 00:02:49.800 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:02:49.877 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 78.1560ms
+2022-09-29 00:03:33.181 -05:00 [DBG] Connection id "0HML1QVDGQT96" accepted.
+2022-09-29 00:03:33.183 -05:00 [DBG] Connection id "0HML1QVDGQT96" received FIN.
+2022-09-29 00:03:33.184 -05:00 [DBG] Connection id "0HML1QVDGQT96" started.
+2022-09-29 00:03:33.184 -05:00 [DBG] Connection id "0HML1QVDGQT97" accepted.
+2022-09-29 00:03:33.189 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:03:33.189 -05:00 [DBG] Connection id "0HML1QVDGQT97" started.
+2022-09-29 00:03:33.192 -05:00 [DBG] Connection id "0HML1QVDGQT96" stopped.
+2022-09-29 00:03:33.194 -05:00 [DBG] Connection id "0HML1QVDGQT96" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:03:33.197 -05:00 [DBG] Connection 0HML1QVDGQT97 established using the following protocol: "Tls12"
+2022-09-29 00:03:33.204 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675
+2022-09-29 00:03:33.208 -05:00 [DBG] 1 candidate(s) found for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:03:33.212 -05:00 [DBG] Endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)' with route pattern 'api/Creditos/SolicitudCredito' is valid for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:03:33.214 -05:00 [DBG] Request matched endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:03:33.215 -05:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2022-09-29 00:03:33.408 -05:00 [DBG] Successfully validated the token.
+2022-09-29 00:03:33.409 -05:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2022-09-29 00:03:33.414 -05:00 [DBG] Authorization was successful.
+2022-09-29 00:03:33.416 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:03:33.432 -05:00 [INF] Route matched with {action = "SolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SolicitudCredito(Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-09-29 00:03:33.433 -05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-09-29 00:03:33.435 -05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-09-29 00:03:33.436 -05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-09-29 00:03:33.437 -05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-09-29 00:03:33.438 -05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ProducesAttribute (Order: 0)"]
+2022-09-29 00:03:33.440 -05:00 [DBG] Executing controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:03:33.441 -05:00 [DBG] Executed controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:03:33.450 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:03:33.455 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' using the name '' in request data ...
+2022-09-29 00:03:33.457 -05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-09-29 00:03:33.462 -05:00 [DBG] Connection id "0HML1QVDGQT97", Request id "0HML1QVDGQT97:00000002": started reading request body.
+2022-09-29 00:03:33.463 -05:00 [DBG] Connection id "0HML1QVDGQT97", Request id "0HML1QVDGQT97:00000002": done reading request body.
+2022-09-29 00:03:33.489 -05:00 [DBG] JSON input formatter succeeded, deserializing to type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'
+2022-09-29 00:03:33.490 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:03:33.491 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:03:33.492 -05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:03:33.505 -05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:03:34.432 -05:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-09-29 00:03:34.435 -05:00 [DBG] No information found on request to perform content negotiation.
+2022-09-29 00:03:34.436 -05:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-09-29 00:03:34.437 -05:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-09-29 00:03:34.438 -05:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-09-29 00:03:34.439 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.SolicitudCreditos.SolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-09-29 00:03:34.450 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos) in 1007.5024ms
+2022-09-29 00:03:34.452 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:03:34.452 -05:00 [DBG] Connection id "0HML1QVDGQT97" completed keep alive response.
+2022-09-29 00:03:34.453 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675 - 200 - application/json;+charset=utf-8 1249.3890ms
+2022-09-29 00:07:08.718 -05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-09-29 00:07:08.776 -05:00 [DBG] Hosting starting
+2022-09-29 00:07:08.800 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-29 00:07:08.803 -05:00 [DBG] Reading data from file 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys\key-064a4827-2123-4c0a-b9a2-9933c5e88d6d.xml'.
+2022-09-29 00:07:08.810 -05:00 [DBG] Found key {064a4827-2123-4c0a-b9a2-9933c5e88d6d}.
+2022-09-29 00:07:08.819 -05:00 [DBG] Considering key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} with expiration date 2022-11-10 03:05:23Z as default key.
+2022-09-29 00:07:08.820 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:07:08.823 -05:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-09-29 00:07:08.824 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:07:08.827 -05:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-09-29 00:07:08.829 -05:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-09-29 00:07:08.832 -05:00 [DBG] Using key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} as the default key.
+2022-09-29 00:07:08.832 -05:00 [DBG] Key ring with default key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} was loaded during application startup.
+2022-09-29 00:07:08.931 -05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 99869A12D526D8FD65051D6D36DB88303C4FC083)
+2022-09-29 00:07:08.953 -05:00 [INF] Now listening on: https://localhost:7244
+2022-09-29 00:07:08.954 -05:00 [INF] Now listening on: http://localhost:5244
+2022-09-29 00:07:08.955 -05:00 [DBG] Loaded hosting startup assembly Core.Creditos
+2022-09-29 00:07:08.955 -05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-09-29 00:07:08.956 -05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-09-29 00:07:08.957 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-29 00:07:08.957 -05:00 [INF] Hosting environment: Development
+2022-09-29 00:07:08.958 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-09-29 00:07:08.959 -05:00 [DBG] Hosting started
+2022-09-29 00:07:09.098 -05:00 [DBG] Connection id "0HML1R1QVSR31" accepted.
+2022-09-29 00:07:09.098 -05:00 [DBG] Connection id "0HML1R1QVSR30" accepted.
+2022-09-29 00:07:09.099 -05:00 [DBG] Connection id "0HML1R1QVSR31" started.
+2022-09-29 00:07:09.100 -05:00 [DBG] Connection id "0HML1R1QVSR30" started.
+2022-09-29 00:07:09.117 -05:00 [DBG] Connection id "0HML1R1QVSR31" received FIN.
+2022-09-29 00:07:09.117 -05:00 [DBG] Connection id "0HML1R1QVSR30" received FIN.
+2022-09-29 00:07:09.126 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:07:09.126 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.<FillHandshakeBufferAsync>g__InternalFillHandshakeBufferAsync|189_0[TIOAdapter](TIOAdapter adap, ValueTask`1 task, Int32 minSize)
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:07:09.157 -05:00 [DBG] Connection id "0HML1R1QVSR31" stopped.
+2022-09-29 00:07:09.157 -05:00 [DBG] Connection id "0HML1R1QVSR30" stopped.
+2022-09-29 00:07:09.158 -05:00 [DBG] Connection id "0HML1R1QVSR31" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:07:09.158 -05:00 [DBG] Connection id "0HML1R1QVSR30" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:07:10.025 -05:00 [DBG] Connection id "0HML1R1QVSR32" accepted.
+2022-09-29 00:07:10.029 -05:00 [DBG] Connection id "0HML1R1QVSR32" started.
+2022-09-29 00:07:10.062 -05:00 [DBG] Connection 0HML1R1QVSR32 established using the following protocol: "Tls12"
+2022-09-29 00:07:10.103 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-09-29 00:07:10.139 -05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-09-29 00:07:10.159 -05:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2022-09-29 00:07:10.161 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:07:10.239 -05:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-09-29 00:07:10.335 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-09-29 00:07:10.335 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-09-29 00:07:10.337 -05:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-09-29 00:07:10.345 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 245.2775ms
+2022-09-29 00:07:10.345 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 9.2243ms
+2022-09-29 00:07:10.360 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.9592ms
+2022-09-29 00:07:10.422 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-09-29 00:07:10.423 -05:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2022-09-29 00:07:10.425 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:07:10.505 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 83.0450ms
+2022-09-29 00:07:21.999 -05:00 [DBG] Connection id "0HML1R1QVSR33" accepted.
+2022-09-29 00:07:21.999 -05:00 [DBG] Connection id "0HML1R1QVSR33" received FIN.
+2022-09-29 00:07:22.000 -05:00 [DBG] Connection id "0HML1R1QVSR33" started.
+2022-09-29 00:07:22.000 -05:00 [DBG] Connection id "0HML1R1QVSR34" accepted.
+2022-09-29 00:07:22.002 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:07:22.003 -05:00 [DBG] Connection id "0HML1R1QVSR34" started.
+2022-09-29 00:07:22.010 -05:00 [DBG] Connection id "0HML1R1QVSR33" stopped.
+2022-09-29 00:07:22.012 -05:00 [DBG] Connection id "0HML1R1QVSR33" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:07:22.014 -05:00 [DBG] Connection 0HML1R1QVSR34 established using the following protocol: "Tls12"
+2022-09-29 00:07:22.020 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675
+2022-09-29 00:07:22.025 -05:00 [DBG] 1 candidate(s) found for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:07:22.029 -05:00 [DBG] Endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)' with route pattern 'api/Creditos/SolicitudCredito' is valid for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:07:22.030 -05:00 [DBG] Request matched endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:07:22.032 -05:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2022-09-29 00:07:22.216 -05:00 [DBG] Successfully validated the token.
+2022-09-29 00:07:22.217 -05:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2022-09-29 00:07:22.223 -05:00 [DBG] Authorization was successful.
+2022-09-29 00:07:22.224 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:07:22.238 -05:00 [INF] Route matched with {action = "SolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SolicitudCredito(Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-09-29 00:07:22.240 -05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-09-29 00:07:22.240 -05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-09-29 00:07:22.241 -05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-09-29 00:07:22.243 -05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-09-29 00:07:22.244 -05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ProducesAttribute (Order: 0)"]
+2022-09-29 00:07:22.247 -05:00 [DBG] Executing controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:07:22.248 -05:00 [DBG] Executed controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:07:22.256 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:07:22.258 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' using the name '' in request data ...
+2022-09-29 00:07:22.259 -05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-09-29 00:07:22.263 -05:00 [DBG] Connection id "0HML1R1QVSR34", Request id "0HML1R1QVSR34:00000002": started reading request body.
+2022-09-29 00:07:22.264 -05:00 [DBG] Connection id "0HML1R1QVSR34", Request id "0HML1R1QVSR34:00000002": done reading request body.
+2022-09-29 00:07:22.287 -05:00 [DBG] JSON input formatter succeeded, deserializing to type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'
+2022-09-29 00:07:22.288 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:07:22.289 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:07:22.290 -05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:07:22.301 -05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:07:23.099 -05:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-09-29 00:07:23.102 -05:00 [DBG] No information found on request to perform content negotiation.
+2022-09-29 00:07:23.103 -05:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-09-29 00:07:23.104 -05:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-09-29 00:07:23.105 -05:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-09-29 00:07:23.106 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.SolicitudCreditos.SolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-09-29 00:07:23.116 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos) in 866.4812ms
+2022-09-29 00:07:23.117 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:07:23.118 -05:00 [DBG] Connection id "0HML1R1QVSR34" completed keep alive response.
+2022-09-29 00:07:23.119 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675 - 200 - application/json;+charset=utf-8 1098.2856ms
+2022-09-29 00:12:09.842 -05:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-09-29 00:12:09.927 -05:00 [DBG] Hosting starting
+2022-09-29 00:12:09.952 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-29 00:12:09.957 -05:00 [DBG] Reading data from file 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys\key-064a4827-2123-4c0a-b9a2-9933c5e88d6d.xml'.
+2022-09-29 00:12:09.964 -05:00 [DBG] Found key {064a4827-2123-4c0a-b9a2-9933c5e88d6d}.
+2022-09-29 00:12:09.974 -05:00 [DBG] Considering key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} with expiration date 2022-11-10 03:05:23Z as default key.
+2022-09-29 00:12:09.976 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:12:09.979 -05:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-09-29 00:12:09.981 -05:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29 00:12:09.985 -05:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-09-29 00:12:09.986 -05:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-09-29 00:12:09.989 -05:00 [DBG] Using key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} as the default key.
+2022-09-29 00:12:09.989 -05:00 [DBG] Key ring with default key {064a4827-2123-4c0a-b9a2-9933c5e88d6d} was loaded during application startup.
+2022-09-29 00:12:10.094 -05:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 99869A12D526D8FD65051D6D36DB88303C4FC083)
+2022-09-29 00:12:10.126 -05:00 [INF] Now listening on: https://localhost:7244
+2022-09-29 00:12:10.127 -05:00 [INF] Now listening on: http://localhost:5244
+2022-09-29 00:12:10.128 -05:00 [DBG] Loaded hosting startup assembly Core.Creditos
+2022-09-29 00:12:10.129 -05:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-09-29 00:12:10.132 -05:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-09-29 00:12:10.135 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-29 00:12:10.136 -05:00 [INF] Hosting environment: Development
+2022-09-29 00:12:10.138 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-09-29 00:12:10.141 -05:00 [DBG] Hosting started
+2022-09-29 00:12:10.617 -05:00 [DBG] Connection id "0HML1R4KRDHO2" received FIN.
+2022-09-29 00:12:10.618 -05:00 [DBG] Connection id "0HML1R4KRDHO2" accepted.
+2022-09-29 00:12:10.619 -05:00 [DBG] Connection id "0HML1R4KRDHO2" started.
+2022-09-29 00:12:10.629 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:12:10.657 -05:00 [DBG] Connection id "0HML1R4KRDHO2" stopped.
+2022-09-29 00:12:10.660 -05:00 [DBG] Connection id "0HML1R4KRDHO2" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:12:10.882 -05:00 [DBG] Connection id "0HML1R4KRDHO3" accepted.
+2022-09-29 00:12:10.883 -05:00 [DBG] Connection id "0HML1R4KRDHO3" started.
+2022-09-29 00:12:10.916 -05:00 [DBG] Connection 0HML1R4KRDHO3 established using the following protocol: "Tls12"
+2022-09-29 00:12:10.951 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-09-29 00:12:10.977 -05:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-09-29 00:12:10.992 -05:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2022-09-29 00:12:10.993 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:12:11.057 -05:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-09-29 00:12:11.147 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-09-29 00:12:11.147 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-09-29 00:12:11.148 -05:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-09-29 00:12:11.152 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 203.0163ms
+2022-09-29 00:12:11.152 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.0162ms
+2022-09-29 00:12:11.162 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 14.9692ms
+2022-09-29 00:12:11.222 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-09-29 00:12:11.222 -05:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2022-09-29 00:12:11.223 -05:00 [DBG] Request did not match any endpoints
+2022-09-29 00:12:11.293 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 71.1067ms
+2022-09-29 00:12:19.258 -05:00 [DBG] Connection id "0HML1R4KRDHO4" accepted.
+2022-09-29 00:12:19.258 -05:00 [DBG] Connection id "0HML1R4KRDHO4" received FIN.
+2022-09-29 00:12:19.259 -05:00 [DBG] Connection id "0HML1R4KRDHO4" started.
+2022-09-29 00:12:19.259 -05:00 [DBG] Connection id "0HML1R4KRDHO5" accepted.
+2022-09-29 00:12:19.262 -05:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-09-29 00:12:19.262 -05:00 [DBG] Connection id "0HML1R4KRDHO5" started.
+2022-09-29 00:12:19.265 -05:00 [DBG] Connection id "0HML1R4KRDHO4" stopped.
+2022-09-29 00:12:19.266 -05:00 [DBG] Connection id "0HML1R4KRDHO4" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-09-29 00:12:19.270 -05:00 [DBG] Connection 0HML1R4KRDHO5 established using the following protocol: "Tls12"
+2022-09-29 00:12:19.276 -05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675
+2022-09-29 00:12:19.281 -05:00 [DBG] 1 candidate(s) found for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:12:19.284 -05:00 [DBG] Endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)' with route pattern 'api/Creditos/SolicitudCredito' is valid for the request path '/api/Creditos/SolicitudCredito'
+2022-09-29 00:12:19.286 -05:00 [DBG] Request matched endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:12:19.287 -05:00 [DBG] Static files was skipped as the request already matched an endpoint.
+2022-09-29 00:12:19.471 -05:00 [DBG] Successfully validated the token.
+2022-09-29 00:12:19.472 -05:00 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2022-09-29 00:12:19.477 -05:00 [DBG] Authorization was successful.
+2022-09-29 00:12:19.478 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:12:19.491 -05:00 [INF] Route matched with {action = "SolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SolicitudCredito(Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-09-29 00:12:19.493 -05:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-09-29 00:12:19.494 -05:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-09-29 00:12:19.495 -05:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-09-29 00:12:19.497 -05:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-09-29 00:12:19.498 -05:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ProducesAttribute (Order: 0)"]
+2022-09-29 00:12:19.500 -05:00 [DBG] Executing controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:12:19.501 -05:00 [DBG] Executed controller factory for controller Core.Creditos.Controllers.CreditosController (Core.Creditos)
+2022-09-29 00:12:19.509 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:12:19.512 -05:00 [DBG] Attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' using the name '' in request data ...
+2022-09-29 00:12:19.514 -05:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-09-29 00:12:19.518 -05:00 [DBG] Connection id "0HML1R4KRDHO5", Request id "0HML1R4KRDHO5:00000002": started reading request body.
+2022-09-29 00:12:19.519 -05:00 [DBG] Connection id "0HML1R4KRDHO5", Request id "0HML1R4KRDHO5:00000002": done reading request body.
+2022-09-29 00:12:19.543 -05:00 [DBG] JSON input formatter succeeded, deserializing to type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'
+2022-09-29 00:12:19.544 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:12:19.545 -05:00 [DBG] Done attempting to bind parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:12:19.546 -05:00 [DBG] Attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest' ...
+2022-09-29 00:12:19.558 -05:00 [DBG] Done attempting to validate the bound parameter 'request' of type 'Core.Creditos.Model.Transaccion.Request.SolicitudCredito.SolicitudCreditoRequest'.
+2022-09-29 00:12:19.616 -05:00 [INF] LOG VALIDAR CAMPOS REQUEST
+2022-09-29 00:12:20.397 -05:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-09-29 00:12:20.400 -05:00 [DBG] No information found on request to perform content negotiation.
+2022-09-29 00:12:20.401 -05:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-09-29 00:12:20.402 -05:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-09-29 00:12:20.403 -05:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-09-29 00:12:20.404 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.SolicitudCreditos.SolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-09-29 00:12:20.416 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos) in 912.9831ms
+2022-09-29 00:12:20.417 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.SolicitudCredito (Core.Creditos)'
+2022-09-29 00:12:20.418 -05:00 [DBG] Connection id "0HML1R4KRDHO5" completed keep alive response.
+2022-09-29 00:12:20.418 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7244/api/Creditos/SolicitudCredito application/json 2675 - 200 - application/json;+charset=utf-8 1142.0042ms
+2022-09-29 00:12:58.035 -05:00 [DBG] Connection id "0HML1R4KRDHO3" received FIN.
+2022-09-29 00:12:58.045 -05:00 [DBG] Connection id "0HML1R4KRDHO3" is closed. The last processed stream ID was 7.
+2022-09-29 00:12:58.046 -05:00 [DBG] Connection id "0HML1R4KRDHO3" sending FIN because: "The client closed the connection."
+2022-09-29 00:12:58.050 -05:00 [DBG] Connection id "0HML1R4KRDHO3" stopped.

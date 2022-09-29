@@ -19,7 +19,7 @@ namespace Core.Creditos.DataAccess.General
         NIVELEDUACION = 1009,
         SEXO = 1010,
         CIUDADES = 1011,
-        OCUPACION = 1012,        
+        OCUPACION = 1012,
         CONCESIONARIOS = 1013,
         CLASIFICACIONCARGO = 1014
     }
@@ -30,6 +30,8 @@ namespace Core.Creditos.DataAccess.General
         POLITICA_VALIDACION_EDAD_MINIMA,
         POLITICA_VALIDACION_EDAD_MAXIMA,
         ESTADO_APROBAR_SOLICITUD_CREDITO,
-        ESTADO_NEGAR_SOLICITUD_CREDITO
+        ESTADO_NEGAR_SOLICITUD_CREDITO,
+        ANALIS_RAPIDO_ESTADO_PRE_APROBADO,
+        ANALIS_RAPIDO_ESTADO_NEGADO
     }
 }

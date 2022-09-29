@@ -22,8 +22,17 @@ namespace Core.Creditos.Model.General
         ErrorCampoObligatorio = 30512
     }   
     
+    /// <summary>
+    /// 
+    /// </summary>
     public enum CodigosSolicitudCredito
     {
         OK = 10000
+    }
+
+    public enum TipoDatoParametroEvaluacion
+    { 
+      NUMERICO,
+      ALFANUMERICO
     }
 }

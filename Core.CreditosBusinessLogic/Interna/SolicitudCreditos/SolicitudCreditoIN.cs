@@ -8,13 +8,15 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
     public class SolicitudCreditoIN : IInsertar<SolicitudCreditoTrx, SolicitudCreditoResponse>
     {
         public void AgregarInformacion(SolicitudCreditoTrx objetoTransaccional)
-        {            
+        {
             SolicitudCreditoAgregarInformacionBLL.AgregarJsonPeticionSolicitudCredito(objetoTransaccional);
+            SolicitudCreditoAgregarInformacionBLL.CalcularEdadCliente(objetoTransaccional);
+            SolicitudCreditoAgregarInformacionBLL.CalcularIngresosTotalCliente(objetoTransaccional);
         }
 
         public void HomologarInformacion(SolicitudCreditoTrx objetoTransaccional)
-        {            
-            //SolicitudCreditoHomologarInformacionBLL.HomologarCodigosExternos(objetoTransaccional);
+        {
+            
         }
 
         public void InsertarInformacion(SolicitudCreditoTrx objetoTransaccional)
@@ -25,8 +27,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
         public void ValidarInformacion(SolicitudCreditoTrx objetoTransaccional)
         {
             SolicitudCreditoValidarInformacionBLL.ValidarReglasCamposRequest(objetoTransaccional);
-            SolicitudCreditoValidarInformacionBLL.ValidarIngresos(objetoTransaccional);
-            SolicitudCreditoValidarInformacionBLL.ValidarEdadDeudor(objetoTransaccional);
+            SolicitudCreditoValidarInformacionBLL.ValidarReglasSolicitudCredito(objetoTransaccional);            
             SolicitudCreditoValidarInformacionBLL.ValidarResultadoPoliticas(objetoTransaccional);
         }
     }
