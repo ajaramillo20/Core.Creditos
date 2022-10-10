@@ -11,6 +11,8 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             var agregarSolicitudCreditoResult = AgregarSolicitudCreditoDAL.Execute(objetoTransaccional);
             objetoTransaccional.NumeroSolicitudCredito = agregarSolicitudCreditoResult.NumeroSolicitudCredito;
             objetoTransaccional.ClienteNombre = agregarSolicitudCreditoResult.ClienteNombre;
+            objetoTransaccional.CodigoEstadoSolicitudCredito = agregarSolicitudCreditoResult.CodigoEstadoSolicitudCredito;
+            objetoTransaccional.MensajeRespuestaSolicitudCredito = agregarSolicitudCreditoResult.NombreEstadoSolicitudCredito;
         }
     }
 }

@@ -11,17 +11,23 @@ namespace Core.Creditos.Model.General
     /// </summary>
     public enum ErroresSolicitudCredito
     {
-        FormatoIncorrectoResponse = 30010,        
-        DeudorNoCumplePoliticaEdad = 30012,
-        DeudorNoCumplePoliticaIngresos = 30013,
+        FormatoIncorrectoResponse = 30010,
         PoliticaIngresosNoDefinida = 30014,
         PoliticaEdadNoDefinida = 30015,
         ErrorValidarEdadBaseDeDatos = 30404,
         ErrorValidarIngresosBaseDeDatos = 30405,
         ErrorHomologacionCodigo = 30511,
         ErrorCampoObligatorio = 30512
-    }   
-    
+    }
+
+    /// <summary>
+    /// enumaradores para cambio de estados de solicitud de crédito
+    /// </summary>
+    public enum CodigosCambioEstadoSolicitudCredito
+    {
+        CambioDeEstadoNoPermitido = 30513
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -31,8 +37,8 @@ namespace Core.Creditos.Model.General
     }
 
     public enum TipoDatoParametroEvaluacion
-    { 
-      NUMERICO,
-      ALFANUMERICO
+    {
+        NUMERICO,
+        ALFANUMERICO
     }
 }

@@ -10,15 +10,6 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
 {
     public class SolicitudCreditoTrx : TransaccionBase
     {
-        /// <summary>
-        /// Nombre de usuario, se obtiene del JWT
-        /// </summary>
-        public string Usuario { get; set; }
-
-        /// <summary>
-        /// Codigo entidad, se obtiene del JWT
-        /// </summary>
-        public string CodigoEntidad { get; set; }
 
         /// <summary>
         /// Respuesta aprobado o negado

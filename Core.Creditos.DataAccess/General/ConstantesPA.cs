@@ -23,6 +23,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_VEHICULO_CODIGO_MARCA = "@CodigoMarca";
             public const string PARAM_VEHICULO_CODIGO_MODELOS = "@CodigoModelo";
             public const string PARAM_VEHICULO_CODIGO_TIPO_USO = "@CodigoTipoUso";
+            public const string PARAM_VEHICULO_ANIO = "@Anio";
             public const string PARAM_VEHICULO_PRECIO_IVA = "@PrecioIva";
             public const string PARAM_DISPOSITIVO_RASTREO_CODIGO = "@CodigoDispositivoRastreo";
             public const string PARAM_DISPOSITIVO_RASTREO_PRECIO = "@DispositivoRastreoPrecio";
@@ -65,7 +66,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_CLIENTE_CONYUGE_NACIONALIDAD = "@ConyugeNacionalidad";
             public const string PARAM_CLIENTE_CONYUGE_SEXO = "@ConyugeSexo";
             public const string PARAM_CLIENTE_CONYUGE_EMAIL = "@ConyugeEmail";
-            public const string PARAM_CLIENTE_CONYUGE_FECHA_NACIMIENTO = "@ConyugeEmail";
+            public const string PARAM_CLIENTE_CONYUGE_FECHA_NACIMIENTO = "@@ConyugeFechaNacimiento";
             public const string PARAM_CLIENTE_CONYUGE_PROFESION = "@ConyugeProfesion";
             public const string PARAM_CLIENTE_CONYUGE_ANTIGUEDAD_ECONOMICA = "@ConyugeAntiguedadEconomica";
             public const string PARAM_CLIENTE_CONYUGE_CARGO = "@ConyugeCargo";
@@ -90,7 +91,8 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_CREDITO_FUENTE_INGRESOS = "@CreditoFuenteIngresos";
             public const string PARAM_ASEGURADORA_CODIGO = "@AseguradoraCodigo";
             public const string PARAM_CREDITO_JSON = "@CreditoJSON";
-            public const string PARAM_CREDITO_ESTADO_SOLICITUD = @"EstadoSolicitud";
+            public const string PARAM_CREDITO_ESTADO_SOLICITUD = "@EstadoSolicitud";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
         }
 
         /// <summary>
@@ -159,6 +161,22 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_CODIGO_ESTADO = "@CodigoEstado";
             public const string PARAM_NOMBRE_ESTADO = "@NombreEstado";
 
+        }
+
+        /// <summary>
+        ///¨Procedimiento apra obtener información básica de la solicitud de crédito
+        /// </summary>
+        public static class PA_CRE_OBTNER_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_SOLICITUD_CREDITO";
+            public const string PARAM_NUMERO_SOLICITUD_CREDITO = "@NumeroSolicitudCredito";
+        }
+
+        public static class PA_CRE_VALIDAR_CAMBIO_ESTADO_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_VALIDAR_CAMBIO_ESTADO_SOLICITUD_CREDITO";
+            public const string PARAM_ESTADO_ORIGEN_ID = "@EstadoOrigenId";
+            public const string PARAM_ESTADO_DESTINO_ID = "@EstadoDestinoId";
         }
     }
 }

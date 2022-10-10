@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Core.Common.Model" Version="1.1.14" />
-    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.14" />
+    <PackageReference Include="Core.Common.Model" Version="1.1.19.2" />
+    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.19.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 

@@ -43,12 +43,7 @@ namespace Core.Creditos.DataAccess.Parametrizacion
             /// <summary>
             /// Indica la tabla donde debe homologar en caso de que aplica
             /// </summary>
-            public string CodigoTabla { get; set; }
-
-            /// <summary>
-            /// Indica el error asociado para homologación
-            /// </summary>
-            public int CodigoError { get; set; }
+            public string CodigoTabla { get; set; }            
         }
     }
 }

@@ -53,9 +53,12 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("precioConIva")]
         public decimal? PrecioConIva { get; set; }
+        
+        [JsonPropertyName("anio")]
+        public string? Anio { get; set; }
 
         [JsonPropertyName("dispositivoRastreo")]
-        public DispositivoRastreo? DispositivoRastreo { get; set; }
+        public DispositivoRastreo? DispositivoRastreo { get; set; }       
     }
 
     public class InformacionCredito

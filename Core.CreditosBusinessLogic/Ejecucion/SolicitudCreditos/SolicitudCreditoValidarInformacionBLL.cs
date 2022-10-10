@@ -8,8 +8,17 @@ using Core.Creditos.DataAccess.SolicitudCreditos;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using Core.Creditos.Model.General;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
+using IdentityServer4.Stores.Serialization;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+
+
+
 namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoValidarInformacionBLL
@@ -74,10 +83,9 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         /// <param name="objetoTransaccional"></param>
         public static void ValidarResultadoPoliticas(SolicitudCreditoTrx objetoTransaccional)
         {
-
             if (objetoTransaccional.ResultadoEvaluacionPoliticas.Where(w => w.Value == true).Count() > 0)
             {
-                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_NEGADO, objetoTransaccional.CodigoEntidad);
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_NEGADO, objetoTransaccional.Credenciales.Codigo);
                 var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
                                                                        codigoEstado: codigoEstado.Valor
                                                                       );
@@ -87,7 +95,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             }
             else
             {
-                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_PRE_APROBADO, objetoTransaccional.CodigoEntidad);
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_PRE_APROBADO, objetoTransaccional.Credenciales.Codigo);
                 var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
                                                                        codigoEstado: codigoEstado.Valor
                                                                       );
@@ -102,15 +110,15 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         /// Metodo para realizar validaciones a campos,
         /// estos campos se define en base de datos
         /// Campos Base de datos:
-        /// Campo Json, obligaatorio, requiere homologacion, tabla homologacion, codigo errror
+        /// Campo Json, obligatorio, requiere homologacion, tabla homologacion, codigo errror
         /// </summary>
-        /// <param name="objetoTransaccional"></param>
+        /// <param name="objetoTransaccional">Objeto transaccional del objeto</param>
+        /// 
         /// <exception cref="Exception"></exception>
         /// <exception cref="ExcepcionServicio"></exception>
         public static void ValidarReglasCamposRequest(SolicitudCreditoTrx objetoTransaccional)
         {
-            LogHelper.Write("LOG VALIDAR CAMPOS REQUEST");
-            var reglasCamposRequest = ObtenerReglasCamposRequestDAL.Execute(objetoTransaccional.CodigoEntidad);
+            var reglasCamposRequest = ObtenerReglasCamposRequestDAL.Execute(objetoTransaccional.Credenciales.Codigo);
 
             JObject objOrigen = JObject.Parse(objetoTransaccional.SolicitudCreditoJsonRequest);
             JObject objDestino = JObject.Parse(objetoTransaccional.SolicitudCreditoJsonRequest);
@@ -121,7 +129,6 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 bool esObligatorio = campo.EsObligatorio;
                 bool requiereHomologacion = campo.RequiereHomologacion;
                 string codigoTabla = campo.CodigoTabla;
-                int codigoError = campo.CodigoError;
                 var campoOrigen = objOrigen.SelectToken(nombreCampo);
                 var esnulo = string.IsNullOrEmpty(campoOrigen?.Value<string>());
                 if (esObligatorio && esnulo)
@@ -145,7 +152,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 }
             }
 
-            var solicitud = JsonConvert.DeserializeObject<SolicitudCredito>(objDestino.ToString());
+
+            var settings = new JsonSerializerSettings();            
+            settings.ContractResolver = new CustomContractResolver();
+
+            var solicitud = JsonConvert.DeserializeObject<SolicitudCredito>(objDestino.ToString(), settings);
             objetoTransaccional.SolicitudCredito = solicitud;
         }
 
@@ -155,7 +166,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         public static void ValidarReglasSolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
         {
             Dictionary<string, bool> resultValidacion = new Dictionary<string, bool>();
-            var reglasSolicitudCredito = ObtenerReglasSolicitudCreditoDAL.Execute(objetoTransaccional.CodigoEntidad);
+            var reglasSolicitudCredito = ObtenerReglasSolicitudCreditoDAL.Execute(objetoTransaccional.Credenciales.Codigo);
 
             TipoDatoParametroEvaluacion tipoDato;
             decimal valorNumericoRegla = 0;

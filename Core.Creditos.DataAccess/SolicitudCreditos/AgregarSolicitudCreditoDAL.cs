@@ -24,25 +24,27 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             var solicitud = objetoTransaccional?.SolicitudCredito?.Solicitud;
             var cliente = solicitud?.Cliente;
-            var vehiculo = solicitud.Vehiculo;
+            var vehiculo = solicitud?.Vehiculo;
             var conyuge = cliente?.Conyuge;
-            var informacionCredito = solicitud.InformacionCredito;
-            var aseguradora = solicitud.Aseguradora;
+            var informacionCredito = solicitud?.InformacionCredito;
+            var aseguradora = solicitud?.Aseguradora;
 
-            //Información
-
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PA_CODIGO_CONCESIONARIO, solicitud.CodigoConcesionario, System.Data.DbType.String);
+            //Información            
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PA_CODIGO_CONCESIONARIO, solicitud?.CodigoConcesionario, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CEDULA_VENDEDOR, solicitud.CedulaVendedor, System.Data.DbType.String);
-            //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_SOLICITUD_CREDITO.PARAM_CODIGO_PRODUCTO, solicitud.CodigoProducto, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_PRODUCTO, solicitud.CodigoProducto, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_CREDENCIAL, objetoTransaccional?.Credenciales?.Codigo, System.Data.DbType.String);
 
-            #region VEHICULO
+            #region Vehiculo
             //Vehiculo
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MARCA, vehiculo?.CodigoMarca, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_MODELOS, vehiculo?.CodigoModelo, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_CODIGO_TIPO_USO, vehiculo?.CodigoTipoUso, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_PRECIO_IVA, vehiculo?.PrecioConIva, System.Data.DbType.Decimal);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_VEHICULO_ANIO, vehiculo?.Anio, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_CODIGO, vehiculo?.DispositivoRastreo?.CodigoDispositivoRastreo, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_DISPOSITIVO_RASTREO_PRECIO, vehiculo?.DispositivoRastreo?.Precio, System.Data.DbType.Decimal);
+            
             #endregion
 
             #region Cliente
@@ -55,10 +57,10 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_PATERNO, cliente?.ApellidoPaterno, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_MATERNO, cliente?.ApellidoMaterno, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_NACIONALIDAD, cliente?.Nacionalidad, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_TIPO_VIVIENDA, cliente.CodigoTipoVivienda, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_ESTADO_CIVIL, cliente.CodigoEstadoCivil, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_NIVEL_EDUCACION, cliente.CodigoNivelEducacion, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_FECHA_NACIMENTO, cliente.FechaNacimiento, System.Data.DbType.DateTime);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_TIPO_VIVIENDA, cliente?.CodigoTipoVivienda, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_ESTADO_CIVIL, cliente?.CodigoEstadoCivil, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_NIVEL_EDUCACION, cliente?.CodigoNivelEducacion, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_FECHA_NACIMENTO, cliente?.FechaNacimiento, System.Data.DbType.DateTime);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_SEXO, cliente?.Sexo, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_NUMERO_CARGAS, cliente?.NumeroCargas, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CODIGO_PROVINCIA, cliente?.CodigoProvincia, System.Data.DbType.String);
@@ -85,8 +87,8 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_IDENTIFICACION, conyuge?.Identificacion, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_PRIMER_NOMBRE, conyuge?.PrimerNombre, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEGUNDO_NOMBRE, conyuge?.SegundoNombre, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_PATERNO, conyuge?.ApellidoPaterno, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_APELLIDO_MATERNO, conyuge?.ApellidoMaterno, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_APELLIDO_PATERNO, conyuge?.ApellidoPaterno, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_APELLIDO_MATERNO, conyuge?.ApellidoMaterno, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_NACIONALIDAD, conyuge?.Nacionalidad, System.Data.DbType.String);            
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_SEXO, conyuge?.Sexo, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_EMAIL, conyuge?.Email, System.Data.DbType.String);
@@ -97,13 +99,14 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CLIENTE_CONYUGE_TELEFONO, conyuge?.ConyugeTelefono, System.Data.DbType.String);
             #endregion
 
+            #region InformacionCredito
             //Información Crédito            
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TASA, informacionCredito.Tasa, System.Data.DbType.Decimal);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_PLAZO_MESES, informacionCredito.PlazoMeses, System.Data.DbType.Int32);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_MONTO, informacionCredito.MontoCredito, System.Data.DbType.Decimal);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_VALOR_ENTRADA, informacionCredito.ValorEntrada, System.Data.DbType.Decimal);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_DIA_PAGO, informacionCredito.DiaPago, System.Data.DbType.Int32);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TIENE_GARANTE, informacionCredito.TieneGarante, System.Data.DbType.Boolean);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TASA, informacionCredito?.Tasa, System.Data.DbType.Decimal);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_PLAZO_MESES, informacionCredito?.PlazoMeses, System.Data.DbType.Int32);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_MONTO, informacionCredito?.MontoCredito, System.Data.DbType.Decimal);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_VALOR_ENTRADA, informacionCredito?.ValorEntrada, System.Data.DbType.Decimal);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_DIA_PAGO, informacionCredito?.DiaPago, System.Data.DbType.Int32);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_TIENE_GARANTE, informacionCredito?.TieneGarante, System.Data.DbType.Boolean);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_GARATE_IDENTIFICACION, informacionCredito?.GaranteIdentificacion, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_CONSUMO_TARJETA, informacionCredito?.ConsumoTarjeta, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_SALGO_PROMEDIO_CUENTAS, informacionCredito?.SaldoPromedioCuentas, System.Data.DbType.Decimal);
@@ -116,16 +119,14 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_OTROS_EGRESOS_DEUDOR, informacionCredito?.OtrosEgresosDeudor, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_OTROS_EGRESOS_CONYUGE, informacionCredito?.OtrosEgresosConyuge, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_FUENTE_INGRESOS, informacionCredito?.FuenteIngresos, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_ESTADO_SOLICITUD, objetoTransaccional.CodigoEstadoSolicitudCredito, System.Data.DbType.String);
-
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_ESTADO_SOLICITUD, objetoTransaccional?.CodigoEstadoSolicitudCredito, System.Data.DbType.String);
+            #endregion
 
             //Aseguradora
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_ASEGURADORA_CODIGO, aseguradora?.CodigoAseguradora, System.Data.DbType.String);
 
             //Request
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_JSON, objetoTransaccional.SolicitudCreditoJsonRequest, System.Data.DbType.String);
-
-
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_JSON, objetoTransaccional?.SolicitudCreditoJsonRequest, System.Data.DbType.String);
 
             var resultado = coneccion.ObtenerListaDatos<AgregarSolicitudCreditoResult>(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PA_NOMBRE, dynamicParameters);
             return resultado.First();
@@ -135,6 +136,10 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
         {
             public int NumeroSolicitudCredito { get; set; }
             public string ClienteNombre { get; set; }
+
+            public string CodigoEstadoSolicitudCredito { get; set; }
+
+            public string NombreEstadoSolicitudCredito { get; set; }
         }
     }
 }

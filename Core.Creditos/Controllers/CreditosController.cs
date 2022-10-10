@@ -3,13 +3,15 @@ using Core.Common.ProcessTemplate.Helper;
 using Core.Common.Util.Helper.Autenticacion;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Request.SolicitudCredito;
+using Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
+using Core.Creditos.Model.Transaccion.Transaccional.CambiarEstadoSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
+using Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos;
 using Core.CreditosBusinessLogic.Interna.SolicitudCreditos;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
+
 
 namespace Core.Creditos.Controllers
 {
@@ -22,15 +24,10 @@ namespace Core.Creditos.Controllers
         [Route("SolicitudCredito")]
         [Produces(typeof(EstructuraBase<SolicitudCreditoResponse>))]
         public IActionResult SolicitudCredito([FromBody] SolicitudCreditoRequest request)
-        {            
-            var token = JwtHelper.DesencriptarJWT(Request);            
+        {
             SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
             transaccion.SolicitudCredito = new SolicitudCredito();
             transaccion.SolicitudCredito.Solicitud = request.Solicitud;
-            //Revisar temas de claims
-            
-            transaccion.Usuario = JwtHelper.GetClaim(token, "Usuario");
-            transaccion.CodigoEntidad = JwtHelper.GetClaim(token, "Entidad");
 
             EstructuraBase<SolicitudCreditoResponse> respuesta = this.Insertar<SolicitudCreditoTrx, SolicitudCreditoResponse, SolicitudCreditoIN>(
                 new SolicitudCreditoIN(),
@@ -38,5 +35,25 @@ namespace Core.Creditos.Controllers
 
             return Ok(respuesta);
         }
+
+        [HttpPut]        
+        [Route("CambiarEstadoSolicitudCredito")]
+        [Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
+        public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
+        {
+            CambiarEstadoSolicitudCreditoTrx transaccion = this.GenerarTransaccion<CambiarEstadoSolicitudCreditoTrx>();
+            transaccion.NumeroSolicitudCredito = numeroSolicitud;
+            transaccion.EstadoSolicitudCreditoDestinoId = estadoSolicitudCreditoId;
+            
+            EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
+                new CambiarEstadoSolicitudCreditoIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+
+    
+
     }
 }
