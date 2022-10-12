@@ -25,6 +25,6 @@ namespace Core.Creditos.DataAccess.EstadoSolicitudCreditos
 
             int resultado = coneccion.Ejecutar<int>(ConstantesPA.PA_CRE_VALIDAR_CAMBIO_ESTADO_SOLICITUD_CREDITO.PA_NOMBRE, dynamicParameters);
             return resultado;
-        }        
+        }                 
     }
 }

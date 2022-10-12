@@ -178,6 +178,24 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_ESTADO_ORIGEN_ID = "@EstadoOrigenId";
             public const string PARAM_ESTADO_DESTINO_ID = "@EstadoDestinoId";
         }
+
+        public static class PA_CRE_CAMBIAR_ESTADO_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_CAMBIAR_ESTADO_SOLICITUD_CREDITO";
+            public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
+            public const string PARAM_CODIGO_ESTADO_DESTINO = "@CodigoEstadoDestino";
+        }
+
+        public static class PA_CRE_API_OBTENER_DATOS_PETICION
+        {
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
+
+            public static string PA_NOMBRE = "PA_CRE_API_OBTENER_DATOS_PETICION";
+
+            public static string PA_NOMBRE_HEADERS = "PA_CRE_API_OBTENER_HEADERS_PETICION";
+
+            public static string PA_NOMBRE_QUERY_PARAMS = "PA_CRE_API_OBTENER_QUERY_PARAMS_PETICION";
+        }
     }
 }
 

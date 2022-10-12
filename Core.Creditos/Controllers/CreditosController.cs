@@ -36,14 +36,15 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
-        [HttpPut]        
+        [HttpPut]
+        [Authorize]
         [Route("CambiarEstadoSolicitudCredito")]
         [Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
         public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
         {
             CambiarEstadoSolicitudCreditoTrx transaccion = this.GenerarTransaccion<CambiarEstadoSolicitudCreditoTrx>();
             transaccion.NumeroSolicitudCredito = numeroSolicitud;
-            transaccion.EstadoSolicitudCreditoDestinoId = estadoSolicitudCreditoId;
+            transaccion.IdEstadoSolicitudCreditoDestino = estadoSolicitudCreditoId;
             
             EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
                 new CambiarEstadoSolicitudCreditoIN(),

@@ -1336,3 +1336,547 @@ Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime
 2022-10-09 23:46:04.808 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 19473.0456ms
 2022-10-09 23:46:04.809 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
 2022-10-09 23:46:04.809 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100281&estadoSolicitudCreditoId=2 - 0 - 200 - application/json;+charset=utf-8 19485.8207ms
+2022-10-10 10:00:57.788 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 10:00:58.161 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 10:00:58.162 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 10:00:58.165 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 10:00:58.165 -05:00 [INF] Hosting environment: Development
+2022-10-10 10:00:58.166 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 10:00:59.283 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 10:00:59.602 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 10:00:59.602 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 10:00:59.610 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 328.9392ms
+2022-10-10 10:00:59.610 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.4681ms
+2022-10-10 10:00:59.651 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 48.8090ms
+2022-10-10 10:00:59.688 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 10:00:59.767 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 78.3204ms
+2022-10-10 10:03:07.733 -05:00 [INF] Request starting HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0
+2022-10-10 10:03:08.009 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:03:08.026 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 10:03:19.143 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 11111.7731ms
+2022-10-10 10:03:19.149 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:03:19.152 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Core.Common.ProcessTemplate.CrudProcessTemplate`2.Actualizar(EstructuraBase`1 objetoTransaccional)
+   at Core.Common.ProcessTemplate.Helper.ControladorHelper.Actualizar[Transaccion,Response,Logica](ControllerBase controlador, Logica inyectedLogic, Transaccion transaccion)
+   at Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito(String numeroSolicitud, Int32 estadoSolicitudCreditoId) in C:\Dev\Core.Creditos\Core.Creditos\Controllers\CreditosController.cs:line 48
+   at lambda_method2(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-10-10 10:03:19.203 -05:00 [INF] Request finished HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0 - 500 - text/plain;+charset=utf-8 11470.1238ms
+2022-10-10 10:03:20.155 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 10:03:20.166 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 11.1058ms
+2022-10-10 10:03:20.171 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 10:03:20.171 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 10:03:20.171 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.8719ms
+2022-10-10 10:03:20.181 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 10.0430ms
+2022-10-10 10:03:20.229 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 10:03:20.236 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 6.5769ms
+2022-10-10 10:03:41.047 -05:00 [INF] Request starting HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0
+2022-10-10 10:03:41.052 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:03:41.055 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 10:03:46.297 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 5240.8428ms
+2022-10-10 10:03:46.299 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:03:46.300 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Core.Common.ProcessTemplate.CrudProcessTemplate`2.Actualizar(EstructuraBase`1 objetoTransaccional)
+   at Core.Common.ProcessTemplate.Helper.ControladorHelper.Actualizar[Transaccion,Response,Logica](ControllerBase controlador, Logica inyectedLogic, Transaccion transaccion)
+   at Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito(String numeroSolicitud, Int32 estadoSolicitudCreditoId) in C:\Dev\Core.Creditos\Core.Creditos\Controllers\CreditosController.cs:line 48
+   at lambda_method49(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-10-10 10:03:46.309 -05:00 [INF] Request finished HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0 - 500 - text/plain;+charset=utf-8 5261.9019ms
+2022-10-10 10:06:09.476 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 10:06:09.664 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 10:06:09.665 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 10:06:09.667 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 10:06:09.668 -05:00 [INF] Hosting environment: Development
+2022-10-10 10:06:09.668 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 10:06:10.385 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 10:06:10.581 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 10:06:10.581 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 10:06:10.588 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 7.2004ms
+2022-10-10 10:06:10.588 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 205.6923ms
+2022-10-10 10:06:10.598 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 17.1839ms
+2022-10-10 10:06:10.647 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 10:06:10.726 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 78.2779ms
+2022-10-10 10:06:48.974 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0
+2022-10-10 10:06:49.243 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:06:49.257 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 10:08:55.100 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 10:08:55.112 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 125850.7312ms
+2022-10-10 10:08:55.116 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:08:55.116 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0 - 200 - application/json;+charset=utf-8 126142.3851ms
+2022-10-10 10:11:30.354 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 10:11:30.366 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 11.1921ms
+2022-10-10 10:11:30.370 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 10:11:30.371 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 10:11:30.371 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 0.8954ms
+2022-10-10 10:11:30.377 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 6.4086ms
+2022-10-10 10:11:30.430 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 10:11:30.433 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 3.5329ms
+2022-10-10 10:11:39.747 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0
+2022-10-10 10:11:39.752 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:11:39.754 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 10:11:48.163 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 10:11:48.165 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 8409.8145ms
+2022-10-10 10:11:48.166 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 10:11:48.167 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0 - 200 - application/json;+charset=utf-8 8419.3055ms
+2022-10-10 11:03:59.115 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0
+2022-10-10 11:03:59.118 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:03:59.119 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 11:04:14.401 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 11:04:14.402 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 15281.5077ms
+2022-10-10 11:04:14.403 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:04:14.403 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=2 - 0 - 200 - application/json;+charset=utf-8 15290.8427ms
+2022-10-10 11:04:19.284 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 11:04:19.285 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:04:19.285 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 11:04:23.863 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 4576.4822ms
+2022-10-10 11:04:23.865 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:04:23.868 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'ManifestModule' with type 'System.Reflection.RuntimeModule'. Path 'TargetSite.Module.Assembly'.
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   at Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   at Core.Common.Util.Helper.Datos.StringHelper.ToJson(Object objeto)
+   at Core.Common.ProcessTemplate.CrudProcessTemplate`2.Actualizar(EstructuraBase`1 objetoTransaccional)
+   at Core.Common.ProcessTemplate.Helper.ControladorHelper.Actualizar[Transaccion,Response,Logica](ControllerBase controlador, Logica inyectedLogic, Transaccion transaccion)
+   at Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito(String numeroSolicitud, Int32 estadoSolicitudCreditoId) in C:\Dev\Core.Creditos\Core.Creditos\Controllers\CreditosController.cs:line 49
+   at lambda_method54(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.HandleAsync(RequestDelegate next, HttpContext context, AuthorizationPolicy policy, PolicyAuthorizationResult authorizeResult)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-10-10 11:04:23.912 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 500 - text/plain;+charset=utf-8 4628.5189ms
+2022-10-10 11:04:46.334 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 11:04:46.336 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:04:46.337 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 11:15:54.462 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 11:15:54.643 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 11:15:54.644 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 11:15:54.646 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 11:15:54.647 -05:00 [INF] Hosting environment: Development
+2022-10-10 11:15:54.647 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 11:15:55.963 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 11:15:56.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 11:15:56.198 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 11:15:56.206 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 7.7432ms
+2022-10-10 11:15:56.206 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 242.8615ms
+2022-10-10 11:15:56.216 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.6091ms
+2022-10-10 11:15:56.277 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 11:15:56.367 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 90.0416ms
+2022-10-10 11:15:58.477 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 11:15:58.669 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 16:08:56', Current time: '10/10/2022 16:15:58'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-10 11:15:58.701 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 16:08:56', Current time: '10/10/2022 16:15:58'.
+2022-10-10 11:15:58.707 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-10 11:15:58.714 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-10 11:15:58.720 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 401 0 - 243.4096ms
+2022-10-10 11:16:00.753 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 11:16:00.756 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 16:08:56', Current time: '10/10/2022 16:16:00'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-10 11:16:00.760 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 16:08:56', Current time: '10/10/2022 16:16:00'.
+2022-10-10 11:16:00.761 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-10 11:16:00.762 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-10 11:16:00.762 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 401 0 - 8.7229ms
+2022-10-10 11:16:16.161 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 11:16:16.191 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:16:16.206 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 11:16:20.142 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 11:16:20.155 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 3943.5187ms
+2022-10-10 11:16:20.158 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 11:16:20.159 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 3998.1552ms
+2022-10-10 14:23:25.102 -05:00 [INF] Request starting HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 14:23:25.106 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-10 14:23:25.107 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-10 14:23:25.108 -05:00 [INF] Request finished HTTP/2 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 401 0 - 5.9399ms
+2022-10-10 14:23:39.060 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 14:23:39.061 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 14:23:39.062 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 14:24:10.652 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 14:24:10.653 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 31590.5124ms
+2022-10-10 14:24:10.654 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 14:24:10.655 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 31595.0635ms
+2022-10-10 14:26:17.264 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 14:26:17.266 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 14:26:17.266 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 15:16:58.113 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 15:16:58.114 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 3040847.2883ms
+2022-10-10 15:16:58.115 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 15:16:58.117 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 3040854.0295ms
+2022-10-10 15:17:00.089 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 15:17:00.091 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 19:28:36', Current time: '10/10/2022 20:17:00'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-10 15:17:00.093 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '10/10/2022 19:28:36', Current time: '10/10/2022 20:17:00'.
+2022-10-10 15:17:00.094 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-10 15:17:00.094 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-10 15:17:00.095 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 401 0 - 5.6135ms
+2022-10-10 15:17:05.023 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 15:17:05.024 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 15:17:05.025 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 15:17:19.308 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 15:17:19.309 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 14282.1125ms
+2022-10-10 15:17:19.310 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 15:17:19.311 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 14287.5548ms
+2022-10-10 22:48:04.648 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 22:48:05.131 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 22:48:05.132 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 22:48:05.134 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 22:48:05.134 -05:00 [INF] Hosting environment: Development
+2022-10-10 22:48:05.135 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 22:48:06.029 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 22:48:06.287 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 22:48:06.287 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 22:48:06.295 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 264.6286ms
+2022-10-10 22:48:06.296 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 9.0451ms
+2022-10-10 22:48:06.305 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 17.9751ms
+2022-10-10 22:48:06.371 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 22:48:06.472 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.3104ms
+2022-10-10 22:48:21.883 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 22:48:22.391 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:48:22.405 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 22:48:34.954 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 22:48:34.966 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 12556.2392ms
+2022-10-10 22:48:34.970 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:48:34.971 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 13087.8069ms
+2022-10-10 22:48:48.652 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 22:48:48.654 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:48:48.655 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 22:48:57.998 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 22:48:58.000 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 9342.0693ms
+2022-10-10 22:48:58.001 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:48:58.003 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 9351.2719ms
+2022-10-10 22:49:23.920 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 22:49:23.924 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:49:23.925 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 22:50:49.543 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 22:50:49.693 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 22:50:49.694 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 22:50:49.696 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 22:50:49.697 -05:00 [INF] Hosting environment: Development
+2022-10-10 22:50:49.697 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 22:50:49.947 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 22:50:50.347 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:50:50.366 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 22:50:54.150 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 22:50:54.294 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 22:50:54.294 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 22:50:54.298 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 147.3165ms
+2022-10-10 22:50:54.300 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 5.1916ms
+2022-10-10 22:50:54.313 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.2081ms
+2022-10-10 22:50:54.359 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 22:50:54.431 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 71.7644ms
+2022-10-10 22:51:39.616 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 22:51:39.629 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 49257.2607ms
+2022-10-10 22:51:39.634 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 22:51:39.635 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 49690.3112ms
+2022-10-10 23:01:05.484 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 23:01:05.655 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 23:01:05.656 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 23:01:05.658 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 23:01:05.659 -05:00 [INF] Hosting environment: Development
+2022-10-10 23:01:05.659 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 23:01:07.203 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 23:01:07.408 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 23:01:07.408 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 23:01:07.412 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 210.8301ms
+2022-10-10 23:01:07.416 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.2346ms
+2022-10-10 23:01:07.427 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.2308ms
+2022-10-10 23:01:07.486 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 23:01:07.565 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 79.0292ms
+2022-10-10 23:01:32.727 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:01:32.946 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:01:32.958 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 23:03:32.768 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 23:03:32.784 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 119821.788ms
+2022-10-10 23:03:32.788 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:03:32.790 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 0 - application/json;+charset=utf-8 120062.1746ms
+2022-10-10 23:03:44.221 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:03:44.230 -05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '7/10/2022 14:29:08', Current time: '11/10/2022 4:03:44'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateTokenPayload(JwtSecurityToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateJWS(String token, TokenValidationParameters validationParameters, BaseConfiguration currentConfiguration, SecurityToken& signatureValidatedToken, ExceptionDispatchInfo& exceptionThrown)
+--- End of stack trace from previous location ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, JwtSecurityToken outerToken, TokenValidationParameters validationParameters, SecurityToken& signatureValidatedToken)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+2022-10-10 23:03:44.269 -05:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo: '7/10/2022 14:29:08', Current time: '11/10/2022 4:03:44'.
+2022-10-10 23:03:44.270 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2022-10-10 23:03:44.277 -05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2022-10-10 23:03:44.278 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 401 0 - 57.4151ms
+2022-10-10 23:04:05.286 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:04:05.288 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:04:05.291 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 23:07:55.761 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 23:07:55.948 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 23:07:55.949 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 23:07:55.951 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 23:07:55.951 -05:00 [INF] Hosting environment: Development
+2022-10-10 23:07:55.952 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 23:07:58.405 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 23:07:58.620 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 23:07:58.620 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 23:07:58.622 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 218.6243ms
+2022-10-10 23:07:58.634 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.6807ms
+2022-10-10 23:07:58.639 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 19.5460ms
+2022-10-10 23:07:58.695 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 23:07:58.807 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 112.3676ms
+2022-10-10 23:08:02.804 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:08:03.002 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:08:03.015 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 23:11:13.795 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 23:11:13.994 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 23:11:13.995 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 23:11:13.998 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 23:11:13.998 -05:00 [INF] Hosting environment: Development
+2022-10-10 23:11:13.999 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 23:11:14.597 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 23:11:14.855 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 23:11:14.855 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 23:11:14.866 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 290.8129ms
+2022-10-10 23:11:14.866 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.3107ms
+2022-10-10 23:11:14.876 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 20.6142ms
+2022-10-10 23:11:14.926 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 23:11:15.003 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 76.6299ms
+2022-10-10 23:11:34.247 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:11:34.465 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:11:34.480 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 23:13:12.455 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-10 23:13:12.643 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-10 23:13:12.644 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-10 23:13:12.647 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-10 23:13:12.647 -05:00 [INF] Hosting environment: Development
+2022-10-10 23:13:12.648 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-10 23:13:15.156 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-10 23:13:15.339 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-10 23:13:15.339 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-10 23:13:15.342 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 187.5775ms
+2022-10-10 23:13:15.352 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.0488ms
+2022-10-10 23:13:15.358 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.6750ms
+2022-10-10 23:13:15.406 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-10 23:13:15.489 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 83.8379ms
+2022-10-10 23:13:29.824 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-10 23:13:30.025 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:13:30.039 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-10 23:14:28.761 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-10 23:14:28.774 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 58729.8219ms
+2022-10-10 23:14:28.778 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-10 23:14:28.779 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 58954.9100ms
+2022-10-11 11:33:37.916 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-11 11:33:38.093 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-11 11:33:38.094 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-11 11:33:38.096 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-11 11:33:38.096 -05:00 [INF] Hosting environment: Development
+2022-10-11 11:33:38.097 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-11 11:33:41.666 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-11 11:33:41.894 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-11 11:33:41.894 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-11 11:33:41.898 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 234.1102ms
+2022-10-11 11:33:41.901 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 6.6594ms
+2022-10-11 11:33:48.064 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 6170.3779ms
+2022-10-11 11:33:48.104 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-11 11:33:48.177 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 73.5537ms
+2022-10-11 11:40:55.813 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-11 11:40:56.262 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:40:56.275 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 11:41:15.907 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 11:41:15.919 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 19639.114ms
+2022-10-11 11:41:15.924 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:41:15.925 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 20112.2800ms
+2022-10-11 11:42:13.797 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-11 11:42:13.950 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-11 11:42:13.952 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-11 11:42:13.954 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-11 11:42:13.955 -05:00 [INF] Hosting environment: Development
+2022-10-11 11:42:13.955 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-11 11:42:17.968 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-11 11:42:18.179 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-11 11:42:18.179 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-11 11:42:18.183 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 217.6455ms
+2022-10-11 11:42:18.186 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 6.7076ms
+2022-10-11 11:42:18.198 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.1694ms
+2022-10-11 11:42:18.246 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-11 11:42:18.329 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 83.5122ms
+2022-10-11 11:42:38.698 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0
+2022-10-11 11:42:38.876 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:42:38.890 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 11:43:24.410 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 11:43:24.423 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 45528.8267ms
+2022-10-11 11:43:24.427 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:43:24.428 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100289&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 45730.4236ms
+2022-10-11 11:44:53.312 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100266&estadoSolicitudCreditoId=1 - 0
+2022-10-11 11:44:53.321 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:44:53.322 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 11:45:46.718 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 11:45:46.719 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 53396.1977ms
+2022-10-11 11:45:46.721 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:45:46.722 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100266&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 53410.3471ms
+2022-10-11 11:46:02.085 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 11:46:02.089 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:46:02.090 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 11:46:10.598 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 11:46:10.599 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 8507.4202ms
+2022-10-11 11:46:10.600 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 11:46:10.601 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 8515.6937ms
+2022-10-11 22:59:13.949 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-11 22:59:14.202 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-11 22:59:14.203 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-11 22:59:14.205 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-11 22:59:14.206 -05:00 [INF] Hosting environment: Development
+2022-10-11 22:59:14.206 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-11 22:59:15.777 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-11 22:59:16.016 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-11 22:59:16.016 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-11 22:59:16.020 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 244.0850ms
+2022-10-11 22:59:16.023 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 6.7542ms
+2022-10-11 22:59:16.035 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.3969ms
+2022-10-11 22:59:16.119 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-11 22:59:16.211 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 91.6254ms
+2022-10-11 23:00:44.732 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:00:44.939 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:00:44.951 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:00:45.972 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:00:45.984 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 1028.4478ms
+2022-10-11 23:00:45.987 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:00:45.989 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 1256.0761ms
+2022-10-11 23:01:39.870 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:01:39.874 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:01:39.875 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:02:01.097 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:02:01.099 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 21222.6989ms
+2022-10-11 23:02:01.104 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:02:01.105 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 21235.0307ms
+2022-10-11 23:04:22.426 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:04:22.429 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:04:22.430 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:05:48.770 -05:00 [INF] User profile is available. Using 'C:\Users\diego\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-11 23:05:48.935 -05:00 [INF] Now listening on: https://localhost:7244
+2022-10-11 23:05:48.936 -05:00 [INF] Now listening on: http://localhost:5244
+2022-10-11 23:05:48.938 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-10-11 23:05:48.938 -05:00 [INF] Hosting environment: Development
+2022-10-11 23:05:48.939 -05:00 [INF] Content root path: C:\Dev\Core.Creditos\Core.Creditos\
+2022-10-11 23:05:50.716 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-11 23:05:50.935 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-11 23:05:50.935 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-11 23:05:50.944 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 229.9514ms
+2022-10-11 23:05:50.944 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.2115ms
+2022-10-11 23:05:51.201 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 266.5899ms
+2022-10-11 23:05:51.247 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-11 23:05:51.325 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 77.8815ms
+2022-10-11 23:05:52.823 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:05:53.007 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:05:53.020 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:06:07.496 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:06:07.509 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 14484.3405ms
+2022-10-11 23:06:07.513 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:06:07.513 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 14690.7108ms
+2022-10-11 23:06:45.661 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/index.html - -
+2022-10-11 23:06:45.677 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/index.html - - - 200 - text/html;charset=utf-8 16.1214ms
+2022-10-11 23:06:45.680 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_vs/browserLink - -
+2022-10-11 23:06:45.680 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - -
+2022-10-11 23:06:45.684 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.0924ms
+2022-10-11 23:06:45.686 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 6.8738ms
+2022-10-11 23:06:45.721 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - -
+2022-10-11 23:06:45.724 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7244/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 3.5134ms
+2022-10-11 23:06:49.837 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:06:49.838 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:06:49.840 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:07:01.159 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:07:01.161 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 11320.2351ms
+2022-10-11 23:07:01.162 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:07:01.163 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 11325.8655ms
+2022-10-11 23:08:03.025 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:08:03.030 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:08:03.031 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:08:21.196 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:08:21.197 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 18164.9872ms
+2022-10-11 23:08:21.198 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:08:21.199 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 18173.9923ms
+2022-10-11 23:09:34.544 -05:00 [INF] Request starting HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0
+2022-10-11 23:09:34.545 -05:00 [INF] Executing endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:09:34.546 -05:00 [INF] Route matched with {action = "CambiarEstadoSolicitudCredito", controller = "Creditos"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CambiarEstadoSolicitudCredito(System.String, Int32) on controller Core.Creditos.Controllers.CreditosController (Core.Creditos).
+2022-10-11 23:10:28.548 -05:00 [INF] Executing OkObjectResult, writing value of type 'Core.Common.Model.Transaccion.Respuesta.EstructuraBase`1[[Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos.CambiarEstadoSolicitudCreditoResponse, Core.Creditos.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-10-11 23:10:28.549 -05:00 [INF] Executed action Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos) in 54002.6392ms
+2022-10-11 23:10:28.550 -05:00 [INF] Executed endpoint 'Core.Creditos.Controllers.CreditosController.CambiarEstadoSolicitudCredito (Core.Creditos)'
+2022-10-11 23:10:28.551 -05:00 [INF] Request finished HTTP/1.1 PUT https://localhost:7244/api/Creditos/CambiarEstadoSolicitudCredito?numeroSolicitud=100271&estadoSolicitudCreditoId=1 - 0 - 200 - application/json;+charset=utf-8 54008.5219ms

@@ -14,10 +14,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
     {
         public static void ValidarCambioDeEstado(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
-            var codigoResultado = ValidarCambioDeEstadoSolicitudCreditoDAL.Execute(objetoTransaccional.EstadoSolicitudCreditoId, objetoTransaccional.EstadoSolicitudCreditoDestinoId);
+            var codigoResultado = ValidarCambioDeEstadoSolicitudCreditoDAL.Execute(objetoTransaccional.IdEstadoSolicitudCredito, objetoTransaccional.IdEstadoSolicitudCreditoDestino);
             if (codigoResultado!= (int)CodigosSolicitudCredito.OK)
             {
-                throw new Exception("NO");
+                throw new ExcepcionServicio(codigoResultado);
             }            
         }
     }

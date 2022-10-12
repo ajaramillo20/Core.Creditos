@@ -1,6 +1,13 @@
-﻿
-int? a = 2;
-int b = a ?? -1;
-Console.WriteLine(b);
+﻿using Newtonsoft.Json;
+using System.Dynamic;
 
-var x = true;
+dynamic flexible = new ExpandoObject();
+flexible.Int = 3;
+flexible.String = "hi";
+
+var dictionary = (IDictionary<string, object>)flexible;
+dictionary.Add("Bool", false);
+
+var serialized = JsonConvert.SerializeObject(dictionary);
+var deserialized = JsonConvert.DeserializeObject<Dictionary<string, object>>(serialized);
+var x = 0;

@@ -1,4 +1,5 @@
 ﻿using Core.Common.ProcessTemplate.InternalBusinessLogic;
+using Core.Creditos.DataAccess.EstadoSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.CambiarEstadoSolicitudCreditos;
 using Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos;
@@ -18,7 +19,9 @@ namespace Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos
         public void AgregarInformacion(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
             //ObtenerDatosGeneralesSolicitudCredito
-            ObtenerSolicitudCreditoBLL.ObtenerSolicitudCreditoPorNumeroSolicitud(objetoTransaccional); ;
+            CambioEstadoSolicitudCreditoAgregarInformacionBLL.ObtenerInformacionCambioEstadoSolicitud(objetoTransaccional);
+            CambioEstadoSolicitudCreditoAgregarInformacionBLL.ObtenerInformacionEstadoDestino(objetoTransaccional);
+            
         }
 
         public void HomologarInformacion(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
@@ -34,6 +37,8 @@ namespace Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos
 
         public void ActualizarInformacion(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
+            ActualizarEstadoSolicitudCreditoBLL.ActualizarEstadoSolicitudCredito(objetoTransaccional);
+            ActualizarEstadoSolicitudCreditoBLL.NotificarCambioEstado(objetoTransaccional);
 
         }
     }

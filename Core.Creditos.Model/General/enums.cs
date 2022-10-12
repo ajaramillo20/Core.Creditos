@@ -17,7 +17,8 @@ namespace Core.Creditos.Model.General
         ErrorValidarEdadBaseDeDatos = 30404,
         ErrorValidarIngresosBaseDeDatos = 30405,
         ErrorHomologacionCodigo = 30511,
-        ErrorCampoObligatorio = 30512
+        ErrorCampoObligatorio = 30512,
+        SolicitudNoEncontrada = 30506
     }
 
     /// <summary>

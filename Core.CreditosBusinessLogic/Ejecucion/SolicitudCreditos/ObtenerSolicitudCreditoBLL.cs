@@ -14,14 +14,23 @@ using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
-    public static class ObtenerSolicitudCreditoBLL
+    public static class CambioEstadoSolicitudCreditoAgregarInformacionBLL
     {
-        public static void ObtenerSolicitudCreditoPorNumeroSolicitud(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
+        public static void ObtenerInformacionCambioEstadoSolicitud(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
             var solicitud = ObtenerSolicitudCreditoPorNumeroDAL.Execute(objetoTransaccional.NumeroSolicitudCredito);
-            if (solicitud == null) throw new ExcepcionServicio((int)CodigosCambioEstadoSolicitudCredito.CambioDeEstadoNoPermitido);
-            objetoTransaccional.EstadoSolicitudCreditoId = solicitud.EstadoId;
+            if (solicitud == null) throw new ExcepcionServicio((int)ErroresSolicitudCredito.SolicitudNoEncontrada);
+            objetoTransaccional.IdEstadoSolicitudCredito = solicitud.EstadoId;
             objetoTransaccional.NombreEstadoSolicitud = solicitud.EstadoNombre;
+            objetoTransaccional.CodigoEstadoSolicitudCredito = solicitud.EstadoCodigo;
+            objetoTransaccional.CredencialCodigoSolicitudCredito = solicitud.CodigoCredencial;
+        }
+
+        internal static void ObtenerInformacionEstadoDestino(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
+        {
+            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(idEstado: objetoTransaccional.IdEstadoSolicitudCreditoDestino);
+            objetoTransaccional.CodigoEstadoSolicitudCreditoDestino = estado.CodigoEstado;
+            objetoTransaccional.NombreEstadoSolicitudCreditoDestino = estado.NombreEstado;
         }
     }
 }

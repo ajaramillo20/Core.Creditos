@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.1.19.2" />
+    <PackageReference Include="Core.Common.ProcessTemplate" Version="1.2.2" />
     <PackageReference Include="IdentityServer4.Storage" Version="4.1.2" />
     <PackageReference Include="System.IO" Version="4.3.0" />
     <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0" />
@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Creditos.Adapters\Core.Creditos.Adapters.csproj" />
     <ProjectReference Include="..\Core.Creditos.DataAccess\Core.Creditos.DataAccess.csproj" />
+    <ProjectReference Include="..\Core.Creditos.Helpers\Core.Creditos.Helpers.csproj" />
     <ProjectReference Include="..\Core.Creditos.Model\Core.Creditos.Model.csproj" />
   </ItemGroup>
 
