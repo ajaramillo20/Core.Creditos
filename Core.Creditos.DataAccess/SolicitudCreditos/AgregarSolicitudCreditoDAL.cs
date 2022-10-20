@@ -31,9 +31,10 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             //Información            
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PA_CODIGO_CONCESIONARIO, solicitud?.CodigoConcesionario, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CEDULA_VENDEDOR, solicitud.CedulaVendedor, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_PRODUCTO, solicitud.CodigoProducto, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CEDULA_VENDEDOR, solicitud?.CedulaVendedor, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_PRODUCTO, solicitud?.CodigoProducto, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_CREDENCIAL, objetoTransaccional?.Credenciales?.Codigo, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_RESPONSABLE, solicitud?.Responsable, System.Data.DbType.String);
 
             #region Vehiculo
             //Vehiculo

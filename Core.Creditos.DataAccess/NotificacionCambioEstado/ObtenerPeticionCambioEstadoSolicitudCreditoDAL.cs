@@ -29,8 +29,13 @@ namespace Core.Creditos.DataAccess.NotificacionCambioEstado
 
                 databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
                 var queryParams = databaseTemplate.ObtenerListaDatos<ParametrosPeticionResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE_QUERY_PARAMS, parametros);
+
+                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                var camposResult = databaseTemplate.ObtenerListaDatos<ParametrosPeticionResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE_CAMPOS_RESULT, parametros);
+
                 peticion.Headers = headers;
                 peticion.QueryParams = queryParams;
+                peticion.CamposResult = camposResult;
             }
             return peticion;
         }
@@ -45,6 +50,7 @@ namespace Core.Creditos.DataAccess.NotificacionCambioEstado
             public List<ParametrosPeticionResult> Headers { get; set; } = new List<ParametrosPeticionResult>();
 
             public List<ParametrosPeticionResult> QueryParams { get; set; } = new List<ParametrosPeticionResult>();
+            public List<ParametrosPeticionResult> CamposResult { get; set; } = new List<ParametrosPeticionResult>();
         }
 
         public class ParametrosPeticionResult

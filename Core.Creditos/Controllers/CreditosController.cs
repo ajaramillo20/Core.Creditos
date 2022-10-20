@@ -36,8 +36,7 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
-        [HttpPut]
-        [Authorize]
+        [HttpPut]        
         [Route("CambiarEstadoSolicitudCredito")]
         [Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
         public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
@@ -53,8 +52,51 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        [HttpGet]        
+        [Route("ObtenerListaCreditos")]
+        [Produces(typeof(EstructuraBase<ObtenerListaCreditosResponse>))]
+        public IActionResult ObtenerListaCreditos()
+        {
+            SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();   
+            
+            EstructuraBase<ObtenerListaCreditosResponse> respuesta = this.ObtenerTodos<SolicitudCreditoTrx, ObtenerListaCreditosResponse, ObtenerListaCreditosIN>(
+                new ObtenerListaCreditosIN(),
+                transaccion);
 
-    
+            return Ok(respuesta);
+        }
+
+        [HttpPut]
+        [Route("ReasignarSolicitudCredito")]
+        [Produces(typeof(EstructuraBase<ReasignarSolicitudCreditoResponse>))]
+        public IActionResult ReasignarSolicitudCredito(int numeroSolicitud)
+        {
+            SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
+            transaccion.NumeroSolicitudCredito = numeroSolicitud;
+            EstructuraBase<ReasignarSolicitudCreditoResponse> respuesta = this.Actualizar<SolicitudCreditoTrx, ReasignarSolicitudCreditoResponse, ReasignarSolicitudCreditoIN>(
+                new ReasignarSolicitudCreditoIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+
+        //[HttpGet]        
+        //[Route("ObtenerInformacionCredito")]
+        //[Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
+        //public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
+        //{
+        //    SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
+
+        //    EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
+        //        new CambiarEstadoSolicitudCreditoIN(),
+        //        transaccion);
+
+        //    return Ok(respuesta);
+        //}
+
+
+
 
     }
 }

@@ -39,7 +39,6 @@ namespace Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos
         {
             ActualizarEstadoSolicitudCreditoBLL.ActualizarEstadoSolicitudCredito(objetoTransaccional);
             ActualizarEstadoSolicitudCreditoBLL.NotificarCambioEstado(objetoTransaccional);
-
-        }
+        }        
     }
 }

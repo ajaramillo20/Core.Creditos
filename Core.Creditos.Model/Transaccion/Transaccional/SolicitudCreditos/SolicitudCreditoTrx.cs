@@ -10,6 +10,11 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
 {
     public class SolicitudCreditoTrx : TransaccionBase
     {
+        public SolicitudCreditoTrx()
+        {
+            ResultadoEvaluacionPoliticas = new Dictionary<string, bool>();
+            SolicitudCreditoList = new List<Solicitud>();
+        }
 
         /// <summary>
         /// Respuesta aprobado o negado
@@ -19,17 +24,17 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         /// <summary>
         /// Codigo del estado aprobado
         /// </summary>
-        public string CodigoEstadoSolicitudCredito { get; set; }
+        public string? CodigoEstadoSolicitudCredito { get; set; }
 
         /// <summary>
         /// Nombre del cliente
         /// </summary>
-        public string ClienteNombre { get; set; }
+        public string? ClienteNombre { get; set; }
 
         /// <summary>
         /// Respuesta número de solicitud
         /// </summary>
-        public int NumeroSolicitudCredito { get; set; }
+        public int? NumeroSolicitudCredito { get; set; }
 
         /// <summary>
         /// Datos Solicitud Crédito
@@ -39,25 +44,29 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         /// <summary>
         /// Indica si cumple politica de edad
         /// </summary>
-        public bool CumplePoliticaEdad { get; set; }
+        public bool? CumplePoliticaEdad { get; set; }
 
         /// <summary>
         /// Indica si cumple politica de ingresos
         /// </summary>
         public bool CumplePoliticaIngresos { get; set; }
 
-        public string SolicitudCreditoJsonRequest { get; set; } = "";
+        public string? SolicitudCreditoJsonRequest { get; set; } = "";
 
         /// <summary>
         /// Almacena temporalmente los ingresos totales del cliente
         /// </summary>
-        public decimal IngresoTotalCliente { get; set; }
+        public decimal? IngresoTotalCliente { get; set; }
 
         /// <summary>
         /// Almacena temporalmente la edad del cliente
         /// </summary>
-        public int EdadCliente { get; set; }
+        public int? EdadCliente { get; set; }
 
         public Dictionary<string, bool> ResultadoEvaluacionPoliticas { get; set; }
+
+        public List<Solicitud> SolicitudCreditoList { get; set; }
+
+        public string Responsable { get; set; }
     }
 }

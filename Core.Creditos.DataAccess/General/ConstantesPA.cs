@@ -93,6 +93,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_CREDITO_JSON = "@CreditoJSON";
             public const string PARAM_CREDITO_ESTADO_SOLICITUD = "@EstadoSolicitud";
             public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
+            public const string PARAM_RESPONSABLE = "@Responsable";
         }
 
         /// <summary>
@@ -189,12 +190,32 @@ namespace Core.Creditos.DataAccess.General
         public static class PA_CRE_API_OBTENER_DATOS_PETICION
         {
             public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
-
             public static string PA_NOMBRE = "PA_CRE_API_OBTENER_DATOS_PETICION";
-
             public static string PA_NOMBRE_HEADERS = "PA_CRE_API_OBTENER_HEADERS_PETICION";
-
             public static string PA_NOMBRE_QUERY_PARAMS = "PA_CRE_API_OBTENER_QUERY_PARAMS_PETICION";
+            public static string PA_NOMBRE_CAMPOS_RESULT = "PA_CRE_API_OBTENER_CAMPOS_RESULT";
+        }
+
+        public static class PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS
+        {            
+            public static string PA_NOMBRE = "PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS";            
+        }
+
+        public static class PA_CRE_OBTENER_FLUJO_ESTADO_CREDITO
+        {
+            public static string PA_NOMBRE = "PA_CRE_OBTENER_FLUJO_ESTADO_CREDITO";
+            public static string PARRAM_ESTADO_ORIGEN = "@EstadoOrigenId";
+        }
+
+        public static class PA_CRE_VALIDAR_USUARIO_RESPONSABLE
+        {
+            public static string PA_NOMBRE = "PA_CRE_VALIDAR_USUARIO_RESPONSABLE";
+            public static string PARAM_USUARIO = "@Usuario";
+        }
+
+        public static class PA_CRE_OBTENER_USUARIOS_ACTIVOS
+        {
+            public static string PA_NOMBRE = "PA_CRE_OBTENER_USUARIOS_ACTIVOS";            
         }
     }
 }

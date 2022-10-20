@@ -5,6 +5,7 @@ using Core.Creditos.DataAccess.EstadoSolicitudCreditos;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.DataAccess.SolicitudCreditos;
+using Core.Creditos.DataAccess.Usuarios;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using Core.Creditos.Model.General;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
@@ -23,60 +24,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoValidarInformacionBLL
     {
-        /// <summary>
-        /// /// Valida los ingresos del deudor
-        /// La regla aplica para la suma de todos sus ingresos
-        /// ingresoTotal = ingresosDeudor+ingresosConyuge+otrosIngresosDeudor+otrosingresosConyuge;
-        /// </summary>
-        /// <param name="objetoTransaccional"></param>
-        public static void ValidarIngresos(SolicitudCreditoTrx objetoTransaccional)
-        {
-            try
-            {
-                var solicitud = objetoTransaccional?.SolicitudCredito?.Solicitud;
-                var informacionCredito = solicitud?.InformacionCredito;
-
-                var result = ValidarPoliticaIngresosSolicitudCreditoDAL.Execute(informacionCredito.IngresosDeudor,
-                                                                                informacionCredito.OtrosIngresosDeudor,
-                                                                                informacionCredito.IngresosConyuge,
-                                                                                informacionCredito.OtrosIngresosConyuge,
-                                                                                ParametrizacionCreditos.POLITICA_VALIDACION_INGRESO_REQUERIDO.ToString());
-                objetoTransaccional.CumplePoliticaIngresos = (result == (int)CodigosSolicitudCredito.OK);
-                objetoTransaccional.Respuesta.CodigoInternoRespuesta = result;
-            }
-            catch (Exception ex)
-            {
-                objetoTransaccional.CumplePoliticaIngresos = false;
-                throw new Exception(ex.Message, ex);
-            }
-        }
-
-        /// <summary>
-        /// Metodo para validar la edad del deudor en base a su fecha de nacimiento
-        /// </summary>
-        /// <param name="objetoTransaccional"></param>
-        public static void ValidarEdadDeudor(SolicitudCreditoTrx objetoTransaccional)
-        {
-            try
-            {
-                var politicaEdadMinima = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.POLITICA_VALIDACION_EDAD_MINIMA);
-                var politicaEdadMaxima = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.POLITICA_VALIDACION_EDAD_MAXIMA);
-                var cliente = objetoTransaccional?.SolicitudCredito?.Solicitud?.Cliente;
-                var fechaNacimiento = cliente.FechaNacimiento;
-                int edadDeudor = DateTime.Today.AddTicks(-fechaNacimiento.Ticks).Year - 1;
-                int edadMinima = Convert.ToInt32(politicaEdadMinima.Valor);
-                var edadMaxima = Convert.ToInt32(politicaEdadMaxima.Valor);
-                var result = ValidarPoliticaEdadSolicitudCreditoDAL.Execute(edadMinima, edadMaxima, edadDeudor);
-                objetoTransaccional.CumplePoliticaEdad = (result != (int)CodigosSolicitudCredito.OK) ? false : true;
-                objetoTransaccional.Respuesta.CodigoInternoRespuesta = result;
-            }
-            catch (Exception ex)
-            {
-                objetoTransaccional.CumplePoliticaEdad = false;
-                throw new Exception(ex.Message, ex);
-            }
-        }
-
+        
         /// <summary>
         /// Valida si contienen algun resultado que indique error
         /// </summary>
@@ -291,6 +239,14 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             }
 
             objetoTransaccional.ResultadoEvaluacionPoliticas = resultValidacion;
+        }
+
+        public static void ValidarUsuarioResponsable(SolicitudCreditoTrx objetoTransaccional)
+        {
+            if(!ValidarUsuarioResponsableDAL.Execute(objetoTransaccional.Responsable))
+            {
+                throw new ExcepcionServicio((int)ErroresSolicitudCredito.UsuarioNoActivo);
+            }
         }
     }
 }

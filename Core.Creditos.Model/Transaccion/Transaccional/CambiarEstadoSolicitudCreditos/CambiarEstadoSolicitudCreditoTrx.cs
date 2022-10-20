@@ -3,6 +3,7 @@ using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,5 +21,9 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.CambiarEstadoSolicitudCr
         public int IdEstadoSolicitudCreditoDestino { get; set; }
         public string NombreEstadoSolicitudCreditoDestino { get; set; }
         public string CodigoEstadoSolicitudCreditoDestino { get; set; }
+
+        public string MensajeCambioEstadoSolicitudCredito { get; set; }
+
+        public Dictionary<string, string> ResultadoRespuestaApiExterna { get; set; }
     }
 }

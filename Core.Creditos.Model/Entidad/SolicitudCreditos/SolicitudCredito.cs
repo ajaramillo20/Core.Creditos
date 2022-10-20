@@ -15,6 +15,9 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
     }
     public class Solicitud
     {
+        [JsonPropertyNameAttribute("numeroSolicitud")]
+        public string? NumeroSolicitud { get; set; }
+
         [JsonPropertyName("fechaNegociacion")]
         public DateTime? FechaNegociacion { get; set; }
 
@@ -38,6 +41,20 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("aseguradora")]
         public Aseguradora? Aseguradora { get; set; }
+
+        [JsonPropertyName("estadoSolicitud")]
+        public EstadoSolicitudCredito? EstadoSolicitud { get; set; }
+
+        [JsonPropertyName("responsable")]
+        public string? Responsable { get; set; }
+    }
+
+    public class EstadoSolicitudCredito
+    {
+        public int? EstadoId { get; set; }
+        public string? EstadoNombre { get; set; }
+        public string? CodigoNombre { get; set; }
+        public int? RolId { get; set; }
     }
 
     public class Vehiculo
@@ -53,12 +70,12 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("precioConIva")]
         public decimal? PrecioConIva { get; set; }
-        
+
         [JsonPropertyName("anio")]
         public string? Anio { get; set; }
 
         [JsonPropertyName("dispositivoRastreo")]
-        public DispositivoRastreo? DispositivoRastreo { get; set; }       
+        public DispositivoRastreo? DispositivoRastreo { get; set; }
     }
 
     public class InformacionCredito
@@ -120,7 +137,7 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
     public class DispositivoRastreo
     {
-        [JsonPropertyName("codigoDispositivoRastreo")]       
+        [JsonPropertyName("codigoDispositivoRastreo")]
         public string? CodigoDispositivoRastreo { get; set; }
 
         [JsonPropertyName("precio")]
@@ -229,7 +246,7 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
         public string? TelefonoReferenciaFamiliar { get; set; }
 
         [JsonPropertyName("email")]
-        public string?Email { get; set; }
+        public string? Email { get; set; }
 
         [JsonPropertyName("codigoOcupacion")]
         public string? CodigoOcupacion { get; set; }

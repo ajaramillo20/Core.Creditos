@@ -14,8 +14,8 @@ namespace Core.Creditos.Adapters.Models
         public string CredencialCodigo { get; set; }
         public string Content { get; set; }
         public List<ParametrosPeticion> Headers { get; set; }
-
         public List<ParametrosPeticion> QueryParams { get; set; }
+        public List<ParametrosPeticion> CamposResult { get; set; }        
     }
     public class ParametrosPeticion
     {

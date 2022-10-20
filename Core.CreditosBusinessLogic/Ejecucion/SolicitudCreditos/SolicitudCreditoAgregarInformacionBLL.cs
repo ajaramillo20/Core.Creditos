@@ -1,4 +1,5 @@
 ﻿using Core.Common.Model.ExcepcionServicio;
+using Core.Creditos.Adapters;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.DataAccess.SolicitudCreditos;
@@ -46,6 +47,18 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             var ingresosDeudor = decimal.Add(informacionCredito?.IngresosDeudor ?? 0, informacionCredito?.OtrosIngresosDeudor ?? 0);
             var ingresosConyuge = decimal.Add(informacionCredito?.IngresosConyuge ?? 0, informacionCredito?.OtrosIngresosConyuge ?? 0);
             objetoTransaccional.IngresoTotalCliente = decimal.Add(ingresosDeudor, ingresosConyuge);
+        }
+
+        public static void ObtenerResponsableCola(SolicitudCreditoTrx objetoTransaccional)
+        {
+            if (objetoTransaccional.SolicitudCredito.Solicitud.CodigoProducto == "1")
+            {
+                objetoTransaccional.Responsable = QueueResponsables.GetEjecutivoEnCola();
+            }
+            if (objetoTransaccional.SolicitudCredito.Solicitud.CodigoProducto == "2")
+            {                
+                objetoTransaccional.Responsable = QueueResponsables.GetAnalistaEnCola();
+            }            
         }
     }
 }
