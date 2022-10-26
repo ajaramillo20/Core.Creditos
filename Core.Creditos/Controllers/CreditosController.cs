@@ -42,9 +42,10 @@ namespace Core.Creditos.Controllers
         public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
         {
             CambiarEstadoSolicitudCreditoTrx transaccion = this.GenerarTransaccion<CambiarEstadoSolicitudCreditoTrx>();
+            var 
             transaccion.NumeroSolicitudCredito = numeroSolicitud;
             transaccion.IdEstadoSolicitudCreditoDestino = estadoSolicitudCreditoId;
-            
+           
             EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
                 new CambiarEstadoSolicitudCreditoIN(),
                 transaccion);
