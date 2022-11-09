@@ -243,10 +243,14 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 
         public static void ValidarUsuarioResponsable(SolicitudCreditoTrx objetoTransaccional)
         {
-            if(!ValidarUsuarioResponsableDAL.Execute(objetoTransaccional.Responsable))
+            if (string.IsNullOrEmpty(objetoTransaccional.Responsable))
             {
                 throw new ExcepcionServicio((int)ErroresSolicitudCredito.UsuarioNoActivo);
             }
+            if (!ValidarUsuarioResponsableDAL.Execute(objetoTransaccional.Responsable))
+            {
+                throw new ExcepcionServicio((int)ErroresSolicitudCredito.UsuarioNoActivo);
+            }            
         }
     }
 }

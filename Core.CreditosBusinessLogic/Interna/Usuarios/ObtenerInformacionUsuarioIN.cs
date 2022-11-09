@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Interna.Usuarios
 {
-    public class ObtenerUsuariosIN : IObtenerTodos<UsuarioTrx, ObtenerUsuariosResponse>
+    public class ObtenerInformacionUsuarioIN : IObtener<UsuarioTrx, ObtenerInformacionUsuarioResponse>
     {
         public void AgregarInformacion(UsuarioTrx objetoTransaccional)
         {
-            UsuarioAgregarInformacionBLL.ObtenerListaDeUsuarios(objetoTransaccional);
+            UsuarioAgregarInformacionBLL.ObtenerInformacionUsuario(objetoTransaccional);
         }
 
         public void ValidarInformacion(UsuarioTrx objetoTransaccional)
         {
-            //throw new NotImplementedException();
+            
         }
     }
 }

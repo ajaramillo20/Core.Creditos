@@ -1,9 +1,12 @@
 ﻿using Core.Common.Model.ExcepcionServicio;
+using Core.Common.Util.Helper.API;
 using Core.Creditos.Adapters;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.DataAccess.SolicitudCreditos;
+using Core.Creditos.DataAccess.TiposCreditosRol;
 using Core.Creditos.Model.General;
+using Core.Creditos.Model.Transaccion.Response.TiposCredito;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
 using Microsoft.JSInterop.Implementation;
 using System.Text.Json;
@@ -51,14 +54,25 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 
         public static void ObtenerResponsableCola(SolicitudCreditoTrx objetoTransaccional)
         {
-            if (objetoTransaccional.SolicitudCredito.Solicitud.CodigoProducto == "1")
+            var codigoProductoHomologado = objetoTransaccional.SolicitudCredito.Solicitud.CodigoProducto;
+            var rolPermitido = objetoTransaccional.TipoCreditoRolList.FirstOrDefault(f => f.CodigoProducto == codigoProductoHomologado);
+            if (rolPermitido == null)
             {
-                objetoTransaccional.Responsable = QueueResponsables.GetEjecutivoEnCola();
+                throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
             }
-            if (objetoTransaccional.SolicitudCredito.Solicitud.CodigoProducto == "2")
-            {                
-                objetoTransaccional.Responsable = QueueResponsables.GetAnalistaEnCola();
-            }            
+
+            var responsable = QueueResponsables.GetResponsableEnCola(rolPermitido.CodigoRol,objetoTransaccional?.SolicitudCredito?.Solicitud?.CodigoConcesionario);
+            if (responsable == null)
+            {
+                throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
+            }
+
+            objetoTransaccional.Responsable = responsable.UsuarioNombreRed;
+        }
+
+        public static void ObtenerTipoCreditosRol(SolicitudCreditoTrx objetoTransaccional)
+        {
+            objetoTransaccional.TipoCreditoRolList = ObtenerTipoCreditoRolDAL.Execute();
         }
     }
 }

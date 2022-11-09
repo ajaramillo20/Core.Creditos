@@ -47,6 +47,15 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("responsable")]
         public string? Responsable { get; set; }
+
+        [JsonPropertyName("responsableUsuarioRed")]
+        public string? ResponsableUsuarioRed { get; set; }
+
+        [JsonPropertyName("reasignado")]
+        public string? Reasignado { get; set; }
+
+        [JsonPropertyName("reasignadoUsuarioRed")]
+        public string? ReasignadoUsuarioRed { get; set; }
     }
 
     public class EstadoSolicitudCredito

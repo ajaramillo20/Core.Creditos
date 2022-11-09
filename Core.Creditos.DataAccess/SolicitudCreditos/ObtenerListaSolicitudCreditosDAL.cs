@@ -42,6 +42,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             public int EstadoCreditoId { get; set; }
             public string EstadoCreditoCodigo { get; set; }
             public string Responsable { get; set; }
+            public string Reasignado { get; set; }
             public string Nacionalidad { get; set; }
             public string Provinvia { get; set; }
             public string Ciudad { get; set; }
@@ -55,6 +56,8 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             public decimal? PrecioDispositivoRastreo { get; set; }
             public string CodigoAseguradora { get; set; }
             public string ApellidoCliente { get; set; }
+            public string ResponsableUsuarioRed { get; set; }
+            public string ReasignadoUsuarioRed { get; set; }
         }
     }
 }

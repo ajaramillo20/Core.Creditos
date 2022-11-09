@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Response.Usuarios
 {
-    public class ObtenerUsuariosActivosResponse
+    public class ObtenerUsuariosResponse
     {
-        public ObtenerUsuariosActivosResponse()
+        public ObtenerUsuariosResponse()
         {
             Usuarios = new List<Usuario>();
         }

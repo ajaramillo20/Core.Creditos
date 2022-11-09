@@ -39,12 +39,14 @@ namespace Core.Creditos.Controllers
         [HttpPut]        
         [Route("CambiarEstadoSolicitudCredito")]
         [Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
-        public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
+        public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId, string? usuarioRed, string? comentario="")
         {
             CambiarEstadoSolicitudCreditoTrx transaccion = this.GenerarTransaccion<CambiarEstadoSolicitudCreditoTrx>();
-            var 
+            
             transaccion.NumeroSolicitudCredito = numeroSolicitud;
             transaccion.IdEstadoSolicitudCreditoDestino = estadoSolicitudCreditoId;
+            transaccion.ComentarioCambioEstado = comentario;
+            transaccion.UsuarioRed = usuarioRed;
            
             EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
                 new CambiarEstadoSolicitudCreditoIN(),
@@ -66,6 +68,23 @@ namespace Core.Creditos.Controllers
 
             return Ok(respuesta);
         }
+
+
+        [HttpGet]        
+        [Route("ObtenerInformacionCredito")]
+        [Produces(typeof(EstructuraBase<ObtenerInformacionCreditoResponse>))]
+        public IActionResult ObtenerInformacionCredito(int numeroSolicitud)
+        {
+            SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
+            transaccion.NumeroSolicitudCredito = numeroSolicitud;
+
+            EstructuraBase<ObtenerInformacionCreditoResponse> respuesta = this.Obtener<SolicitudCreditoTrx, ObtenerInformacionCreditoResponse, ObtenerInformacionCreditoIN>(
+                new ObtenerInformacionCreditoIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
 
         [HttpPut]
         [Route("ReasignarSolicitudCredito")]

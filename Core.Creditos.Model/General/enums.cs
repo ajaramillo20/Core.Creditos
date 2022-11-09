@@ -23,6 +23,14 @@ namespace Core.Creditos.Model.General
     }
 
     /// <summary>
+    /// Enumeradores para errores de usuario, usar apartir del 30600
+    /// </summary>
+    public enum ErrorUsuarios
+    { 
+      UsuarioNoEncontrado =  30604
+    }
+
+    /// <summary>
     /// enumaradores para cambio de estados de solicitud de crédito
     /// </summary>
     public enum CodigosCambioEstadoSolicitudCredito

@@ -16,14 +16,45 @@ namespace Core.Creditos.Controllers
     public class UsuariosController : Controller
     {
         [HttpGet]
-        [Route("ObtenerUsuariosActivos")]
-        [Produces(typeof(EstructuraBase<ObtenerUsuariosActivosResponse>))]
+        [Route("ObtenerUsuarios")]
+        [Produces(typeof(EstructuraBase<ObtenerUsuariosResponse>))]
         public IActionResult ObtenerUsuariosActivos()
         {
             UsuarioTrx transaccion = this.GenerarTransaccion<UsuarioTrx>();
-            
-            EstructuraBase<ObtenerUsuariosActivosResponse> respuesta = this.ObtenerTodos<UsuarioTrx, ObtenerUsuariosActivosResponse, ObtenerUsuariosActivosIN>(
-                new ObtenerUsuariosActivosIN(),
+
+            EstructuraBase<ObtenerUsuariosResponse> respuesta = this.ObtenerTodos<UsuarioTrx, ObtenerUsuariosResponse, ObtenerUsuariosIN>(
+                new ObtenerUsuariosIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+        [HttpGet]
+        [Route("ObtenerInformacionUsuario")]
+        [Produces(typeof(EstructuraBase<ObtenerInformacionUsuarioResponse>))]
+        public IActionResult ObtenerInformacionUsuario(string usuarioRed)
+        {
+            UsuarioTrx transaccion = this.GenerarTransaccion<UsuarioTrx>();
+            transaccion.InformacionUsuario.UsuarioNombreRed = usuarioRed;
+
+            EstructuraBase<ObtenerInformacionUsuarioResponse> respuesta = this.Obtener<UsuarioTrx, ObtenerInformacionUsuarioResponse, ObtenerInformacionUsuarioIN>(
+                new ObtenerInformacionUsuarioIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+        [HttpPut]
+        [Route("CambiarEstadoUsuario")]
+        [Produces(typeof(EstructuraBase<CambiarEstadoUsuarioResponse>))]
+        public IActionResult CambiarEstadoUsuario(string usuarioId, bool activar)
+        {
+            UsuarioTrx transaccion = this.GenerarTransaccion<UsuarioTrx>();
+            transaccion.InformacionUsuario.UsuarioBPMId = Convert.ToInt32(usuarioId);
+            transaccion.InformacionUsuario.UsuarioActivo = activar;
+
+            EstructuraBase<CambiarEstadoUsuarioResponse> respuesta = this.Actualizar<UsuarioTrx, CambiarEstadoUsuarioResponse, CambiarEstadoUsuarioResponseIN>(
+                new CambiarEstadoUsuarioResponseIN(),
                 transaccion);
 
             return Ok(respuesta);

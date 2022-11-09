@@ -13,7 +13,14 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.Usuarios
         public UsuarioTrx()
         {
             Usuarios = new List<Usuario>();
+            InformacionUsuario = new Usuario();
         }
+
         public List<Usuario> Usuarios { get; set; }
+
+        /// <summary>
+        /// Variable usada  en obtenerInformacionUsuario
+        /// </summary>
+        public Usuario InformacionUsuario { get; set; }
     }
 }

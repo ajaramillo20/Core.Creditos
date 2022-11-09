@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Creditos.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class EstadosController : Controller
     {
         [HttpGet]

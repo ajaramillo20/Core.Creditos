@@ -107,6 +107,15 @@ namespace Core.Creditos.DataAccess.General
         }
 
         /// <summary>
+        /// Procedimiento almacenado para obtener catalogo por código
+        /// </summary>
+        public static class PA_CRE_OBTENER_INFORMACION_CATALOGOS
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_INFORMACION_CATALOGOS";
+            public const string PARAM_CODIGO_CATALOGO = "@CodigoCatalogo";
+        }
+
+        /// <summary>
         /// Procedimiento almacenado para obtener parametrización del sistema
         /// </summary>
         public static class PA_CRE_OBTENER_PARAMETRIZACION
@@ -197,8 +206,8 @@ namespace Core.Creditos.DataAccess.General
         }
 
         public static class PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS
-        {            
-            public static string PA_NOMBRE = "PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS";            
+        {
+            public static string PA_NOMBRE = "PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS";
         }
 
         public static class PA_CRE_OBTENER_FLUJO_ESTADO_CREDITO
@@ -213,9 +222,45 @@ namespace Core.Creditos.DataAccess.General
             public static string PARAM_USUARIO = "@Usuario";
         }
 
-        public static class PA_CRE_OBTENER_USUARIOS_ACTIVOS
+        public static class PA_CRE_OBTENER_USUARIOS
         {
-            public static string PA_NOMBRE = "PA_CRE_OBTENER_USUARIOS_ACTIVOS";            
+            public static string PA_NOMBRE = "PA_CRE_OBTENER_USUARIOS_ACTIVOS";
+        }
+
+        public static class PA_CRE_OBTENER_INFORMACION_CREDITO
+        {
+            public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_INFORMACION_CREDITO";
+            public const string PA_NOMBRE_CLIENTE_INFORMACION = "PA_CRE_OBTENER_INFORMACION_CREDITO_CLIENTE";
+            public const string PA_NOMBRE_CONYUGE_INFORMACION = "PA_CRE_OBTENER_INFORMACION_CREDITO_CONYUGE";
+            public const string PA_NOMBRE_VEHICULO_INFORMACION = "PA_CRE_OBTENER_INFORMACION_CREDITO_VEHICULO";
+        }
+
+        public static class PA_CRE_OBTENER_INFORMACION_USUARIO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_INFORMACION_USUARIO";
+            public const string PA_USUARIO_RED = "@UsuarioRed";
+        }
+
+        public static class PA_CRE_ACTUALIZAR_ESTADO_USUARIO
+        {
+            public const string PA_NOMBRE = "PA_CRE_ACTUALIZAR_ESTADO_USUARIO";
+            public const string PARAM_USUARIO_ID = "@UsuarioId";
+            public const string PARAM_ESTADO = "@Estado";
+        }
+
+        public static class PA_CRE_OBTENER_CREDITO_ROL
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_CREDITO_ROL";
+        }
+
+        public static class PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO";
+            public const string PARAM_USUARIO_RED = "@UsuarioRed";
+            public const string PARAM_ESTADO_CODIGO = "@EstadoCreditoCodigo";
+            public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
+            public const string PARAM_COMENTARIO = "@Comentario";
         }
     }
 }

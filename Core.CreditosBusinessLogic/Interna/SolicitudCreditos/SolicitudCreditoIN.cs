@@ -1,4 +1,5 @@
 ﻿using Core.Common.ProcessTemplate.InternalBusinessLogic;
+using Core.Creditos.DataAccess.HistorialSolicitud;
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
 using Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos;
@@ -12,7 +13,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
             SolicitudCreditoAgregarInformacionBLL.AgregarJsonPeticionSolicitudCredito(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.CalcularEdadCliente(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.CalcularIngresosTotalCliente(objetoTransaccional);
-            SolicitudCreditoAgregarInformacionBLL.ObtenerResponsableCola(objetoTransaccional);
+            SolicitudCreditoAgregarInformacionBLL.ObtenerTipoCreditosRol(objetoTransaccional);            
         }
 
         public void HomologarInformacion(SolicitudCreditoTrx objetoTransaccional)
@@ -22,7 +23,8 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
 
         public void InsertarInformacion(SolicitudCreditoTrx objetoTransaccional)
         {
-            AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);
+            //AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);
+            //AgregarHistorialSolicitudCreditoDAL.Execute(objetoTransaccional.Credenciales.Codigo, objetoTransaccional.CodigoEstadoSolicitudCredito, (int)objetoTransaccional.NumeroSolicitudCredito, "");
         }
 
         public void ValidarInformacion(SolicitudCreditoTrx objetoTransaccional)
@@ -30,6 +32,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
             SolicitudCreditoValidarInformacionBLL.ValidarReglasCamposRequest(objetoTransaccional);
             SolicitudCreditoValidarInformacionBLL.ValidarReglasSolicitudCredito(objetoTransaccional);            
             SolicitudCreditoValidarInformacionBLL.ValidarResultadoPoliticas(objetoTransaccional);
+            SolicitudCreditoAgregarInformacionBLL.ObtenerResponsableCola(objetoTransaccional);
             SolicitudCreditoValidarInformacionBLL.ValidarUsuarioResponsable(objetoTransaccional);
         }
     }

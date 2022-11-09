@@ -1,5 +1,7 @@
 ﻿using Core.Common.Model.Transaccion;
+using Core.Creditos.Model.Entidad.InformacionSolicitudCreditos;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
+using Core.Creditos.Model.Transaccion.Response.TiposCredito;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,5 +70,8 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         public List<Solicitud> SolicitudCreditoList { get; set; }
 
         public string Responsable { get; set; }
+
+        public InformacionSolicitudCredito InformacionSolicitudCredito { get; set; }
+        public List<TipoCreditoRol> TipoCreditoRolList { get; set; }
     }
 }
