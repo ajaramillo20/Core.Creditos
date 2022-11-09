@@ -262,6 +262,14 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
             public const string PARAM_COMENTARIO = "@Comentario";
         }
+
+        public static class PA_CRE_ACTUALIZAR_RESPONSABLE
+        {
+            public const string PA_NOMBRE = "PA_CRE_ACTUALIZAR_RESPONSABLE";
+            public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
+            public const string PARAM_RESPONSABLE_NUEVO = "@ResponsableNuevo";
+            public const string PARAM_USUARIO_APLICACION = "@UsuarioAplicacion";
+        }
     }
 }
 

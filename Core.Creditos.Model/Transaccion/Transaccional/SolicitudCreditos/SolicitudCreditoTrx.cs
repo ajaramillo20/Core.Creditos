@@ -71,6 +71,16 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
 
         public string Responsable { get; set; }
 
+
+        #region Reasignación
+
+        /// <summary>
+        /// Almacena el nombre de la persona que envia la petición
+        /// </summary>
+        public string UsuarioAplicacion { get; set; }
+        public string Comentario { get; set; }
+
+        #endregion
         public InformacionSolicitudCredito InformacionSolicitudCredito { get; set; }
         public List<TipoCreditoRol> TipoCreditoRolList { get; set; }
     }

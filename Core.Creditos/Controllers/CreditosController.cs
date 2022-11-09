@@ -87,36 +87,20 @@ namespace Core.Creditos.Controllers
 
 
         [HttpPut]
-        [Route("ReasignarSolicitudCredito")]
+        [Route("ReasignarSolicitudCredito/{numeroSolicitud}/{nombreRedReasignado}/{usuarioAplicacion}")]
         [Produces(typeof(EstructuraBase<ReasignarSolicitudCreditoResponse>))]
-        public IActionResult ReasignarSolicitudCredito(int numeroSolicitud)
+        public IActionResult ReasignarSolicitudCredito(int numeroSolicitud, string nombreRedReasignado,string usuarioAplicacion)
         {
             SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
             transaccion.NumeroSolicitudCredito = numeroSolicitud;
+            transaccion.Responsable = nombreRedReasignado;
+            transaccion.UsuarioAplicacion = usuarioAplicacion;            
+
             EstructuraBase<ReasignarSolicitudCreditoResponse> respuesta = this.Actualizar<SolicitudCreditoTrx, ReasignarSolicitudCreditoResponse, ReasignarSolicitudCreditoIN>(
                 new ReasignarSolicitudCreditoIN(),
                 transaccion);
 
             return Ok(respuesta);
-        }
-
-
-        //[HttpGet]        
-        //[Route("ObtenerInformacionCredito")]
-        //[Produces(typeof(EstructuraBase<CambiarEstadoSolicitudCreditoResponse>))]
-        //public IActionResult CambiarEstadoSolicitudCredito(string numeroSolicitud, int estadoSolicitudCreditoId)
-        //{
-        //    SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
-
-        //    EstructuraBase<CambiarEstadoSolicitudCreditoResponse> respuesta = this.Actualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse, CambiarEstadoSolicitudCreditoIN>(
-        //        new CambiarEstadoSolicitudCreditoIN(),
-        //        transaccion);
-
-        //    return Ok(respuesta);
-        //}
-
-
-
-
+        }        
     }
 }

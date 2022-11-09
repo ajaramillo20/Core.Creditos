@@ -20,7 +20,7 @@ namespace Core.Creditos.DataAccess.Usuarios
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_VALIDAR_USUARIO_RESPONSABLE.PARAM_USUARIO, usuario, System.Data.DbType.String);
             var resultado = coneccion.ObtenerListaDatos<bool>(ConstantesPA.PA_CRE_VALIDAR_USUARIO_RESPONSABLE.PA_NOMBRE, dynamicParameters).FirstOrDefault();
-            return resultado==null?false:resultado;
+            return resultado;
         }
 
         public class ValidarUsuarioResponsableResult
