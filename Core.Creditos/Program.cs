@@ -2,6 +2,7 @@ using Core.Common.Util.Helper.Autenticacion;
 using Core.Common.Util.Helper.API;
 using Core.Common.Util.Helper.Internal;
 using Core.Creditos.Adapters;
+using Google.Protobuf.WellKnownTypes;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -26,6 +27,15 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(cors => cors
+.AllowAnyMethod()
+.AllowAnyHeader()
+.SetIsOriginAllowed(Any => true)
+.AllowCredentials()
+);
+
+
 
 app.UseHttpsRedirection();
 

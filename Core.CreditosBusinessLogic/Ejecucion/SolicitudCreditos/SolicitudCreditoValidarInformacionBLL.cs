@@ -1,5 +1,6 @@
 ﻿using Core.Common.Model.ExcepcionServicio;
 using Core.Common.Util.Helper.Internal;
+using Core.Creditos.Adapters;
 using Core.Creditos.DataAccess.Catalogos;
 using Core.Creditos.DataAccess.EstadoSolicitudCreditos;
 using Core.Creditos.DataAccess.General;
@@ -247,6 +248,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             {
                 throw new ExcepcionServicio((int)ErroresSolicitudCredito.UsuarioNoActivo);
             }
+            
             if (!ValidarUsuarioResponsableDAL.Execute(objetoTransaccional.Responsable))
             {
                 throw new ExcepcionServicio((int)ErroresSolicitudCredito.UsuarioNoActivo);

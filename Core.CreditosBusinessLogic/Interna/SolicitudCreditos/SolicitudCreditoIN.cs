@@ -1,4 +1,5 @@
 ﻿using Core.Common.ProcessTemplate.InternalBusinessLogic;
+using Core.Creditos.Adapters.Core.Notificaciones;
 using Core.Creditos.DataAccess.HistorialSolicitud;
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
@@ -23,8 +24,9 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
 
         public void InsertarInformacion(SolicitudCreditoTrx objetoTransaccional)
         {
-            //AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);
-            //AgregarHistorialSolicitudCreditoDAL.Execute(objetoTransaccional.Credenciales.Codigo, objetoTransaccional.CodigoEstadoSolicitudCredito, (int)objetoTransaccional.NumeroSolicitudCredito, "");
+            AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);
+            AgregarHistorialSolicitudCreditoDAL.Execute(objetoTransaccional.Credenciales.Codigo, objetoTransaccional.CodigoEstadoSolicitudCredito, (int)objetoTransaccional.NumeroSolicitudCredito, "");
+            EnviarNotificacionCorreoADP.EnviarCorreoAsignacion(objetoTransaccional.Responsable, objetoTransaccional.NumeroSolicitudCredito.ToString());
         }
 
         public void ValidarInformacion(SolicitudCreditoTrx objetoTransaccional)

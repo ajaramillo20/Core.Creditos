@@ -26,7 +26,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         /// </summary>
         /// <param name="objetoTransaccional"></param>
         /// <exception cref="Exception"></exception>
-        internal static void CalcularEdadCliente(SolicitudCreditoTrx objetoTransaccional)
+        public static void CalcularEdadCliente(SolicitudCreditoTrx objetoTransaccional)
         {
             try
             {
@@ -61,13 +61,34 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
             }
 
-            var responsable = QueueResponsables.GetResponsableEnCola(rolPermitido.CodigoRol,objetoTransaccional?.SolicitudCredito?.Solicitud?.CodigoConcesionario);
+            var responsable = QueueResponsables.GetResponsableEnCola(rolPermitido.CodigoRol, objetoTransaccional?.SolicitudCredito?.Solicitud?.CodigoConcesionario);
             if (responsable == null)
             {
                 throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
             }
 
             objetoTransaccional.Responsable = responsable.UsuarioNombreRed;
+        }
+
+        public static void ObtenerResponsableColaAutomatico(SolicitudCreditoTrx objetoTransaccional)
+        {
+            if (string.IsNullOrEmpty(objetoTransaccional.Responsable))
+            {
+                var codigoProductoHomologado = objetoTransaccional.InformacionSolicitudCredito.CodigoProducto;
+                var rolPermitido = objetoTransaccional.TipoCreditoRolList.FirstOrDefault(f => f.CodigoProducto == codigoProductoHomologado);
+                if (rolPermitido == null)
+                {
+                    throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
+                }
+
+                var responsable = QueueResponsables.GetResponsableEnCola(rolPermitido.CodigoRol, objetoTransaccional?.InformacionSolicitudCredito?.CodigoConcesionario);
+                if (responsable == null)
+                {
+                    throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
+                }
+
+                objetoTransaccional.Responsable = responsable.UsuarioNombreRed;
+            }
         }
 
         public static void ObtenerTipoCreditosRol(SolicitudCreditoTrx objetoTransaccional)

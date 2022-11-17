@@ -88,11 +88,12 @@ namespace Core.Creditos.Controllers
 
         [HttpPut]
         [Route("ReasignarSolicitudCredito/{numeroSolicitud}/{nombreRedReasignado}/{usuarioAplicacion}")]
+        [Route("ReasignarSolicitudCredito/{numeroSolicitud}/{usuarioAplicacion}")]
         [Produces(typeof(EstructuraBase<ReasignarSolicitudCreditoResponse>))]
-        public IActionResult ReasignarSolicitudCredito(int numeroSolicitud, string nombreRedReasignado,string usuarioAplicacion)
+        public IActionResult ReasignarSolicitudCredito(int numeroSolicitud, string? nombreRedReasignado,string usuarioAplicacion)
         {
             SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
-            transaccion.NumeroSolicitudCredito = numeroSolicitud;
+            transaccion.NumeroSolicitudCredito = numeroSolicitud;            
             transaccion.Responsable = nombreRedReasignado;
             transaccion.UsuarioAplicacion = usuarioAplicacion;            
 
