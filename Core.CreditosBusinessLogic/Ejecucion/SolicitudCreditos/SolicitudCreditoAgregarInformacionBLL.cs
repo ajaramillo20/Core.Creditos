@@ -73,15 +73,8 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         public static void ObtenerResponsableColaAutomatico(SolicitudCreditoTrx objetoTransaccional)
         {
             if (string.IsNullOrEmpty(objetoTransaccional.Responsable))
-            {
-                var codigoProductoHomologado = objetoTransaccional.InformacionSolicitudCredito.CodigoProducto;
-                var rolPermitido = objetoTransaccional.TipoCreditoRolList.FirstOrDefault(f => f.CodigoProducto == codigoProductoHomologado);
-                if (rolPermitido == null)
-                {
-                    throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
-                }
-
-                var responsable = QueueResponsables.GetResponsableEnCola(rolPermitido.CodigoRol, objetoTransaccional?.InformacionSolicitudCredito?.CodigoConcesionario);
+            {                             
+                var responsable = QueueResponsables.GetResponsableEnCola(QueueResponsables.CODIGO_ROL_COLA_ANALISTA, objetoTransaccional?.InformacionSolicitudCredito?.CodigoConcesionario);
                 if (responsable == null)
                 {
                     throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);

@@ -18,7 +18,7 @@ namespace Core.Creditos.Adapters
 {
     public static class QueueResponsables
     {
-        private static string CODIGO_ROL_COLA_ANALISTA { get; set; } = "";
+        public static string CODIGO_ROL_COLA_ANALISTA { get; set; } = "";
         private static string CODIGO_ROL_COLA_EJECUTIVO { get; set; } = "";
         private static List<Usuario> QueueUsuarios { get; set; }
         public static void StartQueueService()
@@ -35,13 +35,21 @@ namespace Core.Creditos.Adapters
         }
         public static void ObtenerListaUsuarios()
         {
+
+            var usuariosCola = ObtenerColaUsuariosDAL.Execute();
             var ListaUsuarios = ObtenerUsuariosDAL.Execute();
 
-
+            if (usuariosCola.Count > 0)
+            {
+                ListaUsuarios = ListaUsuarios.Where(w => usuariosCola.Any(a => a.NombreRed == w.UsuarioNombreRed)).ToList();
+            }
 
             ListaUsuarios = ListaUsuarios.Where(w => w.UsuarioActivo).ToList();
             ListaUsuarios = ListaUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_EJECUTIVO) ||
                                                                       w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_ANALISTA)).ToList();
+
+            AgregarColaUsuariosDAL.Execute(ListaUsuarios);
+
             ListaUsuarios.ForEach(w => QueueUsuarios.Add(w));
         }
         public static Usuario GetResponsableEnCola(string codigoRol, string? codigoConcesionario)
@@ -59,12 +67,10 @@ namespace Core.Creditos.Adapters
             if (codigoRol == CODIGO_ROL_COLA_EJECUTIVO)
             {
                 return ObtenerEjecutivoEnCola(codigoRol, codigoConcesionario);
-                    
             }
 
             return null;
         }
-
         private static Usuario ObtenerEjecutivoEnCola(string codigoRol, string? codigoConcesionario)
         {
             if (string.IsNullOrEmpty(codigoConcesionario))
@@ -79,7 +85,7 @@ namespace Core.Creditos.Adapters
 
             var concesionarioDestino = concesionarios.FirstOrDefault(f => f.Id.ToString() == informacionCatalogo.Valor);
 
-            if (concesionarioDestino!=null)
+            if (concesionarioDestino != null)
             {
                 //1. Obtener Ejecutivos en Cola
                 var EjecutivosCola = QueueUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_EJECUTIVO));
@@ -88,10 +94,10 @@ namespace Core.Creditos.Adapters
                 var informacionEjecutivos = usuariosEjecutivos.Where(w => EjecutivosCola.Any(a => a.UsuarioNombreRed == w.UsuarioRed));
 
                 //3. Obtener Relación
-                var usuarioConcesionarioDestino = usuariosConcesionarios.FirstOrDefault(f => f.ConcesionarioId == concesionarioDestino.Id && informacionEjecutivos.Any(a => a.Id ==f.UsuarioId));
+                var usuarioConcesionarioDestino = usuariosConcesionarios.FirstOrDefault(f => f.ConcesionarioId == concesionarioDestino.Id && informacionEjecutivos.Any(a => a.Id == f.UsuarioId));
 
 
-                if (usuarioConcesionarioDestino==null)
+                if (usuarioConcesionarioDestino == null)
                 {
                     throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No existe un ejecutivo para el concesionario {concesionarioDestino.ToJson()}");
                 }
@@ -99,7 +105,7 @@ namespace Core.Creditos.Adapters
                 //4. Obtiene el responsable
                 var usuarioResponsable = informacionEjecutivos.FirstOrDefault(w => w.Id == usuarioConcesionarioDestino.UsuarioId);
 
-                if (usuarioResponsable==null)
+                if (usuarioResponsable == null)
                 {
                     throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No se encuentra en cola el ejecutivo {usuarioConcesionarioDestino.UsuarioId}");
                 }
@@ -109,13 +115,13 @@ namespace Core.Creditos.Adapters
 
             throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, codigoConcesionario);
         }
-
         private static Usuario ObtenerAnalistaEnCola(string codigoRol)
         {
             var usuario = (Usuario)QueueUsuarios.FirstOrDefault(f => f.Roles.Any(a => a.RolCodigo == codigoRol));
             if (usuario != null)
             {
                 QueueUsuarios.Remove(usuario);
+                EliminarColaUsuarioDAL.Execute(usuario.UsuarioNombreRed,codigoRol);
             }
 
             if (usuario == null)
@@ -126,7 +132,6 @@ namespace Core.Creditos.Adapters
 
             return usuario;
         }
-
         private static void ValidarExisteUsuarioRol(string codigoRol)
         {
             var ListaUsuarios = ObtenerUsuariosDAL.Execute();
@@ -146,13 +151,18 @@ namespace Core.Creditos.Adapters
                 if (usr != null)
                 {
                     QueueUsuarios.Remove(usr);
+                    EliminarColaUsuarioDAL.Execute(usr.UsuarioNombreRed, usr.Roles[0].RolCodigo);
                 }
             }
             else
             {
                 var usuario = ObtenerUsuariosDAL.Execute().FirstOrDefault(f => f.UsuarioBPMId == usuarioId);
                 if (usuario != null)
+                {
                     QueueUsuarios.Add(usuario);
+                    AgregarColaUsuariosDAL.Execute(new List<Usuario> { usuario });
+                }
+
             }
         }
     }

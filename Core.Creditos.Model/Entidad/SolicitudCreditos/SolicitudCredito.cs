@@ -56,6 +56,9 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("reasignadoUsuarioRed")]
         public string? ReasignadoUsuarioRed { get; set; }
+
+        [JsonPropertyName("tiempoTranscurrido")]
+        public int? TiempoTranscurrido { get; set; }
     }
 
     public class EstadoSolicitudCredito

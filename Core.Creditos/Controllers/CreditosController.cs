@@ -54,7 +54,7 @@ namespace Core.Creditos.Controllers
 
             return Ok(respuesta);
         }
-
+ 
         [HttpGet]        
         [Route("ObtenerListaCreditos")]
         [Produces(typeof(EstructuraBase<ObtenerListaCreditosResponse>))]

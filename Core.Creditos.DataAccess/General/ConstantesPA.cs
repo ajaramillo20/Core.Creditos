@@ -270,6 +270,24 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_RESPONSABLE_NUEVO = "@ResponsableNuevo";
             public const string PARAM_USUARIO_APLICACION = "@UsuarioAplicacion";
         }
+
+        public static class PA_CRE_AGREGAR_USUARIO_COLA
+        {
+            public const string PA_NOMBRE = "PA_CRE_AGREGAR_USUARIO_COLA";
+            public const string PARAM_NOMBRE_RED = "@NombreRed";
+            public const string PARAM_CODIGO_ROL = "@CodigoRol";
+        }
+
+        public class PA_CRE_OBTENER_USUARIOS_COLA
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_USUARIOS_COLA";
+        }
+        public class PA_CRE_ELIMINAR_USUARIO_COLA
+        {
+            public const string PA_NOMBRE = "PA_CRE_ELIMINAR_USUARIO_COLA";
+            public const string PARAM_NOMBRE_RED = "@NombreRed";
+            public const string PARAM_CODIGO_ROL = "@CodigoRol";
+        }
     }
 }
 

@@ -29,6 +29,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 var solicitud = new Solicitud()
                 {
                     NumeroSolicitud = cre.NumeroSolicitud,
+                    TiempoTranscurrido = cre.TiempoTranscurrido,
                     FechaNegociacion = cre.FechaNegociacion,
                     CedulaVendedor = cre.CedulaVendedor,                    
                     CodigoConcesionario = cre.Concesionario,
