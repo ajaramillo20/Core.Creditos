@@ -21,11 +21,17 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
         [JsonPropertyName("fechaNegociacion")]
         public DateTime? FechaNegociacion { get; set; }
 
+        [JsonPropertyName("fechaAsignacion")]
+        public DateTime? FechaAsignacion { get; set; }
+
         [JsonPropertyName("codigoConcesionario")]
         public string? CodigoConcesionario { get; set; }
 
         [JsonPropertyName("cedulaVendedor")]
         public string? CedulaVendedor { get; set; }
+
+        [JsonPropertyName("nombreVendedor")]
+        public string? NombreVendedor { get; set; }
 
         [JsonPropertyName("codigoProducto")]
         public string? CodigoProducto { get; set; } = "";
@@ -59,6 +65,9 @@ namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 
         [JsonPropertyName("tiempoTranscurrido")]
         public int? TiempoTranscurrido { get; set; }
+
+        [JsonPropertyName("calificacionBuro")]
+        public string? CalificacionBuro { get; set; }
     }
 
     public class EstadoSolicitudCredito

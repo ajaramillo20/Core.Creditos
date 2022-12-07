@@ -13,6 +13,7 @@ using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.Adapters.Core.Originarsa;
 using Core.Creditos.DataAccess.Catalogos;
 using Core.Common.Util.Helper.Datos;
+using Core.Creditos.Adapters.Core.Originarsa.Models;
 
 namespace Core.Creditos.Adapters
 {
@@ -20,7 +21,7 @@ namespace Core.Creditos.Adapters
     {
         public static string CODIGO_ROL_COLA_ANALISTA { get; set; } = "";
         private static string CODIGO_ROL_COLA_EJECUTIVO { get; set; } = "";
-        private static List<Usuario> QueueUsuarios { get; set; }
+        private static List<ObtenerColaUsuariosResult> QueueUsuarios { get; set; } = new List<ObtenerColaUsuariosResult>();
         public static void StartQueueService()
         {
             CODIGO_ROL_COLA_ANALISTA = ObtenerParametrizacionCreditosDAL.Execute(DataAccess.General.ParametrizacionCreditos.CODIGO_ROL_COLA_ANALISTAS).Valor;
@@ -31,32 +32,29 @@ namespace Core.Creditos.Adapters
                 throw new Exception("Verificar parametrización (cola de asignación)");
             }
 
-            QueueUsuarios = new List<Usuario>();
+            ObtenerListaUsuariosCola();
         }
-        public static void ObtenerListaUsuarios()
+        public static void ObtenerListaUsuariosCola()
         {
-
             var usuariosCola = ObtenerColaUsuariosDAL.Execute();
-            var ListaUsuarios = ObtenerUsuariosDAL.Execute();
 
-            if (usuariosCola.Count > 0)
+            if (usuariosCola.Count == 0)
             {
-                ListaUsuarios = ListaUsuarios.Where(w => usuariosCola.Any(a => a.NombreRed == w.UsuarioNombreRed)).ToList();
+                var ListaUsuarios = ObtenerUsuariosDAL.Execute();
+                ListaUsuarios = ListaUsuarios.Where(w => w.UsuarioActivo).ToList();
+                ListaUsuarios = ListaUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_EJECUTIVO) ||
+                                                                          w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_ANALISTA)).ToList();
+                AgregarColaUsuariosDAL.Execute(ListaUsuarios);
+                usuariosCola = ObtenerColaUsuariosDAL.Execute();
             }
 
-            ListaUsuarios = ListaUsuarios.Where(w => w.UsuarioActivo).ToList();
-            ListaUsuarios = ListaUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_EJECUTIVO) ||
-                                                                      w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_ANALISTA)).ToList();
-
-            AgregarColaUsuariosDAL.Execute(ListaUsuarios);
-
-            ListaUsuarios.ForEach(w => QueueUsuarios.Add(w));
+            usuariosCola.ForEach(w => QueueUsuarios.Add(w));
         }
-        public static Usuario GetResponsableEnCola(string codigoRol, string? codigoConcesionario)
+        public static ObtenerColaUsuariosResult GetResponsableEnCola(string codigoRol, string? codigoConcesionario)
         {
             if (QueueUsuarios.Count == 0)
             {
-                ObtenerListaUsuarios();
+                ObtenerListaUsuariosCola();
             }
 
             if (codigoRol == CODIGO_ROL_COLA_ANALISTA)
@@ -71,7 +69,7 @@ namespace Core.Creditos.Adapters
 
             return null;
         }
-        private static Usuario ObtenerEjecutivoEnCola(string codigoRol, string? codigoConcesionario)
+        private static ObtenerColaUsuariosResult ObtenerEjecutivoEnCola(string codigoRol, string? codigoConcesionario)
         {
             if (string.IsNullOrEmpty(codigoConcesionario))
             {
@@ -88,10 +86,10 @@ namespace Core.Creditos.Adapters
             if (concesionarioDestino != null)
             {
                 //1. Obtener Ejecutivos en Cola
-                var EjecutivosCola = QueueUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == CODIGO_ROL_COLA_EJECUTIVO));
+                var EjecutivosCola = QueueUsuarios.Where(w => w.CodigoRol == CODIGO_ROL_COLA_EJECUTIVO);
 
                 //2. ObtenerInformacion de los ejecutivos en Cola 
-                var informacionEjecutivos = usuariosEjecutivos.Where(w => EjecutivosCola.Any(a => a.UsuarioNombreRed == w.UsuarioRed));
+                var informacionEjecutivos = usuariosEjecutivos.Where(w => EjecutivosCola.Any(a => a.NombreRed == w.UsuarioRed));
 
                 //3. Obtener Relación
                 var usuarioConcesionarioDestino = usuariosConcesionarios.FirstOrDefault(f => f.ConcesionarioId == concesionarioDestino.Id && informacionEjecutivos.Any(a => a.Id == f.UsuarioId));
@@ -110,18 +108,18 @@ namespace Core.Creditos.Adapters
                     throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No se encuentra en cola el ejecutivo {usuarioConcesionarioDestino.UsuarioId}");
                 }
 
-                return QueueUsuarios.First(f => f.UsuarioNombreRed == usuarioResponsable.UsuarioRed);
+                return QueueUsuarios.First(f => f.NombreRed == usuarioResponsable.UsuarioRed);
             }
 
             throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, codigoConcesionario);
         }
-        private static Usuario ObtenerAnalistaEnCola(string codigoRol)
+        private static ObtenerColaUsuariosResult ObtenerAnalistaEnCola(string codigoRol)
         {
-            var usuario = (Usuario)QueueUsuarios.FirstOrDefault(f => f.Roles.Any(a => a.RolCodigo == codigoRol));
+            var usuario = QueueUsuarios.FirstOrDefault(f => f.CodigoRol == codigoRol);
             if (usuario != null)
             {
                 QueueUsuarios.Remove(usuario);
-                EliminarColaUsuarioDAL.Execute(usuario.UsuarioNombreRed,codigoRol);
+                EliminarColaUsuarioDAL.Execute(usuario.NombreRed, codigoRol);
             }
 
             if (usuario == null)
@@ -135,23 +133,34 @@ namespace Core.Creditos.Adapters
         private static void ValidarExisteUsuarioRol(string codigoRol)
         {
             var ListaUsuarios = ObtenerUsuariosDAL.Execute();
-
-            ListaUsuarios = ListaUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == codigoRol) && w.UsuarioActivo).ToList();
+            ListaUsuarios = ListaUsuarios.Where(w => w.UsuarioActivo).ToList();
+            ListaUsuarios = ListaUsuarios.Where(w => w.Roles.Any(a => a.RolCodigo == codigoRol)).ToList();
             if (ListaUsuarios.Count == 0)
             {
                 throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
             }
-            ListaUsuarios.ForEach(w => QueueUsuarios.Add(w));
+            else
+            {
+                AgregarColaUsuariosDAL.Execute(ListaUsuarios);
+                var usuariosCola = ObtenerColaUsuariosDAL.Execute();
+                QueueUsuarios = new List<ObtenerColaUsuariosResult>();
+                usuariosCola.ForEach(w => QueueUsuarios.Add(w));
+            }            
         }
         public static void ActualizarUsuarioLista(int usuarioId, bool activar)
         {
             if (!activar)
             {
-                var usr = QueueUsuarios.FirstOrDefault(f => f.UsuarioBPMId == usuarioId);
-                if (usr != null)
+                var usrInfo = ObtenerUsuariosDAL.Execute().FirstOrDefault(f => f.UsuarioBPMId == usuarioId);
+
+                if (usrInfo != null)
                 {
-                    QueueUsuarios.Remove(usr);
-                    EliminarColaUsuarioDAL.Execute(usr.UsuarioNombreRed, usr.Roles[0].RolCodigo);
+                    var usrCola = QueueUsuarios.FirstOrDefault(f => f.NombreRed == usrInfo.UsuarioNombre);
+                    if (usrCola != null)
+                    {
+                        QueueUsuarios.Remove(usrCola);
+                        EliminarColaUsuarioDAL.Execute(usrCola.NombreRed, usrCola.CodigoRol);
+                    }
                 }
             }
             else
@@ -159,10 +168,9 @@ namespace Core.Creditos.Adapters
                 var usuario = ObtenerUsuariosDAL.Execute().FirstOrDefault(f => f.UsuarioBPMId == usuarioId);
                 if (usuario != null)
                 {
-                    QueueUsuarios.Add(usuario);
+                    QueueUsuarios.Add(new ObtenerColaUsuariosResult { CodigoRol = usuario.Roles[0].RolCodigo, NombreRed = usuario.UsuarioNombreRed, Orden= QueueUsuarios.Count+1 });
                     AgregarColaUsuariosDAL.Execute(new List<Usuario> { usuario });
                 }
-
             }
         }
     }

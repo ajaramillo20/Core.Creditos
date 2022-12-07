@@ -4,10 +4,12 @@ using Core.Common.Util.Helper.Autenticacion;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Request.SolicitudCredito;
 using Core.Creditos.Model.Transaccion.Response.CambiarEstadoSolicitudCreditos;
+using Core.Creditos.Model.Transaccion.Response.HistorialSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.CambiarEstadoSolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
 using Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos;
+using Core.CreditosBusinessLogic.Interna.HistorialSolicitudCreditos;
 using Core.CreditosBusinessLogic.Interna.SolicitudCreditos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -80,6 +82,22 @@ namespace Core.Creditos.Controllers
 
             EstructuraBase<ObtenerInformacionCreditoResponse> respuesta = this.Obtener<SolicitudCreditoTrx, ObtenerInformacionCreditoResponse, ObtenerInformacionCreditoIN>(
                 new ObtenerInformacionCreditoIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+
+        [HttpGet]
+        [Route("ObtenerHistorialSolicitudCredito/{numeroSolicitud}")]
+        [Produces(typeof(EstructuraBase<ObtenerHistorialSolicitudCreditoResponse>))]
+        public IActionResult ObtenerHistorialSolicitudCredito(int numeroSolicitud)
+        {
+            SolicitudCreditoTrx transaccion = this.GenerarTransaccion<SolicitudCreditoTrx>();
+            transaccion.NumeroSolicitudCredito = numeroSolicitud;
+
+            EstructuraBase<ObtenerHistorialSolicitudCreditoResponse> respuesta = this.ObtenerTodos<SolicitudCreditoTrx, ObtenerHistorialSolicitudCreditoResponse, ObtenerHistorialSolicitudCreditoIN>(
+                new ObtenerHistorialSolicitudCreditoIN(),
                 transaccion);
 
             return Ok(respuesta);

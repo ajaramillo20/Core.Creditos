@@ -1,6 +1,7 @@
 ﻿using Core.Common.Model.ExcepcionServicio;
 using Core.Common.Util.Helper.API;
 using Core.Creditos.Adapters;
+using Core.Creditos.Adapters.Api.Aval;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.DataAccess.Parametrizacion;
 using Core.Creditos.DataAccess.SolicitudCreditos;
@@ -67,7 +68,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
             }
 
-            objetoTransaccional.Responsable = responsable.UsuarioNombreRed;
+            objetoTransaccional.Responsable = responsable.NombreRed;
         }
 
         public static void ObtenerResponsableColaAutomatico(SolicitudCreditoTrx objetoTransaccional)
@@ -80,13 +81,29 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                     throw new ExcepcionServicio((int)ErrorUsuarios.UsuarioNoEncontrado);
                 }
 
-                objetoTransaccional.Responsable = responsable.UsuarioNombreRed;
+                objetoTransaccional.Responsable = responsable.NombreRed;
             }
         }
 
         public static void ObtenerTipoCreditosRol(SolicitudCreditoTrx objetoTransaccional)
         {
             objetoTransaccional.TipoCreditoRolList = ObtenerTipoCreditoRolDAL.Execute();
+        }
+
+       
+        public static void ObtenerInformacionBuro(SolicitudCreditoTrx objetoTransaccional)
+        {
+            try
+            {
+                var cliente = objetoTransaccional.SolicitudCredito.Solicitud.Cliente;
+                var credito = objetoTransaccional.SolicitudCredito.Solicitud.InformacionCredito;
+                var resultadoAval = AvalADP.ObtenerInformacionAVAL(cliente.Identificacion, credito.IngresosDeudor.ToString(), credito.MontoCredito.ToString(), credito.PlazoMeses.ToString());
+                objetoTransaccional.CalificacionBuro = resultadoAval.Result.result.ResultadoSegmentacion[0].SegmentacionCliente;
+            }
+            catch (Exception)
+            {
+                objetoTransaccional.CalificacionBuro = CodigosSolicitudCredito.ErrorControlado.ToString();
+            }
         }
     }
 }

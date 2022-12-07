@@ -12,13 +12,14 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class HomologarCatalogoExternoDAL
     {
-        public static HomologarCatalogoExternoResult Execute(string codigoExterno, string codigoTabla)
+        public static HomologarCatalogoExternoResult Execute(string codigoExterno, string codigoTabla, string codigoCredencial)
         {            
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_HOMOLOGAR_CODIGO_EXTERNO.PARAM_CODIGO_EXTERNO, codigoExterno, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_HOMOLOGAR_CODIGO_EXTERNO.PARAM_CODIGO_TABLA, codigoTabla, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_HOMOLOGAR_CODIGO_EXTERNO.PARAM_CODIGO_CREDENCIAL, codigoCredencial, System.Data.DbType.String);
 
             var resultado = coneccion.ObtenerListaDatos<HomologarCatalogoExternoResult>(ConstantesPA.PA_CRE_HOMOLOGAR_CODIGO_EXTERNO.PA_NOMBRE, dynamicParameters);
             return resultado.FirstOrDefault();

@@ -25,6 +25,7 @@ namespace Core.Creditos.DataAccess.Parametrizacion
             return resultado.First();
         }
 
+      
         public class ObtenerParametrizacionCreditosResult
         {
             public string Codigo { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Core.Common.Model.Transaccion;
+using Core.Creditos.Model.Entidad.HistorialSolicitudCreditos;
 using Core.Creditos.Model.Entidad.InformacionSolicitudCreditos;
 using Core.Creditos.Model.Entidad.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Response.TiposCredito;
@@ -16,7 +17,13 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         {
             ResultadoEvaluacionPoliticas = new Dictionary<string, bool>();
             SolicitudCreditoList = new List<Solicitud>();
+            Historial = new List<HistorialSolicitudCredito>();
         }
+
+        /// <summary>
+        /// Calificación Buró
+        /// </summary>
+        public string CalificacionBuro { get; set; } = "";
 
         /// <summary>
         /// Respuesta aprobado o negado
@@ -83,5 +90,10 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
         #endregion
         public InformacionSolicitudCredito InformacionSolicitudCredito { get; set; }
         public List<TipoCreditoRol> TipoCreditoRolList { get; set; }
+
+        /// <summary>
+        /// VARIABLES PARA LA CONSULTA DE HISTORIAL DE SOLICITUD
+        /// </summary>
+        public List<HistorialSolicitudCredito> Historial { get; set; }
     }
 }

@@ -14,7 +14,8 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
             SolicitudCreditoAgregarInformacionBLL.AgregarJsonPeticionSolicitudCredito(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.CalcularEdadCliente(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.CalcularIngresosTotalCliente(objetoTransaccional);
-            SolicitudCreditoAgregarInformacionBLL.ObtenerTipoCreditosRol(objetoTransaccional);            
+            SolicitudCreditoAgregarInformacionBLL.ObtenerTipoCreditosRol(objetoTransaccional);
+            SolicitudCreditoAgregarInformacionBLL.ObtenerInformacionBuro(objetoTransaccional);
         }
 
         public void HomologarInformacion(SolicitudCreditoTrx objetoTransaccional)

@@ -90,7 +90,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 
                     if (!esnulo)
                     {
-                        var codigoHomologcion = HomologarCatalogoExternoDAL.Execute(campoOrigen.Value<string>(), codigoTabla);
+                        var codigoHomologcion = HomologarCatalogoExternoDAL.Execute(campoOrigen.Value<string>(), codigoTabla, objetoTransaccional.Credenciales.Codigo);
                         if (codigoHomologcion == null)
                         {
                             throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, nombreCampo);
@@ -100,7 +100,6 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                     }
                 }
             }
-
 
             var settings = new JsonSerializerSettings();            
             settings.ContractResolver = new CustomContractResolver();
@@ -230,6 +229,24 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                             {
                                 resultValidacion.Add($"Valor {valorAlfaNumericoCampoRequest} fuera del rango {valorInicio} - {valorFinal}", regla.IndicaError);
                             }
+                        }
+                        
+                        break;
+
+                    case "MULTIPLE_OR":
+
+                        if (tipoDato == TipoDatoParametroEvaluacion.ALFANUMERICO)
+                        {
+                            var valores = regla.ValorEsperado.Split(';');
+                            valorAlfaNumericoCampoRequest = Convert.ToString(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
+                            foreach (var valor in valores)
+                            {
+                                if (valorAlfaNumericoCampoRequest == valor)
+                                {
+                                    break;
+                                }
+                            }
+                            resultValidacion.Add($"Valor {valorAlfaNumericoCampoRequest} no contiene valores", regla.IndicaError);
                         }
 
                         break;

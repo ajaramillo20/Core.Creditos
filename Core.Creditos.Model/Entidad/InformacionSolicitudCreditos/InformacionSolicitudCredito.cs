@@ -10,7 +10,9 @@ namespace Core.Creditos.Model.Entidad.InformacionSolicitudCreditos
     {
         public string NumeroSolicitud { get; set; }
         public string CedulaVendedor { get; set; }
+        public string NombreVendedor { get; set; }
         public DateTime FechaNegociacion { get; set; }
+        public DateTime FechaAsignacion { get; set; }
         public string NombreConcesionario { get; set; }
         public string CodigoConcesionario { get; set; }
         public decimal TasaCredito { get; set; }
@@ -30,10 +32,10 @@ namespace Core.Creditos.Model.Entidad.InformacionSolicitudCreditos
         public string CodigoProducto { get; set; }
         public string Responsable { get; set; }
         public string Reasignado { get; set; }
+        public string CalificacionBuro { get; set; }
         public InformacionCliente InformacionCliente { get; set; } = new InformacionCliente();
         public InformacionConyuge InformacionConyuge { get; set; } = new InformacionConyuge();
-        public InformacionVehiculo InformacionVehiculo { get; set; } = new InformacionVehiculo();
-
+        public InformacionVehiculo InformacionVehiculo { get; set; } = new InformacionVehiculo();        
     }
     public class InformacionCliente
     {

@@ -32,6 +32,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             //Información            
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PA_CODIGO_CONCESIONARIO, solicitud?.CodigoConcesionario, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CEDULA_VENDEDOR, solicitud?.CedulaVendedor, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_NOMBRE_VENDEDOR, solicitud?.NombreVendedor, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_PRODUCTO, solicitud?.CodigoProducto, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CODIGO_CREDENCIAL, objetoTransaccional?.Credenciales?.Codigo, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_RESPONSABLE, solicitud?.Responsable, System.Data.DbType.String);
@@ -121,6 +122,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_OTROS_EGRESOS_CONYUGE, informacionCredito?.OtrosEgresosConyuge, System.Data.DbType.Decimal);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_FUENTE_INGRESOS, informacionCredito?.FuenteIngresos, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CREDITO_ESTADO_SOLICITUD, objetoTransaccional?.CodigoEstadoSolicitudCredito, System.Data.DbType.String);
+            dynamicParameters.Add(ConstantesPA.PA_CRE_INSERTAR_SOLICITUD_CREDITO.PARAM_CALIFICACION_BURO, objetoTransaccional?.CalificacionBuro, System.Data.DbType.String);
             #endregion
 
             //Aseguradora

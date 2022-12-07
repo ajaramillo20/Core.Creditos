@@ -27,6 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="22.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Core.Creditos.Helpers\Core.Creditos.Helpers.csproj" />
     <ProjectReference Include="..\Core.CreditosBusinessLogic\Core.CreditosBusinessLogic.csproj" />
   </ItemGroup>

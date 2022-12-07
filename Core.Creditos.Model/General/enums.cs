@@ -43,8 +43,12 @@ namespace Core.Creditos.Model.General
     /// </summary>
     public enum CodigosSolicitudCredito
     {
-        OK = 10000
+        OK = 10000,
+        Error= 30404,
+        ErrorControlado = 30405
     }
+
+
 
     public enum TipoDatoParametroEvaluacion
     {

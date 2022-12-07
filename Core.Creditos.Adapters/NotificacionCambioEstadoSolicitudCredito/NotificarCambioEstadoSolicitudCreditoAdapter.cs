@@ -56,8 +56,12 @@ namespace Core.Creditos.Adapters.NotificacionCambioEstadoSolicitudCredito
                             request.Headers.TryAddWithoutValidation(para.Nombre, para.Valor);
                         }
 
-                        request.Content = new StringContent(requestData.Content);
-                        request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(requestData.ContentType);
+                        if (requestData.Content is not null)
+                        {
+                            request.Content = new StringContent(requestData.Content ?? "");
+                            request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(requestData.ContentType ?? "");
+                        }
+                        
 
                         var response = httpClient.SendAsync(request).Result.Content.ReadAsStringAsync().Result;
                         var jsonRespuesta = JObject.Parse(response);

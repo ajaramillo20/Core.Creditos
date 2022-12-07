@@ -25,8 +25,10 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
         {
             public string NumeroSolicitud { get; set; }
             public DateTime FechaNegociacion { get; set; }
+            public DateTime FechaAsignacion { get; set; }
             public int TiempoTranscurrido { get; set; }
             public string CedulaVendedor { get; set; }
+            public string NombreVendedor { get; set; }
             public DateTime FechaNacimientoCliente { get; set; }
             public string NombreCliente { get; set; }
             public string CedulaCliente { get; set; }
@@ -59,6 +61,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
             public string ApellidoCliente { get; set; }
             public string ResponsableUsuarioRed { get; set; }
             public string ReasignadoUsuarioRed { get; set; }
+            public string CalificacionBuro { get; set; }
         }
     }
 }

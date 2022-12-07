@@ -3,6 +3,7 @@ using Core.Common.Util.Helper.API;
 using Core.Common.Util.Helper.Internal;
 using Core.Creditos.Adapters;
 using Google.Protobuf.WellKnownTypes;
+using Core.Creditos.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -18,6 +19,22 @@ LogHelper.ConfigurarServicio(builder);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 QueueResponsables.StartQueueService();
+
+var env = builder.Configuration.GetValue<string>("Env:Name");
+Console.WriteLine(env);
+
+builder.Services.AddHttpClient("CoreSeguridades", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration.GetValue<string>("UrlBaseAdapters:CoreSeguridades"));
+    client.Timeout = new TimeSpan(0, 0, 50);
+    //client.DefaultRequestHeaders.Clear
+});
+
+
+var servicio = builder.Services.BuildServiceProvider();
+var httpClientFactory = servicio.GetRequiredService<IHttpClientFactory>();
+HttpClientHelper.InyectHttpClientHelper(httpClientFactory);
+
 
 var app = builder.Build();
 

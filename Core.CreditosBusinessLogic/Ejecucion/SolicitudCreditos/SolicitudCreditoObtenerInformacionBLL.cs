@@ -31,13 +31,16 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                     NumeroSolicitud = cre.NumeroSolicitud,
                     TiempoTranscurrido = cre.TiempoTranscurrido,
                     FechaNegociacion = cre.FechaNegociacion,
-                    CedulaVendedor = cre.CedulaVendedor,                    
+                    FechaAsignacion = cre.FechaAsignacion,
+                    CedulaVendedor = cre.CedulaVendedor,
+                    NombreVendedor = cre.NombreVendedor,
                     CodigoConcesionario = cre.Concesionario,
                     CodigoProducto = cre.TipoCredito,
                     Responsable = cre.Responsable,
                     ResponsableUsuarioRed = cre.ResponsableUsuarioRed,
                     Reasignado = cre.Reasignado,
-                    ReasignadoUsuarioRed = cre.ReasignadoUsuarioRed,                    
+                    ReasignadoUsuarioRed = cre.ReasignadoUsuarioRed,     
+                    CalificacionBuro = cre.CalificacionBuro,
                     Aseguradora = new Aseguradora
                     {
                         CodigoAseguradora = cre.CodigoAseguradora,
@@ -97,8 +100,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             objetoTransaccional.InformacionSolicitudCredito = new InformacionSolicitudCredito
             {
                 NumeroSolicitud = solicitud.NumeroSolicitud,
-                CedulaVendedor = solicitud.CedulaVendedor,
+                CedulaVendedor = solicitud.CedulaVendedor, 
+                NombreVendedor = solicitud.NombreVendedor,
                 FechaNegociacion = solicitud.FechaNegociacion,
+                FechaAsignacion = solicitud.FechaAsignacion,
                 NombreConcesionario = solicitud.NombreConcesionario,
                 CodigoConcesionario = solicitud.CodigoConcesionario,
                 TasaCredito = solicitud.TasaCredito,
@@ -108,6 +113,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                 DiaPago = solicitud.DiaPago,
                 TieneGarante = solicitud.TieneGarante,
                 IdentificiacionGarante = solicitud.IdentificiacionGarante,
+                CalificacionBuro = solicitud.CalificacionBuro,
                 FuenteIngresos = solicitud.FuenteIngresos,
                 IdentificacionCliente = solicitud.IdentificacionCliente,
                 NombreAseguradora = solicitud.NombreAseguradora,

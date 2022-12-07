@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
+using Core.Common.Util.Helper.API;
 
 namespace Core.Creditos.Adapters.Api.Aval
 {
@@ -13,6 +14,7 @@ namespace Core.Creditos.Adapters.Api.Aval
     {
         public static async Task<ResultadoBuro> ObtenerInformacionAVAL(string cedula, string ingreso, string monto, string plazo)
         {
+            var url = SettingsHelper.ObtenerSettigsKey("AVALAPI.Url");
             var cuerpo = new AvalPostBody();
             var result = new ResultadoBuro();
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
@@ -28,22 +30,22 @@ namespace Core.Creditos.Adapters.Api.Aval
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
             {
                 clave = "ingresos",
-                valor = ingreso
+                valor = ingreso.Replace(',', '.')
             });
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
             {
                 clave = "gastoFinanciero",
-                valor = monto
+                valor = monto.Replace(',', '.')
             });
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
             {
                 clave = "montoSolicitado",
-                valor = monto
+                valor = monto.Replace(',','.')
             });
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
             {
                 clave = "plazo",
-                valor = plazo
+                valor = plazo.Replace(',', '.')
             });
             cuerpo.request.datosEntrada.Add(new DatosEntrada()
             {
@@ -55,10 +57,10 @@ namespace Core.Creditos.Adapters.Api.Aval
 
             using (var httpClient = new HttpClient())
             {
-                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api-test.avalburo.com/services/V8/getWebService"))
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), SettingsHelper.ObtenerSettigsKey("AVALAPI.Url")))
                 {
 
-                    request.Headers.TryAddWithoutValidation("Authorization", "Basic VEVTVC1PUklHSU5BUlNBOjU3RSl1OVk4Rkg=");
+                    request.Headers.TryAddWithoutValidation("Authorization", SettingsHelper.ObtenerSettigsKey("AVALAPI.Key"));
                     request.Content = new StringContent(jsonBody);
                     request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 

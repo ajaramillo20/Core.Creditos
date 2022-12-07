@@ -19,6 +19,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PA_FECHA_NEGOCIACION = $"@FechaNegociacion";
             public const string PA_CODIGO_CONCESIONARIO = "@CodigoConcesionario";
             public const string PARAM_CEDULA_VENDEDOR = "@CedulaVendedor";
+            public const string PARAM_NOMBRE_VENDEDOR = "@NombreVendedor";
             public const string PARAM_CODIGO_PRODUCTO = "@CodigoProducto";
             public const string PARAM_VEHICULO_CODIGO_MARCA = "@CodigoMarca";
             public const string PARAM_VEHICULO_CODIGO_MODELOS = "@CodigoModelo";
@@ -94,6 +95,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_CREDITO_ESTADO_SOLICITUD = "@EstadoSolicitud";
             public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
             public const string PARAM_RESPONSABLE = "@Responsable";
+            public const string PARAM_CALIFICACION_BURO = "@CalificacionBuro";
         }
 
         /// <summary>
@@ -104,6 +106,7 @@ namespace Core.Creditos.DataAccess.General
             public const string PA_NOMBRE = "PA_CRE_HOMOLOGAR_CODIGO_EXTERNO";
             public const string PARAM_CODIGO_EXTERNO = "@CodigoExterno";
             public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
         }
 
         /// <summary>
@@ -113,6 +116,25 @@ namespace Core.Creditos.DataAccess.General
         {
             public const string PA_NOMBRE = "PA_CRE_OBTENER_INFORMACION_CATALOGOS";
             public const string PARAM_CODIGO_CATALOGO = "@CodigoCatalogo";
+        }
+
+        /// <summary>
+        /// Metodo para obtener cabecera o tabla padre de catálogos
+        /// </summary>
+        public static class PA_CRE_OBTENER_CATALOGO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_CATALOGO";
+            public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
+            public const string PARAM_CODIGO_CATALOGO = "@CodigoCatalogo";
+        }
+
+        /// <summary>
+        /// Metodo para obtener las cabecera o indice de catálogos
+        /// </summary>
+        public static class PA_CRE_OBTENER_INDICES
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_INDICES";
+            public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
         }
 
         /// <summary>
@@ -263,6 +285,12 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_COMENTARIO = "@Comentario";
         }
 
+        public static class PA_CRE_OBTENER_HISTORIAL_SOLICITUD_CREDITO
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_HISTORIAL_SOLICITUD_CREDITO";
+            public const string PARAM_NUMERO_SOLICITUD = "@NumeroSolicitud";
+        }
+
         public static class PA_CRE_ACTUALIZAR_RESPONSABLE
         {
             public const string PA_NOMBRE = "PA_CRE_ACTUALIZAR_RESPONSABLE";
@@ -287,6 +315,14 @@ namespace Core.Creditos.DataAccess.General
             public const string PA_NOMBRE = "PA_CRE_ELIMINAR_USUARIO_COLA";
             public const string PARAM_NOMBRE_RED = "@NombreRed";
             public const string PARAM_CODIGO_ROL = "@CodigoRol";
+        }
+
+        //PLANTILLAS
+
+        public class PA_CRE_OBTENER_PLANTILLA_EMAIL
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_PLANTILLA_EMAIL";
+            public const string PARAM_CODIGO_PLANTILLA = "@Codigo";
         }
     }
 }
