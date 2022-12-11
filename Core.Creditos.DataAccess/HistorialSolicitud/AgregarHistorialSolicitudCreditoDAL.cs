@@ -16,7 +16,7 @@ namespace Core.Creditos.DataAccess.HistorialSolicitud
     {
         public static void Execute(string usuarioRed, string estadoCodigo, int numeroSolicitud, string comentario)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_USUARIO_RED, usuarioRed, System.Data.DbType.String);

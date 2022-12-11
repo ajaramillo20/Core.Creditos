@@ -19,18 +19,18 @@ namespace Core.Creditos.DataAccess.NotificacionCambioEstado
 
             parametros.Add(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PARAM_CODIGO_CREDENCIAL, codigoCredencial, System.Data.DbType.String);
 
-            DBConnectionHelper databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var peticion = databaseTemplate.ObtenerListaDatos<GetPeticionCabeceraResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE, parametros).FirstOrDefault();
 
             if (peticion != null)
             {
-                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
                 var headers = databaseTemplate.ObtenerListaDatos<ParametrosPeticionResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE_HEADERS, parametros);
 
-                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
                 var queryParams = databaseTemplate.ObtenerListaDatos<ParametrosPeticionResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE_QUERY_PARAMS, parametros);
 
-                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                databaseTemplate = new DBConnectionHelper(EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
                 var camposResult = databaseTemplate.ObtenerListaDatos<ParametrosPeticionResult>(ConstantesPA.PA_CRE_API_OBTENER_DATOS_PETICION.PA_NOMBRE_CAMPOS_RESULT, parametros);
 
                 peticion.Headers = headers;

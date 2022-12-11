@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static List<ObtenerListaSolicitudCreditosResult> Execute()
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             var resultado = coneccion.ObtenerListaDatos<ObtenerListaSolicitudCreditosResult>(ConstantesPA.PA_CRE_OBTENER_LISTA_SOLICITUD_CREDITOS.PA_NOMBRE, dynamicParameters);

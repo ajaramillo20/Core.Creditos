@@ -20,11 +20,7 @@ namespace Core.Creditos.DataAccess.Usuarios
         {
             Usuario usuarioResult = null;
 
-            DBConnectionHelper conexion = new DBConnectionHelper
-                                          (
-                                            Common.Model.General.EnumDBConnection.SqlConnection,
-                                            SettingsHelper.ObtenerConnectionString("LocalCon")
-                                          );
+            DBConnectionHelper conexion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection,SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
 
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add(ConstantesPA.PA_CRE_OBTENER_INFORMACION_USUARIO.PA_USUARIO_RED, usuarioRed, System.Data.DbType.String);

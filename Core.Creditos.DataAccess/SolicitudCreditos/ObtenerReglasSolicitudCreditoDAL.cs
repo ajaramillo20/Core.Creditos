@@ -20,7 +20,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
         /// <returns></returns>
         public static List<ObtenerReglasSolicitudCreditoResult> Execute(string codigoCredencial)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO.PARAM_CODIGO_ENTIDAD, codigoCredencial, System.Data.DbType.String);

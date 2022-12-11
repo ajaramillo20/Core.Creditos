@@ -15,7 +15,7 @@ namespace Core.Creditos.DataAccess.Usuarios
     {
         public static bool Execute(string usuario)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_VALIDAR_USUARIO_RESPONSABLE.PARAM_USUARIO, usuario, System.Data.DbType.String);

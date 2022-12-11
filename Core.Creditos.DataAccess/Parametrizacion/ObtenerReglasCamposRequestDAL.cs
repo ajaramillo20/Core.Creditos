@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.Parametrizacion
     {        
         public static List<ObtenerReglasCamposRequestResult> Execute(string codigoEntidad)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
             
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_REGLAS_CAMPOS_REQUEST.PARMA_CODIGO_ENTIDAD, codigoEntidad.ToString(), System.Data.DbType.String);

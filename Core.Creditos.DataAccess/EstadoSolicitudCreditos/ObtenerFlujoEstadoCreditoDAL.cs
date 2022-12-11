@@ -15,7 +15,7 @@ namespace Core.Creditos.DataAccess.EstadoSolicitudCreditos
     {
         public static List<ObtenerFlujoEstadoCreditoResult> Execute(int estadoId)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_FLUJO_ESTADO_CREDITO.PARRAM_ESTADO_ORIGEN, estadoId, System.Data.DbType.Int32);

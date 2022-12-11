@@ -17,7 +17,7 @@ namespace Core.Creditos.DataAccess.TiposCreditosRol
     {
         public static List<TipoCreditoRol> Execute()
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             var listaCreditoRol = coneccion.ObtenerListaDatos<ObtenerTipoCreditoRolResult>(ConstantesPA.PA_CRE_OBTENER_CREDITO_ROL.PA_NOMBRE, dynamicParameters);

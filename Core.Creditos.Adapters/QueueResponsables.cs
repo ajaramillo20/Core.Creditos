@@ -81,7 +81,7 @@ namespace Core.Creditos.Adapters
             var usuariosEjecutivos = CoreOriginarsaADP.ObtenerUsuarios();
             var usuariosConcesionarios = CoreOriginarsaADP.ObtenerUsuariosConcesionarios();
 
-            var concesionarioDestino = concesionarios.FirstOrDefault(f => f.Id.ToString() == informacionCatalogo.Valor);
+            var concesionarioDestino = concesionarios.FirstOrDefault(f => f.Id.ToString() == informacionCatalogo.ValorCatalogo);
 
             if (concesionarioDestino != null)
             {

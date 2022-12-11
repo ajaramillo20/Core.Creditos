@@ -16,7 +16,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static ObtenerSolicitudCreditoPorNumeroResult Execute(string numeroSolicitud)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTNER_SOLICITUD_CREDITO.PARAM_NUMERO_SOLICITUD_CREDITO, numeroSolicitud, System.Data.DbType.String);

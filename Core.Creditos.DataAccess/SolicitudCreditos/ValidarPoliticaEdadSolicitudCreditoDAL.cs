@@ -18,7 +18,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static int Execute(int edadMinima, int edadMaxima, int edadDedeudor)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_POLITICA_VALIDAD_EDAD.PARAM_CODIGO_EDAD_MAXIMA, edadMaxima, System.Data.DbType.Int32);

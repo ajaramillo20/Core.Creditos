@@ -14,7 +14,7 @@ namespace Core.CreditosBusinessLogic.Interna.Catalogos
     {
         public void AgregarInformacion(CatalogoTrx objetoTransaccional)
         {
-            AgregarInformacionCatalogoBLL.AgregarCatalogo(objetoTransaccional);
+            
         }
 
         public void HomologarInformacion(CatalogoTrx objetoTransaccional)
@@ -24,7 +24,7 @@ namespace Core.CreditosBusinessLogic.Interna.Catalogos
 
         public void InsertarInformacion(CatalogoTrx objetoTransaccional)
         {
-            
+            InsertarInformacionCatalogoBLL.InsertarCatalogo(objetoTransaccional);
         }
 
         public void ValidarInformacion(CatalogoTrx objetoTransaccional)

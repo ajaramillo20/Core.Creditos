@@ -20,9 +20,5 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
             objetoTransaccional.ListaTablas = ObtenerIndicesDAL.Execute(objetoTransaccional.CodigoTabla);
         }
 
-        public static void AgregarCatalogo(CatalogoTrx objetoTransaccional)
-        {
-            
-        }
     }
 }

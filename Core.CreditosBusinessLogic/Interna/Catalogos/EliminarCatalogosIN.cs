@@ -1,6 +1,7 @@
 ﻿using Core.Common.ProcessTemplate.InternalBusinessLogic;
 using Core.Creditos.Model.Transaccion.Response.Catalogos;
 using Core.Creditos.Model.Transaccion.Transaccional.Catalogos;
+using Core.CreditosBusinessLogic.Ejecucion.Catalogos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +14,17 @@ namespace Core.CreditosBusinessLogic.Interna.Catalogos
     {
         public void AgregarInformacion(CatalogoTrx objetoTransaccional)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Eliminarnformacion(CatalogoTrx objetoTransaccional)
         {
-            throw new NotImplementedException();
+            EliminarInformacionCatalogosBLL.EliminarCatalogo(objetoTransaccional);
         }
 
         public void ValidarInformacion(CatalogoTrx objetoTransaccional)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

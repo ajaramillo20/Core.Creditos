@@ -17,7 +17,7 @@ namespace Core.Creditos.DataAccess.Usuarios
         public static List<Usuario> Execute()
         {
             var result = new List<Usuario>();
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             var listaUsuariosActivos = coneccion.ObtenerListaDatos<ObtenerUsuariosResult>(ConstantesPA.PA_CRE_OBTENER_USUARIOS.PA_NOMBRE, dynamicParameters);

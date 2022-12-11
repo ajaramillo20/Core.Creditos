@@ -15,7 +15,7 @@ namespace Core.Creditos.DataAccess.Usuarios
     {
         public static List<ObtenerColaUsuariosResult> Execute()
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             //dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_USUARIO_COLA.PARAM_NOMBRE_RED, usr.UsuarioBPMId, System.Data.DbType.Int32);

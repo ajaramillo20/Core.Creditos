@@ -17,7 +17,7 @@ namespace Core.Creditos.DataAccess.Plantillas
     {
         public static Plantilla Execute(string codigoPlantilla)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
 
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_PLANTILLA_EMAIL.PARAM_CODIGO_PLANTILLA, codigoPlantilla, System.Data.DbType.String);

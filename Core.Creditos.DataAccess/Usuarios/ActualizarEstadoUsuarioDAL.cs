@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.Usuarios
     {
         public static int Execute(int usuarioId, bool activar)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_ACTUALIZAR_ESTADO_USUARIO.PARAM_USUARIO_ID, usuarioId, System.Data.DbType.Int32);

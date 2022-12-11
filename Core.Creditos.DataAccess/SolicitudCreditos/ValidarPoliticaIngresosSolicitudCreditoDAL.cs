@@ -23,7 +23,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
         /// <returns></returns>
         public static int Execute(decimal? ingresosDeudor, decimal? otrosIngresosDeudor, decimal? ingresosConyuge, decimal? otrosIngresosConyuge, string codigoPolitica)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_POLITICA_VALIDAR_INGRESOS.PARAM_INGRESOS_DEUDOR, ingresosDeudor, System.Data.DbType.Decimal);

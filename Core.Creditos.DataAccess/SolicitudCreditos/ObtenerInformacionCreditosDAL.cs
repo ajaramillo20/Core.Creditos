@@ -17,7 +17,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static ObtenerInformacionCreditosResult Execute(string numeroSolicitud)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
 
@@ -28,17 +28,17 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             if (informacionCredito != null)
             {
-                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
 
                 var informacionCliente = coneccion.ObtenerListaDatos<InformacionCliente>(ConstantesPA.PA_CRE_OBTENER_INFORMACION_CREDITO.PA_NOMBRE_CLIENTE_INFORMACION, dynamicParameters).FirstOrDefault();
                 informacionCredito.InformacionCliente = informacionCliente;
 
-                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
 
                 var informacionConyuge = coneccion.ObtenerListaDatos<InformacionConyuge>(ConstantesPA.PA_CRE_OBTENER_INFORMACION_CREDITO.PA_NOMBRE_CONYUGE_INFORMACION, dynamicParameters).FirstOrDefault();
                 informacionCredito.InformacionConyuge = informacionConyuge;
 
-                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+                coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
 
                 var informacionVehiculo = coneccion.ObtenerListaDatos<InformacionVehiculo>(ConstantesPA.PA_CRE_OBTENER_INFORMACION_CREDITO.PA_NOMBRE_VEHICULO_INFORMACION, dynamicParameters).FirstOrDefault();
                 informacionCredito.InformacionVehiculo = informacionVehiculo;

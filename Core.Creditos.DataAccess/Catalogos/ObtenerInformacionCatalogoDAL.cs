@@ -3,6 +3,7 @@ using Core.Common.Util.Helper.API;
 using Core.Common.Util.Helper.Internal;
 using Core.Creditos.DataAccess.General;
 using Core.Creditos.Model.Entidad;
+using Core.Creditos.Model.Entidad.Catalogos;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Core.Creditos.DataAccess.Catalogos
     {
         public static Catalogo Execute(string codigoCatalogo)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_INFORMACION_CATALOGOS.PARAM_CODIGO_CATALOGO, codigoCatalogo, System.Data.DbType.String);
@@ -25,7 +26,18 @@ namespace Core.Creditos.DataAccess.Catalogos
             var resultado = coneccion.ObtenerListaDatos<ObtenerInformacionCatalogoResult>(ConstantesPA.PA_CRE_OBTENER_INFORMACION_CATALOGOS.PA_NOMBRE, dynamicParameters);
             var catalogo = resultado.FirstOrDefault();
 
-            return AutoMapperHelper.MapeoDinamicoSimpleAutoMapper<Catalogo, ObtenerInformacionCatalogoResult>(catalogo);
+            if (catalogo!=null)
+            {
+                return new Catalogo()
+                {
+                    CodigoCatalogo = catalogo.Codigo,
+                    CodigoTabla = catalogo.Tablacodigo,
+                    DescripcionCatalogo = catalogo.Descripcion,
+                    NombreCatalogo = catalogo.Nombre,
+                    ValorCatalogo = catalogo.Valor,                    
+                };
+            }
+            return null;
         }
 
         public class ObtenerInformacionCatalogoResult

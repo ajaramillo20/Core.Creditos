@@ -19,7 +19,7 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static AgregarSolicitudCreditoResult Execute(SolicitudCreditoTrx objetoTransaccional)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             var solicitud = objetoTransaccional?.SolicitudCredito?.Solicitud;

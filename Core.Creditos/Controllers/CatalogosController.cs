@@ -89,7 +89,7 @@ namespace Core.Creditos.Controllers
         }
 
         [HttpPut]
-        [Route("EliminarCatalogo")]
+        [Route("EliminarCatalogo/{codigoCatalogo}")]
         [Produces(typeof(EstructuraBase<>))]
         public IActionResult EliminarCatalogo(string codigoCatalogo)
         {
@@ -103,6 +103,25 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
-         
+
+        [HttpPost]
+        [Route("AgregarCatalogoExterno")]
+        [Produces(typeof(EstructuraBase<>))]
+        public IActionResult AgregarCatalogoExterno([FromBody] AgregarCatalogoRequest request)
+        {
+            CatalogoTrx transaccion = this.GenerarTransaccion<CatalogoTrx>();
+            transaccion.CatalogoInsertar.CodigoCatalogo = request.Codigo;
+            transaccion.CatalogoInsertar.NombreCatalogo = request.Nombre;
+            transaccion.CatalogoInsertar.ValorCatalogo = request.Valor;
+            transaccion.CatalogoInsertar.CodigoTabla = request.TablaCodigo;
+            transaccion.CatalogoInsertar.DescripcionCatalogo = request.Descripcion;
+
+            EstructuraBase<AgregarCatalogoResponse> respuesta = this.Insertar<CatalogoTrx, AgregarCatalogoResponse, AgregarCatalogosIN>(
+                new AgregarCatalogosIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
     }
 }

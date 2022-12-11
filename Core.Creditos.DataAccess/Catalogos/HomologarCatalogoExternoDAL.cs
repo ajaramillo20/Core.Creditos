@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.Catalogos
     {
         public static HomologarCatalogoExternoResult Execute(string codigoExterno, string codigoTabla, string codigoCredencial)
         {            
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_HOMOLOGAR_CODIGO_EXTERNO.PARAM_CODIGO_EXTERNO, codigoExterno, System.Data.DbType.String);

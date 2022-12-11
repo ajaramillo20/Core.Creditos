@@ -129,6 +129,37 @@ namespace Core.Creditos.DataAccess.General
         }
 
         /// <summary>
+        /// Clase para parametros de sp agregar catalogo
+        /// </summary>
+        public static class PA_CRE_AGREGAR_CATALOGO
+        {
+            public const string PA_NOMBRE = "PA_CRE_AGREGAR_CATALOGO";
+            public const string PARAM_CODIGO ="@Codigo";
+            public const string PARAM_TABLA = "@Tabla";
+            public const string PARAM_VALOR = "@Valor";
+            public const string PARAM_NOMBRE = "@Nombre";
+            public const string PARAM_DESCRIPCION = "@Descripcion";
+        }
+
+        public static class PA_CRE_ELIMINAR_CATALOGO {
+            public const string PA_NOMBRE = "PA_CRE_ELIMINAR_CATALOGO";
+            public const string PARAM_CODIGO = "@Codigo";
+        }
+
+        /// <summary>
+        /// Clase para parametros de sp agregar catalogo
+        /// </summary>
+        public static class PA_CRE_ACTUALIZAR_CATALOGO
+        {
+            public const string PA_NOMBRE = "PA_CRE_ACTUALIZAR_CATALOGO";
+            public const string PARAM_CODIGO = "@Codigo";
+            public const string PARAM_TABLA = "@Tabla";
+            public const string PARAM_VALOR = "@Valor";
+            public const string PARAM_NOMBRE = "@Nombre";
+            public const string PARAM_DESCRIPCION = "@Descripcion";
+        }
+
+        /// <summary>
         /// Metodo para obtener las cabecera o indice de catálogos
         /// </summary>
         public static class PA_CRE_OBTENER_INDICES

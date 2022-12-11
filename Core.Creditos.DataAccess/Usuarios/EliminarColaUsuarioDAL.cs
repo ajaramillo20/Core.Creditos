@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.Usuarios
     {
         public static void Execute(string nombreRed, string codigoRol)
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_ELIMINAR_USUARIO_COLA.PARAM_NOMBRE_RED, nombreRed, System.Data.DbType.String);

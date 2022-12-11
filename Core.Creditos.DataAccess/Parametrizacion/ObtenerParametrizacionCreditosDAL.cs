@@ -14,7 +14,7 @@ namespace Core.Creditos.DataAccess.Parametrizacion
     {
         public static ObtenerParametrizacionCreditosResult Execute(ParametrizacionCreditos codigoParametrizacion, string codigoCredencial="")
         {
-            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("LocalCon"));
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 
                         
