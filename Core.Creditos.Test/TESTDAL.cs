@@ -1,5 +1,6 @@
 ﻿using Core.Common.DataAccess.Helper;
 using Core.Common.Model.General;
+using Core.Common.Util.Helper.Datos;
 using Core.Creditos.Adapters;
 using Dapper;
 using Serilog;
@@ -14,6 +15,6 @@ namespace Core.Creditos.Test
 {
     public static class TESTDAL
     {
-        
+      
     }
 }

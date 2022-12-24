@@ -20,7 +20,10 @@ namespace Core.Creditos.DataAccess.HistorialSolicitud
             var dynamicParameters = new DynamicParameters();
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_USUARIO_RED, usuarioRed, System.Data.DbType.String);
-            dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_ESTADO_CODIGO, estadoCodigo, System.Data.DbType.String);
+            if (!string.IsNullOrEmpty(estadoCodigo))
+            {
+                dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_ESTADO_CODIGO, estadoCodigo, System.Data.DbType.String);
+            }
             dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_NUMERO_SOLICITUD, numeroSolicitud, System.Data.DbType.Int32);
             dynamicParameters.Add(ConstantesPA.PA_CRE_AGREGAR_HISTORIAL_SOLICITUD_CREDITO.PARAM_COMENTARIO, comentario, System.Data.DbType.String);
             dynamicParameters.Add(ConstantesPA.CodigoRetorno, System.Data.DbType.Int32, direction: System.Data.ParameterDirection.ReturnValue);

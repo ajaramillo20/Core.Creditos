@@ -129,23 +129,52 @@ namespace Core.Creditos.DataAccess.General
         }
 
         /// <summary>
+        /// Metodo para obtener catalogos externos
+        /// </summary>
+        public static class PA_CRE_OBTENER_CATALOGO_EXTERNO
+        {
+            public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
+            public const string PARAM_CODIGO_CATALOGO = "@CodigoCredencial";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCatalogo";
+            public const string PARAM_CODIGO_NOMBRE = "@NombreCatalogo";
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_CATALOGO_EXTERNO";
+        }
+
+        /// <summary>
         /// Clase para parametros de sp agregar catalogo
         /// </summary>
         public static class PA_CRE_AGREGAR_CATALOGO
         {
             public const string PA_NOMBRE = "PA_CRE_AGREGAR_CATALOGO";
-            public const string PARAM_CODIGO ="@Codigo";
+            public const string PARAM_CODIGO = "@Codigo";
             public const string PARAM_TABLA = "@Tabla";
             public const string PARAM_VALOR = "@Valor";
             public const string PARAM_NOMBRE = "@Nombre";
             public const string PARAM_DESCRIPCION = "@Descripcion";
         }
 
-        public static class PA_CRE_ELIMINAR_CATALOGO {
+        public static class PA_CRE_ACTUALIZAR_CATALOGO_EXTERNO
+        {
+            public const string PA_NOMBRE = "PA_CRE_ACTUALIZAR_CATALOGO_EXTERNO";
+            public const string PARAM_ID = "@Id";
+            public const string PARAM_CODIGO_EXTERNO = "@CodigoExterno";
+            public const string PARAM_CODIGO_CATALOGO = "CodigoCatalogo";
+            public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
+        }
+
+        public static class PA_CRE_ELIMINAR_CATALOGO
+        {
             public const string PA_NOMBRE = "PA_CRE_ELIMINAR_CATALOGO";
             public const string PARAM_CODIGO = "@Codigo";
         }
 
+        public static class PA_CRE_ELIMINAR_CATALOGO_EXTERNO
+        {
+            public const string PA_NOMBRE = "PA_CRE_ELIMINAR_CATALOGO_EXTERNO";
+            public const string PARA_ID = "@Id";
+        }
+        
         /// <summary>
         /// Clase para parametros de sp agregar catalogo
         /// </summary>
@@ -157,6 +186,18 @@ namespace Core.Creditos.DataAccess.General
             public const string PARAM_VALOR = "@Valor";
             public const string PARAM_NOMBRE = "@Nombre";
             public const string PARAM_DESCRIPCION = "@Descripcion";
+        }
+
+        /// <summary>
+        /// METODO PARA AGREGAR UN CATALOGO EXTERNO
+        /// </summary>
+        public static class PA_CRE_AGREGAR_CATALOGO_EXTERNO
+        {
+            public const string PA_NOMBRE = "PA_CRE_AGREGAR_CATALOGO_EXTERNO";
+            public const string PARAM_CODIGO_EXTERNO = "@CodigoExterno";
+            public const string PARAM_CODIGO_CATALOGO = "@CodigoCatalogo";
+            public const string PARAM_CODIGO_TABLA = "@CodigoTabla";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
         }
 
         /// <summary>
@@ -354,6 +395,22 @@ namespace Core.Creditos.DataAccess.General
         {
             public const string PA_NOMBRE = "PA_CRE_OBTENER_PLANTILLA_EMAIL";
             public const string PARAM_CODIGO_PLANTILLA = "@Codigo";
+        }
+
+        public class PA_CRE_OBTENER_CONCESIONARIOS
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_CONCESIONARIOS";
+            public const string PARAM_NOMBRE = "@Nombre";
+            public const string PARAM_RUC = "@Ruc";
+            public const string PARAM_CODIGO_CREDENCIAL = "@CodigoCredencial";
+        }
+
+        public class PA_CRE_OBTENER_ROLES
+        {
+            public const string PA_NOMBRE = "PA_CRE_OBTENER_ROLES";
+            public const string PARAM_ID = "@Id";
+            public const string PARAM_CODIGO = "@Codigo";
+            public const string PARAM_NOMBRE = "@Nombre";
         }
     }
 }

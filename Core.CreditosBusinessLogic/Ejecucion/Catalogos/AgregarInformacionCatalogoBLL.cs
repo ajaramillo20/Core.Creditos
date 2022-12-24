@@ -20,5 +20,9 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
             objetoTransaccional.ListaTablas = ObtenerIndicesDAL.Execute(objetoTransaccional.CodigoTabla);
         }
 
+        public static void ObtenerCatalogosExternosList(CatalogoTrx objetoTransaccional)
+        {
+            objetoTransaccional.ListaCatalogosExternos = ObtenerCatalogosExternosDAL.Execute(objetoTransaccional.CodigoTabla, objetoTransaccional.CodigoCredencial, objetoTransaccional.CodigoCatalogo, objetoTransaccional.NombreCatalogo);
+        }
     }
 }

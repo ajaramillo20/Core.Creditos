@@ -20,8 +20,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 QueueResponsables.StartQueueService();
 
-var env = builder.Configuration.GetValue<string>("Env:Name");
-Console.WriteLine(env);
+//var env = builder.Configuration.GetValue<string>("Env:Name");
+//Console.WriteLine(env);
 
 builder.Services.AddHttpClient("CoreSeguridades", client =>
 {

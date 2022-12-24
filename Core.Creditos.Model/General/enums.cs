@@ -19,15 +19,16 @@ namespace Core.Creditos.Model.General
         ErrorHomologacionCodigo = 30511,
         ErrorCampoObligatorio = 30512,
         SolicitudNoEncontrada = 30506,
-        UsuarioNoActivo = 30507
+        UsuarioNoActivo = 30507,
+        ErrorComunicacion = 30515
     }
 
     /// <summary>
     /// Enumeradores para errores de usuario, usar apartir del 30600
     /// </summary>
     public enum ErrorUsuarios
-    { 
-      UsuarioNoEncontrado =  30604
+    {
+        UsuarioNoEncontrado = 30604
     }
 
     /// <summary>
@@ -44,7 +45,7 @@ namespace Core.Creditos.Model.General
     public enum CodigosSolicitudCredito
     {
         OK = 10000,
-        Error= 30404,
+        Error = 30404,
         ErrorControlado = 30405
     }
 

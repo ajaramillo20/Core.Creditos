@@ -10,5 +10,6 @@ namespace Core.Creditos.Model.Transaccion.Response.Catalogos
     public class ObtenerCatalogosResponse
     {
         public List<Catalogo> ListaCatalogos { get; set; } = new List<Catalogo>();
+        public List<CatalogoExterno> ListaCatalogosExternos { get; set; } = new List<CatalogoExterno>();
     }
 }

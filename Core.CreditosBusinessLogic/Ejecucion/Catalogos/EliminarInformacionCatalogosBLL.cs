@@ -20,5 +20,14 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
                 throw new ExcepcionServicio(resultado);
             }
         }
+
+        public static void EliminarCatalogoExterno(CatalogoTrx objetoTransaccional)
+        {
+            var resultado = EliminarCatalogoExternoDAL.Execute(objetoTransaccional.IdCodigoHomologacion);
+            if (resultado != (int)CodigosSolicitudCredito.OK)
+            {
+                throw new ExcepcionServicio(resultado);
+            }
+        }
     }
 }

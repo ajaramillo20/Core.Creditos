@@ -14,7 +14,6 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
     {
         public static int Execute(string numeroSolicitud, string codigoEstadoDestino)
         {
-
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
 

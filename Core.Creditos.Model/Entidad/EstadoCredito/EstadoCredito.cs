@@ -11,5 +11,7 @@ namespace Core.Creditos.Model.Entidad.EstadoCredito
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
+        public bool RequiereComentario { get; set; }
+        public bool RequiereEnvioEmail { get; set; }
     }
 }

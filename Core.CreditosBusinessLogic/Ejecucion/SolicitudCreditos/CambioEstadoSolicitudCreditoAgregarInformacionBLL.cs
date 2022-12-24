@@ -24,6 +24,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             objetoTransaccional.NombreEstadoSolicitud = solicitud.EstadoNombre;
             objetoTransaccional.CodigoEstadoSolicitudCredito = solicitud.EstadoCodigo;
             objetoTransaccional.CredencialCodigoSolicitudCredito = solicitud.CodigoCredencial;
+
+            objetoTransaccional.IdEstadoSolicitudCreditoOrigen = solicitud.EstadoId;
+            objetoTransaccional.NombreEstadoSolicitudCreditoOrigen = solicitud.EstadoNombre;
+            objetoTransaccional.CodigoEstadoSolicitudCreditoOrigen = solicitud.EstadoCodigo;
         }
 
         internal static void ObtenerInformacionEstadoDestino(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)

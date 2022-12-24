@@ -97,7 +97,7 @@ namespace Core.Creditos.Adapters
 
                 if (usuarioConcesionarioDestino == null)
                 {
-                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No existe un ejecutivo para el concesionario {concesionarioDestino.ToJson()}");
+                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No existe un ejecutivo para el concesionario {concesionarioDestino.ToJson()}");                    
                 }
 
                 //4. Obtiene el responsable

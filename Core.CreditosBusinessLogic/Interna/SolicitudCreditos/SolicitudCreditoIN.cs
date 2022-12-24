@@ -3,6 +3,7 @@ using Core.Creditos.Adapters.Core.Notificaciones;
 using Core.Creditos.DataAccess.HistorialSolicitud;
 using Core.Creditos.Model.Transaccion.Response.SolicitudCreditos;
 using Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos;
+using Core.CreditosBusinessLogic.Ejecucion.Concesionarios;
 using Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos;
 
 namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
@@ -16,6 +17,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
             SolicitudCreditoAgregarInformacionBLL.CalcularIngresosTotalCliente(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.ObtenerTipoCreditosRol(objetoTransaccional);
             SolicitudCreditoAgregarInformacionBLL.ObtenerInformacionBuro(objetoTransaccional);
+            
         }
 
         public void HomologarInformacion(SolicitudCreditoTrx objetoTransaccional)
@@ -25,9 +27,7 @@ namespace Core.CreditosBusinessLogic.Interna.SolicitudCreditos
 
         public void InsertarInformacion(SolicitudCreditoTrx objetoTransaccional)
         {
-            AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);
-            AgregarHistorialSolicitudCreditoDAL.Execute(objetoTransaccional.Credenciales.Codigo, objetoTransaccional.CodigoEstadoSolicitudCredito, (int)objetoTransaccional.NumeroSolicitudCredito, "");
-            EnviarNotificacionCorreoADP.EnviarCorreoAsignacion(objetoTransaccional.Responsable, objetoTransaccional.NumeroSolicitudCredito.ToString());
+            AgregarSolicitudCreditoBLL.AgregarsolicitudCredito(objetoTransaccional);            
         }
 
         public void ValidarInformacion(SolicitudCreditoTrx objetoTransaccional)

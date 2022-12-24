@@ -20,5 +20,14 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
                 throw new ExcepcionServicio(resultado);
             }
         }
+
+        public static void InsertarCatalogoExterno(CatalogoTrx objetoTransaccional)
+        {
+            var resultado = InsertarCatalogoExternoDAL.Execute(objetoTransaccional.CatalogoExternoInsertar);
+            if (resultado != (int)CodigosSolicitudCredito.OK)
+            {
+                throw new ExcepcionServicio(resultado);
+            }
+        }
     }
 }

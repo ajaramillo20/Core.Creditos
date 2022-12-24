@@ -50,7 +50,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                                                                       );
 
                 objetoTransaccional.MensajeRespuestaSolicitudCredito = estado.NombreEstado;
-                objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;
+                objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;                
             }
         }
 
@@ -239,14 +239,19 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
                         {
                             var valores = regla.ValorEsperado.Split(';');
                             valorAlfaNumericoCampoRequest = Convert.ToString(objetoTransaccional.GetType().GetProperty(regla.CampoRequest).GetValue(objetoTransaccional));
-                            foreach (var valor in valores)
+
+                            if (!valores.Contains(valorAlfaNumericoCampoRequest))
                             {
-                                if (valorAlfaNumericoCampoRequest == valor)
-                                {
-                                    break;
-                                }
-                            }
-                            resultValidacion.Add($"Valor {valorAlfaNumericoCampoRequest} no contiene valores", regla.IndicaError);
+                                resultValidacion.Add($"Valor {valorAlfaNumericoCampoRequest} no contiene valores", regla.IndicaError);
+                            }                            
+                            //foreach (var valor in valores)
+                            //{
+                            //    if (valorAlfaNumericoCampoRequest == valor)
+                            //    {
+                            //        break;
+                            //    }
+                            //}
+                            
                         }
 
                         break;

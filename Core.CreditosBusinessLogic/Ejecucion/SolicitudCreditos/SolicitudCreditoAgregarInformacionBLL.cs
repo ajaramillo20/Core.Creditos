@@ -102,7 +102,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             }
             catch (Exception)
             {
-                objetoTransaccional.CalificacionBuro = CodigosSolicitudCredito.ErrorControlado.ToString();
+                objetoTransaccional.CalificacionBuro = "Analista Sin Información";
             }
         }
     }

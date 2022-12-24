@@ -9,7 +9,7 @@ namespace Core.Creditos.Adapters.NotificacionCambioEstadoSolicitudCredito
 {
     public static class NotificarCambioEstadoSolicitudCreditoAdapter
     {
-        public static Dictionary<string, string> EnviarInformacionRequest(string numeroSolicitud)
+        public static Dictionary<string, string> EnviarInformacionRequest(string numeroSolicitud, string comentario)
         {
             var result = new Dictionary<string, string>();
 
@@ -18,6 +18,8 @@ namespace Core.Creditos.Adapters.NotificacionCambioEstadoSolicitudCredito
                 var informacionSolicitudCredito = ObtenerSolicitudCreditoPorNumeroDAL.Execute(numeroSolicitud);
                 var obtenerDatosPeticion = ObtenerPeticionCambioEstadoSolicitudCreditoDAL.Execute(informacionSolicitudCredito.CodigoCredencial);
 
+                informacionSolicitudCredito.Comentario = string.IsNullOrEmpty(comentario) ? informacionSolicitudCredito.EstadoNombre : comentario;
+                
                 obtenerDatosPeticion.Content = obtenerDatosPeticion.Content.Inject(informacionSolicitudCredito);
 
 
@@ -61,10 +63,11 @@ namespace Core.Creditos.Adapters.NotificacionCambioEstadoSolicitudCredito
                             request.Content = new StringContent(requestData.Content ?? "");
                             request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(requestData.ContentType ?? "");
                         }
-                        
 
-                        var response = httpClient.SendAsync(request).Result.Content.ReadAsStringAsync().Result;
+
+                        var response = httpClient.SendAsync(request).Result.Content.ReadAsStringAsync().Result;                        
                         var jsonRespuesta = JObject.Parse(response);
+                        result.Add("Ori-Response", response);
                         foreach (var campo in requestData.CamposResult)
                         {
                             string nombreCampo = campo.Nombre;

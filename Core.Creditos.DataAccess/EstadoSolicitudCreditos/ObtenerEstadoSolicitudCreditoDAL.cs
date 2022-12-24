@@ -27,12 +27,16 @@ namespace Core.Creditos.DataAccess.EstadoSolicitudCreditos
             return resultado.First();
         }
 
+
+
         public class ObtenerEstadoSolicitudCreditoResult
         {
-            public string IdEstado { get; set; }
+            public int IdEstado { get; set; }
             public string CodigoEstado { get; set; }
             public string NombreEstado { get; set; }
             public string CredencialCodigo { get; set; }
+            public bool RequiereComentario { get; set; }
+            public bool RequiereEnvioEmail { get; set; }
         }
     }
 }

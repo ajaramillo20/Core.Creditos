@@ -100,8 +100,7 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             
             var fileName = $"{numeroSolicitud}_SolicitudCredito_{informacionSolicitud.NombreConcesionario}.pdf";
             var ruta = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.RUTA_ARCHIVOS_TEMPORALES).Valor;
-            var fullPath = $"{ruta}\\{fileName}";
-
+            var fullPath = $"{ruta}\\{fileName}";            
             HtmlToPdfADP.ConvertHtmlStringToPdf(contenido, fullPath);
             string encodeFile = GetUrlEncodeFromFile(fullPath);
 

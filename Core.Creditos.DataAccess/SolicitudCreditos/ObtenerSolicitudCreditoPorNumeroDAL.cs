@@ -33,6 +33,11 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
         public string CodigoCredencial { get; set; }
         public int EstadoId { get; set; }
         public string EstadoNombre { get; set; }
-        public string EstadoCodigo { get; set; }        
+        public string EstadoCodigo { get; set; }
+
+        /// <summary>
+        /// No setear
+        /// </summary>
+        public string Comentario { get; set; }
     }
 }

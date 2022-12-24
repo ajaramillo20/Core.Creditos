@@ -20,6 +20,11 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.CambiarEstadoSolicitudCr
         public string CodigoEstadoSolicitudCredito { get; set; } = "";
         public DateTime FechaProcesoSolicitud { get; set; }
 
+
+        public int IdEstadoSolicitudCreditoOrigen { get; set; }
+        public string NombreEstadoSolicitudCreditoOrigen { get; set; } = "";
+        public string CodigoEstadoSolicitudCreditoOrigen { get; set; } = "";
+
         public int IdEstadoSolicitudCreditoDestino { get; set; }
         public string NombreEstadoSolicitudCreditoDestino { get; set; } = "";
         public string CodigoEstadoSolicitudCreditoDestino { get; set; } = "";
