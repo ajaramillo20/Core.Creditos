@@ -10,6 +10,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Roles
 {
     public static class AgregarInformacionRolBLL
     {
+        /// <summary>
+        /// Obtiene lista de roles cargados
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
         public static void ObtenerRoles(RolTrx objetoTransaccional)
         {
             objetoTransaccional.ListaRoles = ObtenerRolesDAL.Execute(objetoTransaccional.Codigo, objetoTransaccional.Nombre);

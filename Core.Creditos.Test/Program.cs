@@ -76,7 +76,7 @@ StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "WriteLines.txt
 
 foreach (var item in listaSolicitudes)
 {
-    var resultado = NotificarCambioEstadoSolicitudCreditoAdapter.EnviarInformacionRequest(item, "");
+    var resultado = NotificadorApiExternaADP.EnviarInformacionRequest(item, "");
     //if (resultado.FirstOrDefault(f => f.Key == "Error").Key != null)
     //{
     //    AgregarHistorialSolicitudCreditoDAL.Execute(item.Value, "-", Convert.ToInt32(item.Key), "Error de comunicación externa".ToUpper());
@@ -94,6 +94,6 @@ outputFile.Close();
 
 Console.ReadKey();
 
-QueueResponsables.
+//QueueResponsables./
 
 return 0;

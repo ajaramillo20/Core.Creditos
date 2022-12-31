@@ -13,6 +13,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class ObtenerIndicesDAL
     {
+        /// <summary>
+        /// sp para obtener indices
+        /// </summary>
+        /// <param name="codigoTabla"></param>
+        /// <returns></returns>
         public static List<Tabla> Execute(string codigoTabla)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

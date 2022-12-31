@@ -12,6 +12,13 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class HomologarCatalogoExternoDAL
     {
+        /// <summary>
+        /// sp para homologar un catálogo
+        /// </summary>
+        /// <param name="codigoExterno"></param>
+        /// <param name="codigoTabla"></param>
+        /// <param name="codigoCredencial"></param>
+        /// <returns></returns>
         public static HomologarCatalogoExternoResult Execute(string codigoExterno, string codigoTabla, string codigoCredencial)
         {            
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Core.Creditos Reference","topic_000000000000002E.html"],['4',"Core.Creditos.Controllers Namespace","topic_0000000000000000.html"],['34',"ParametrizacionController Class","topic_000000000000001A.html"],['35',"Methods","topic_000000000000001A_methods--.html"],['37',"ObtenerEstadosCredito Method","topic_000000000000001B.html"]];

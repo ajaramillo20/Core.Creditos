@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.DataAccess.Catalogos
 {
+    /// <summary>
+    /// sp para obtener un catalogo externo
+    /// </summary>
     public class ObtenerCatalogosExternosDAL
     {
         public static List<CatalogoExterno> Execute(string codigoTabla, string codigoCredencial, string codigoCatalogo, string nombreCatalogo)

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.HistorialSolicitudCreditos
 {
+    /// <summary>
+    /// Entidad historial solicitud crédito
+    /// </summary>
     public class HistorialSolicitudCredito
     {
         public DateTime Fecha { get; set; }

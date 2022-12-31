@@ -14,6 +14,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public class ActualizarCatalogoExternoDAL
     {
+        /// <summary>
+        /// SP para actualizar un catálogo externo
+        /// </summary>
+        /// <param name="catalogoExterno"></param>
+        /// <returns></returns>
         public static int Execute(CatalogoExterno catalogoExterno)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

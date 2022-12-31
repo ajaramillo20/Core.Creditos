@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.Catalogos
 {
+    /// <summary>
+    /// entidad Tabla
+    /// </summary>
     public class Tabla
     {
         [JsonPropertyName("nombreTabla")]

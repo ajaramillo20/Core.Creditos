@@ -14,6 +14,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class InsertarCatalogoExternoDAL
     {
+        /// <summary>
+        /// sp para insertar un catalogoe externo
+        /// </summary>
+        /// <param name="catalogo"></param>
+        /// <returns></returns>
         public static int Execute(CatalogoExterno catalogo)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

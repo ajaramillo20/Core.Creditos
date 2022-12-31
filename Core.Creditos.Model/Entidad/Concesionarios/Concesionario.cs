@@ -11,6 +11,9 @@ namespace Core.Creditos.Model.Entidad.Concesionarios
     /// </summary>
     public class Concesionario
     {
+        /// <summary>
+        /// entidad concesionario
+        /// </summary>
         public int Id { get; set; }
         public string Nombre { get; set; }=string.Empty;
         public string Ruc { get; set; } = string.Empty;

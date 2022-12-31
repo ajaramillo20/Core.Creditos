@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Transaccional.Catalogos
 {
+    /// <summary>
+    /// Objeto transaccional catálogo
+    /// </summary>
     public class CatalogoTrx : TransaccionBase
     {
         //VARIABBLES GENERALES / CONSULTA

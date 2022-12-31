@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Transaccional.SolicitudCreditos
 {
+    /// <summary>
+    /// Obtero transaccional solicitud de crédito
+    /// </summary>
     public class SolicitudCreditoTrx : TransaccionBase
     {
         public SolicitudCreditoTrx()

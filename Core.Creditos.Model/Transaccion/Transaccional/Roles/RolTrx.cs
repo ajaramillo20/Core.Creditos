@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Transaccional.Roles
 {
+    /// <summary>
+    /// Objeto transaccional Roles
+    /// </summary>
     public class RolTrx : TransaccionBase
     {
         public List<Rol> ListaRoles = new List<Rol>();

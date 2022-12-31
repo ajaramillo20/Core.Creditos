@@ -13,6 +13,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
 {
     public static class ActualizarInformacionCatalogosBLL
     {
+        /// <summary>
+        /// Actualiza catálogo
+        /// </summary>
+        /// <param name="catalogoInsertar"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ActualizarCatalogo(Catalogo catalogoInsertar)
         {
             var resultado = ActualizarCatalogoDAL.Execute(catalogoInsertar);
@@ -22,6 +27,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
             }
         }
 
+        /// <summary>
+        /// Actualiza un catálogo externo
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ActualizarCatalogoExterno(CatalogoTrx objetoTransaccional)
         {
             var resultado = ActualizarCatalogoExternoDAL.Execute(objetoTransaccional.CatalogoExternoInsertar);

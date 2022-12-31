@@ -20,6 +20,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoObtenerInformacionBLL
     {
+        /// <summary>
+        /// Obtiene listado de solicitudes de credito
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
         public static void ObtenerListaSolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
         {
             var listaCreditos = ObtenerListaSolicitudCreditosDAL.Execute();
@@ -89,6 +93,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             }
         }
 
+        /// <summary>
+        /// OBtiene información solicitud crédito
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ObtenerInformacionSolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
         {
             var solicitud = ObtenerInformacionCreditosDAL.Execute(objetoTransaccional.NumeroSolicitudCredito.ToString() ?? "");

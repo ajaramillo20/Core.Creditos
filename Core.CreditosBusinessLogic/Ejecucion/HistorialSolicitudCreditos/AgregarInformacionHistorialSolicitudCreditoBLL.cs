@@ -10,7 +10,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.HistorialSolicitudCreditos
 {
     public static class AgregarInformacionHistorialSolicitudCreditoBLL
     {
-        internal static void ObtenerHistorial(SolicitudCreditoTrx objetoTransaccional)
+        /// <summary>
+        /// Obtiene información historial de solicitud
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        public static void ObtenerHistorial(SolicitudCreditoTrx objetoTransaccional)
         {
             objetoTransaccional.Historial= ObtenerHistorialSolicitudCreditoDAL.Execute((int)objetoTransaccional.NumeroSolicitudCredito);
         }

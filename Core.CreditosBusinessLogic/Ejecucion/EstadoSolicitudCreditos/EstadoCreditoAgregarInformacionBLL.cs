@@ -19,7 +19,7 @@ namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
         /// <param name="objetoTransaccional"></param>
         public static void ObtenerEstadoCredito(EstadoCreditoTrx objetoTransaccional)
         {
-            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(objetoTransaccional.EstadoCredito.Id);
+            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(objetoTransaccional.EstadoCredito.Id).First();
 
             objetoTransaccional.EstadoCredito.Nombre = estado.NombreEstado;
             objetoTransaccional.EstadoCredito.Codigo = estado.CodigoEstado;
@@ -29,19 +29,43 @@ namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
         /// Busca por el código del estado
         /// </summary>
         /// <param name="codigoEstado"></param>
-        public static EstadoCredito ObtenerEstadoCredito(string codigoEstado)
+        public static EstadoCredito ObtenerEstadoCredito(string codigoEstado="", int? idEstado=null)
         {
-            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(codigoEstado:codigoEstado);
-            return new EstadoCredito
+            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute( idEstado:idEstado ,codigoEstado:codigoEstado).FirstOrDefault();
+            if (estado!=null)
             {
-                Id = estado.IdEstado,
-                Codigo = estado.CodigoEstado,
-                Nombre = estado.NombreEstado,
-                RequiereComentario = estado.RequiereComentario,
-                RequiereEnvioEmail = estado.RequiereEnvioEmail
-            };
+                return new EstadoCredito
+                {
+                    Id = estado.IdEstado,
+                    Codigo = estado.CodigoEstado,
+                    Nombre = estado.NombreEstado,
+                    RequiereComentario = estado.RequiereComentario,
+                    RequiereEnvioEmail = estado.RequiereEnvioEmail
+                };
+            }
+            return null;
         }
 
+        /// <summary>
+        /// Obtener Lista Estados 
+        /// </summary>
+        /// <param name="codigoEstado"></param>
+        /// <param name="idEstado"></param>
+        /// <returns></returns>
+        public static List<EstadoCredito> ObtenerEstadoCreditoList(string codigoEstado = "", int? idEstado = null)
+        {
+            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(idEstado: idEstado, codigoEstado: codigoEstado);
+
+            return (from est in estado
+                    select new EstadoCredito
+                    {
+                        Id = est.IdEstado,
+                        Codigo = est.CodigoEstado,
+                        Nombre = est.NombreEstado,
+                        RequiereComentario = est.RequiereComentario,
+                        RequiereEnvioEmail = est.RequiereEnvioEmail
+                    }).ToList();            
+        }
 
         internal static void ObtenerFlujoEstadoCredito(EstadoCreditoTrx objetoTransaccional)
         {

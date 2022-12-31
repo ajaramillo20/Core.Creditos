@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Adapters.Core.Originarsa.Models
 {
+    /// <summary>
+    /// Modelol Micro Servicio Core.Originarsa
+    /// </summary>
     public class UsuarioConcesionarioCO
     {
         [JsonProperty("coN_ID")]

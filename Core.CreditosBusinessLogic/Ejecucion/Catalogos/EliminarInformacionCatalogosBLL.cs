@@ -12,6 +12,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
 {
     public static class EliminarInformacionCatalogosBLL
     {
+        /// <summary>
+        /// Eliminar catalogo
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void EliminarCatalogo(CatalogoTrx objetoTransaccional)
         {
             var resultado = EliminarCatalogoDAL.Execute(objetoTransaccional.CodigoCatalogo);
@@ -21,6 +26,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Catalogos
             }
         }
 
+        /// <summary>
+        /// eliminar catalogoe xterno
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void EliminarCatalogoExterno(CatalogoTrx objetoTransaccional)
         {
             var resultado = EliminarCatalogoExternoDAL.Execute(objetoTransaccional.IdCodigoHomologacion);

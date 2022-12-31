@@ -10,8 +10,16 @@ using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
 {
+    /// <summary>
+    /// Capa BL metodos para validar información de estados de solicitud
+    /// </summary>
     public static class CambiarEstadoSolicitudCreditoValidarInformacionBLL
     {
+        /// <summary>
+        /// Verifica si se permite el cambio entre estados
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ValidarCambioDeEstado(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
             var codigoResultado = ValidarCambioDeEstadoSolicitudCreditoDAL.Execute(objetoTransaccional.IdEstadoSolicitudCredito, objetoTransaccional.IdEstadoSolicitudCreditoDestino);

@@ -17,7 +17,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.Usuarios
 {
     public static class UsuarioAgregarInformacionBLL
     {
-        internal static void ObtenerListaDeUsuarios(UsuarioTrx objetoTransaccional)
+        /// <summary>
+        /// Obtiene lista de usuarios
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        public static void ObtenerListaDeUsuarios(UsuarioTrx objetoTransaccional)
         {
             var usuariosActivos = ObtenerUsuariosDAL.Execute();
             objetoTransaccional.Usuarios = usuariosActivos.ToList();

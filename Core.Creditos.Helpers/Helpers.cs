@@ -11,23 +11,49 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Helpers
 {
+    /// <summary>
+    /// Clase general de helpers
+    /// </summary>
     public static class Helpers
     {
+        /// <summary>
+        /// Convierte un objeto a json
+        /// </summary>
+        /// <param name="objeto"></param>
+        /// <returns></returns>
         public static string ToJson(this object objeto)
         {
             return JsonConvert.SerializeObject(objeto);
         }
 
+        /// <summary>
+        /// Inyecta variables en un string
+        /// </summary>
+        /// <param name="formatString"></param>
+        /// <param name="injectionObject"></param>
+        /// <returns></returns>
         public static string Inject(this string formatString, object injectionObject)
         {
             return formatString.Inject(GetPropertyHash(injectionObject));
         }
 
+        /// <summary>
+        /// Inserta variables en un string
+        /// </summary>
+        /// <param name="formatString"></param>
+        /// <param name="dictionary"></param>
+        /// <returns></returns>
         public static string Inject(this string formatString, IDictionary dictionary)
         {
             return formatString.Inject(new Hashtable(dictionary));
         }
 
+        /// <summary>
+        /// Inserta variables en un string
+        /// </summary>
+        /// <param name="formatString"></param>
+        /// <param name="dictionary"></param>
+        /// <returns></returns>
         public static string Inject(this string formatString, Hashtable attributes)
         {
             string text = formatString;
@@ -44,6 +70,12 @@ namespace Core.Creditos.Helpers
             return text;
         }
 
+        /// <summary>
+        /// Inserta variables en un string
+        /// </summary>
+        /// <param name="formatString"></param>
+        /// <param name="dictionary"></param>
+        /// <returns></returns>
         public static string InjectSingleValue(this string formatString, string key, object replacementValue)
         {
             string text = formatString;
@@ -67,6 +99,12 @@ namespace Core.Creditos.Helpers
             return text;
         }
 
+        /// <summary>
+        /// Inserta variables en un string
+        /// </summary>
+        /// <param name="formatString"></param>
+        /// <param name="dictionary"></param>
+        /// <returns></returns>
         private static Hashtable GetPropertyHash(object properties)
         {
             Hashtable hashtable = null;

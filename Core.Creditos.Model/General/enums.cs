@@ -20,7 +20,8 @@ namespace Core.Creditos.Model.General
         ErrorCampoObligatorio = 30512,
         SolicitudNoEncontrada = 30506,
         UsuarioNoActivo = 30507,
-        ErrorComunicacion = 30515
+        ErrorComunicacion = 30515,
+        RegistroDuplicado = 30516
     }
 
     /// <summary>
@@ -40,7 +41,7 @@ namespace Core.Creditos.Model.General
     }
 
     /// <summary>
-    /// 
+    /// Códigos solicitud
     /// </summary>
     public enum CodigosSolicitudCredito
     {
@@ -49,8 +50,9 @@ namespace Core.Creditos.Model.General
         ErrorControlado = 30405
     }
 
-
-
+    /// <summary>
+    /// Tipo de parametros evaluación
+    /// </summary>
     public enum TipoDatoParametroEvaluacion
     {
         NUMERICO,

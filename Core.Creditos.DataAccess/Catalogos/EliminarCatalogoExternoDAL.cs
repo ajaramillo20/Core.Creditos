@@ -12,6 +12,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public class EliminarCatalogoExternoDAL
     {
+        /// <summary>
+        /// sp para eliminar un catálogo externo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static int Execute(int id)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

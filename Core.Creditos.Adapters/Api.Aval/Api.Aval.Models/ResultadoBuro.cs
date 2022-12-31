@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Adapters.Api.Aval
 {
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class ResultadoBuro
     {
         public string time { get; set; }
@@ -17,6 +20,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public Result result { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class AnalisisCreditosAprobadosReguladoMy
     {
         public int MCAMontoOriginal { get; set; }
@@ -50,6 +56,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int TPorcentaje { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class AnalisisCreditoSectorFinanciero
     {
         public int MCAMontoOriginal { get; set; }
@@ -91,6 +100,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int TPorcentaje { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class AnalisisMontosSectorComercial
     {
         public int MCAMontoOriginal { get; set; }
@@ -124,6 +136,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int TPorcentaje { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class CuotaEstimadaMensual
     {
         public int Pago { get; set; }
@@ -135,6 +150,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int NumeroOperacionesExcluidas { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class DeudaRefinanciadaInfocom
     {
         public string Institucion { get; set; }
@@ -142,6 +160,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string Observacion { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class DeudaReportadaPorSeguridadSocial
     {
         public string Institucion { get; set; }
@@ -164,6 +185,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int CuotaMensual { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class EntidadesQueHanConsultado
     {
         public string NombreCliente { get; set; }
@@ -182,6 +206,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string ResaltadaInv { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class IdentificacionConsultadum
     {
         public string NombreSujeto { get; set; }
@@ -189,12 +216,18 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string NumeroDocumentoDobleInfo { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class InformacionBiessHistorium
     {
         public string TipoDeudaParam { get; set; }
         public int MesesAtrasParam { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class InformacionSbsBiess
     {
         public string NoOperacion { get; set; }
@@ -208,6 +241,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int VencidoCuotaVigente { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class MensajeValorComprometido
     {
         [JsonPropertyName("MensajeValorComprometido")]
@@ -215,6 +251,10 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string MensajeAnalisisCapacidadPago { get; set; }
     }
 
+
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class OfertaSugeridum
     {
         public string Detalle { get; set; }
@@ -223,6 +263,10 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int Plazo { get; set; }
     }
 
+
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class ParametrizadorGenerico
     {
         public int puntaje { get; set; }
@@ -230,6 +274,10 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string rutas { get; set; }
     }
 
+
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class Result
     {
         public List<IdentificacionConsultadum> IdentificacionConsultada { get; set; }
@@ -278,6 +326,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public List<EntidadesQueHanConsultado> EntidadesQueHanConsultado { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class ResultadoPolitica
     {
         public string PoliticaEvaluada { get; set; }
@@ -285,6 +336,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string Resultado { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class ResultadoSegmentacion
     {
         public int ResultadoEvaluacion { get; set; }
@@ -320,7 +374,10 @@ namespace Core.Creditos.Adapters.Api.Aval
         public int RestaGastoFinanciero { get; set; }
         public string NivelIngresos { get; set; }
     }
-   
+
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class ScoreIndicadoresV3
     {
         public string Tipo { get; set; }
@@ -329,6 +386,9 @@ namespace Core.Creditos.Adapters.Api.Aval
         public string PintarInv { get; set; }
     }
 
+    /// <summary>
+    /// CLASE REQUEST AVAL
+    /// </summary>
     public class SujetoAlDiaInfocom
     {
         public string Institucion { get; set; }

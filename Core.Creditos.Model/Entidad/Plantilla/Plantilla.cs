@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.Plantilla
 {
+    /// <summary>
+    /// Entidad plantilla email
+    /// </summary>
     public class Plantilla
     {
         public int Id { get; set; }

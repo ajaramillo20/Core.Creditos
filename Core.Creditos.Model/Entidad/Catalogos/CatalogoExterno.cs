@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.Catalogos
 {
+    /// <summary>
+    /// entidad catálogo externo
+    /// </summary>
     public class CatalogoExterno
     {
         public int Id { get; set; }

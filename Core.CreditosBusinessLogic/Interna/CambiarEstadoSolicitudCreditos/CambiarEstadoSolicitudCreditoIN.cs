@@ -14,10 +14,11 @@ using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos
 {
+    /// <summary>
+    /// Lógica interna para el cambio de estados de solicitudes de crédito
+    /// </summary>
     public class CambiarEstadoSolicitudCreditoIN : IActualizar<CambiarEstadoSolicitudCreditoTrx, CambiarEstadoSolicitudCreditoResponse>
     {
-
-
         public void AgregarInformacion(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {            
             CambioEstadoSolicitudCreditoAgregarInformacionBLL.ObtenerInformacionCambioEstadoSolicitud(objetoTransaccional);
@@ -31,8 +32,7 @@ namespace Core.CreditosBusinessLogic.Interna.CambiarEstadoSolicitudCreditos
         }
 
         public void ValidarInformacion(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
-        {
-            //Valida policitcas de estados
+        {            
             CambiarEstadoSolicitudCreditoValidarInformacionBLL.ValidarCambioDeEstado(objetoTransaccional);
         }
 

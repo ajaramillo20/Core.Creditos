@@ -12,6 +12,11 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoActualizarInformacionBLL
     {
+        /// <summary>
+        /// Actualiza responsable
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ActualizarResponsable(SolicitudCreditoTrx objetoTransaccional)
         {
             var result = ActualizarResponsableSolicitudCreditoDAL.Execute(Convert.ToInt32(objetoTransaccional.InformacionSolicitudCredito.NumeroSolicitud), objetoTransaccional.Responsable, objetoTransaccional.UsuarioAplicacion);

@@ -1,6 +1,7 @@
 ﻿using Core.Common.DataAccess.Helper;
 using Core.Common.Util.Helper.API;
 using Core.Creditos.DataAccess.General;
+using Core.Creditos.Model.Entidad;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,18 @@ namespace Core.Creditos.DataAccess.Parametrizacion
             return resultado.First();
         }
 
-      
+        public static List<Parametro> Execute(string? codigo = null)
+        {
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
+            var dynamicParameters = new DynamicParameters();
+
+
+            dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_PARAMETRIZACION.PARAM_CODIGO_PARAMETRIZACION, codigo, System.Data.DbType.String);
+            
+            var resultado = coneccion.ObtenerListaDatos<Parametro>(ConstantesPA.PA_CRE_OBTENER_PARAMETRIZACION.PA_NOMBRE, dynamicParameters);
+            return resultado;
+        }
+
         public class ObtenerParametrizacionCreditosResult
         {
             public string Codigo { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Core.Common.Model.Transaccion.Respuesta;
 using Core.Common.ProcessTemplate.Helper;
 using Core.Creditos.Model.Entidad.EstadoCredito;
+using Core.Creditos.Model.Transaccion.Request.Usuarios;
 using Core.Creditos.Model.Transaccion.Response.EstadosCreditos;
 using Core.Creditos.Model.Transaccion.Response.Usuarios;
 using Core.Creditos.Model.Transaccion.Transaccional.EstadosCreditos;
@@ -59,5 +60,42 @@ namespace Core.Creditos.Controllers
 
             return Ok(respuesta);
         }
+
+        
+        [HttpPost]
+        [Route("AgregarUsuario")]
+        [Produces(typeof(EstructuraBase<UsuarioResponse>))]
+        public IActionResult AgregarUsuario([FromBody] UsuariosRequest request)
+        {
+            UsuarioTrx transaccion = this.GenerarTransaccion<UsuarioTrx>();
+            transaccion.InformacionUsuario.UsuarioNombreRed = request.NombreRed;
+            transaccion.InformacionUsuario.UsuarioNombre = request.Nombre;
+            transaccion.CodigosRoles = request.Roles;
+
+            EstructuraBase<UsuarioResponse> respuesta = this.Insertar<UsuarioTrx, UsuarioResponse, AgregarUsuarioIN>(
+                new AgregarUsuarioIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
+
+        [HttpPut]
+        [Route("ActualizarUsuario")]
+        [Produces(typeof(EstructuraBase<UsuarioResponse>))]
+        public IActionResult ActualizarUsuario([FromBody] UsuariosRequest request)
+        {
+            UsuarioTrx transaccion = this.GenerarTransaccion<UsuarioTrx>();
+            transaccion.InformacionUsuario.UsuarioNombreRed = request.NombreRed;
+            transaccion.InformacionUsuario.UsuarioNombre = request.Nombre;
+            transaccion.CodigosRoles = request.Roles;
+
+            EstructuraBase<UsuarioResponse> respuesta = this.Actualizar<UsuarioTrx, UsuarioResponse, ActualizarUsuarioCreditManagerIN>(
+                new ActualizarUsuarioCreditManagerIN(),
+                transaccion);
+
+            return Ok(respuesta);
+        }
+
     }
 }

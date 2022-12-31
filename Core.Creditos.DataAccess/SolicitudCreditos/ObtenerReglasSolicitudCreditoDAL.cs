@@ -1,6 +1,7 @@
 ﻿using Core.Common.DataAccess.Helper;
 using Core.Common.Util.Helper.API;
 using Core.Creditos.DataAccess.General;
+using Core.Creditos.Model.Entidad.ReglasNegocio;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,15 @@ namespace Core.Creditos.DataAccess.SolicitudCreditos
 
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO.PARAM_CODIGO_ENTIDAD, codigoCredencial, System.Data.DbType.String);
             var resultado = coneccion.ObtenerListaDatos<ObtenerReglasSolicitudCreditoResult>(ConstantesPA.PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO.PA_NOMBRE, dynamicParameters);
+            return resultado;
+        }
+
+        public static List<CriterioEvaluacion> Execute()
+        {
+            DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
+            var dynamicParameters = new DynamicParameters();
+            
+            var resultado = coneccion.ObtenerListaDatos<CriterioEvaluacion>(ConstantesPA.PA_CRE_OBTENER_REGLAS_SOLICITUD_CREDITO.PA_NOMBRE, dynamicParameters);
             return resultado;
         }
 

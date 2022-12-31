@@ -14,6 +14,12 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class ObtenerCatalogosDAL
     {
+        /// <summary>
+        /// sp para obtener un catalogo externo
+        /// </summary>
+        /// <param name="codigoTabla"></param>
+        /// <param name="codigoCatalogo"></param>
+        /// <returns></returns>
         public static List<Catalogo> Execute(string codigoTabla="", string? codigoCatalogo="")
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

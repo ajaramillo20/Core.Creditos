@@ -15,11 +15,18 @@ using System.Transactions;
 
 namespace Core.Creditos.Controllers
 {
+    /// <summary>
+    /// CONTROLADOR CATALOGOS
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CatalogosController : Controller
-    {
-
+    {        
+        /// <summary>
+        /// Obtiene indices o cabeceras
+        /// </summary>
+        /// <param name="codigoTabla">Codigo Indice - Cabecera</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ObtenerIndices")]
         [Produces(typeof(EstructuraBase<ObtenerIndicesResponse>))]
@@ -35,6 +42,12 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Obtiene listado de todos los catálogos
+        /// </summary>
+        /// <param name="codigoTabla">Codigo indice o cabecera</param>
+        /// <param name="codigoCatalogo">código catálogo</param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ObtenerCatalogos")]
         [Produces(typeof(EstructuraBase<ObtenerCatalogosResponse>))]
@@ -51,6 +64,14 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Obtiene Catálogo externo
+        /// </summary>
+        /// <param name="codigoTabla"></param>
+        /// <param name="codigoCredencial"></param>
+        /// <param name="codigoCatalogo"></param>
+        /// <param name="nombreCatalogo"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("ObtenerCatalogosExternos")]
         [Produces(typeof(EstructuraBase<ObtenerCatalogosResponse>))]
@@ -69,6 +90,11 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Agrega catalogo
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("AgregarCatalogo")]
         [Produces(typeof(EstructuraBase<>))]
@@ -88,6 +114,11 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Agrega catálogo para homologación
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("AgregarCatalogoExterno")]
         [Produces(typeof(EstructuraBase<>))]
@@ -106,6 +137,15 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Actualiza catálogo interno
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <param name="nombre"></param>
+        /// <param name="valor"></param>
+        /// <param name="tabla"></param>
+        /// <param name="descripcion"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("ActualizarCatalogo")]
         [Produces(typeof(EstructuraBase<>))]
@@ -125,7 +165,15 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
-
+        /// <summary>
+        /// Actualiza catálogo externo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="codigoExterno"></param>
+        /// <param name="codigoCatalogo"></param>
+        /// <param name="codigoTabla"></param>
+        /// <param name="codigoCredencial"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("ActualizarCatalogoExterno")]
         [Produces(typeof(EstructuraBase<>))]
@@ -145,6 +193,11 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Elimina catálogo
+        /// </summary>
+        /// <param name="codigoCatalogo"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("EliminarCatalogo/{codigoCatalogo}")]
         [Produces(typeof(EstructuraBase<>))]
@@ -160,6 +213,11 @@ namespace Core.Creditos.Controllers
             return Ok(respuesta);
         }
 
+        /// <summary>
+        /// Elimina código de homologación externa
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("EliminarCatalogoExterno/{id}")]
         [Produces(typeof(EstructuraBase<>))]

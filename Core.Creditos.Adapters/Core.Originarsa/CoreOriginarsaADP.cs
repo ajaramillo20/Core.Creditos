@@ -13,14 +13,23 @@ using System.Text.Json.Serialization;
 
 namespace Core.Creditos.Adapters.Core.Originarsa
 {
+    /// <summary>
+    /// Adaptador apra microservicio core.originarsa
+    /// </summary>
     public static class CoreOriginarsaADP
     {
-
+        /// <summary>
+        /// URLS BASE
+        /// </summary>
         private static string URLBASE = SettingsHelper.ObtenerSettigsKey("UrlBaseAdapters.CoreOriginarsa");
+        private const string ObtenerConcesionario = "/api/Concesionario/ObtenerConcesionario/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
+        private const string ObtenerUsuarioEjecutivo = "/api/Usuario/ObtenerUsuarioEjecutivo/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
+        private const string ObtenerUsuarioConcesionario = "/api/Usuario/ObtenerUsuarioConcesionario/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
 
-        private const string ObtenerConcesionario = "/Concesionario/ObtenerConcesionario/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
-        private const string ObtenerUsuarioEjecutivo = "/Usuario/ObtenerUsuarioEjecutivo/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
-        private const string ObtenerUsuarioConcesionario = "/Usuario/ObtenerUsuarioConcesionario/93F6F130FB85B7BA5F70C2AA3F96E6212B9F3BC3EC20E24506392719C39F308F";
+        /// <summary>
+        /// Obtiene concesionario
+        /// </summary>
+        /// <returns></returns>
         public static List<Concesionario> ObtenerConcesionarios()
         {
             var result = new List<Concesionario>();
@@ -39,6 +48,10 @@ namespace Core.Creditos.Adapters.Core.Originarsa
             return result;
         }
 
+        /// <summary>
+        /// Obtiene usuario
+        /// </summary>
+        /// <returns></returns>
         public static List<UsuarioCO> ObtenerUsuarios()
         {
             var result = new List<UsuarioCO>();
@@ -54,6 +67,10 @@ namespace Core.Creditos.Adapters.Core.Originarsa
             return result;
         }
 
+        /// <summary>
+        /// Obtiene relacion usuario concesionario
+        /// </summary>
+        /// <returns></returns>
         public static List<UsuarioConcesionarioCO> ObtenerUsuariosConcesionarios()
         {
             var result = new List<UsuarioConcesionarioCO>();

@@ -22,5 +22,6 @@ namespace Core.Creditos.Model.Transaccion.Transaccional.Usuarios
         /// Variable usada  en obtenerInformacionUsuario
         /// </summary>
         public Usuario InformacionUsuario { get; set; }
+        public string[] CodigosRoles { get; set; }
     }
 }

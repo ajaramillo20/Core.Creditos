@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.SolicitudCreditos
 {
+    /// <summary>
+    /// Entidad solicitud de crédito
+    /// IMPORTANTE, esta estructura es donde se mapean las solicitudes
+    /// si se necesita agregar otro campo, se lo debe poner como un campo
+    /// que admita valores nulos, de esta forma no afecta las estructuras 
+    /// de otros concesionarios ya cargados.
+    /// Siempre poner la etiqueta [JsonPropertyName]
+    /// </summary>
     public class SolicitudCredito
     {
         [JsonPropertyName("solicitud")]

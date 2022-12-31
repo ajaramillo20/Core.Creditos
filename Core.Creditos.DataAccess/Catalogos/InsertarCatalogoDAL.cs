@@ -15,6 +15,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class InsertarCatalogoDAL
     {
+        /// <summary>
+        /// sp para insertar un catálogo
+        /// </summary>
+        /// <param name="catalogo"></param>
+        /// <returns></returns>
         public static int Execute(Catalogo catalogo)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

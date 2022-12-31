@@ -17,11 +17,19 @@ using Core.Creditos.Adapters.Core.Originarsa.Models;
 
 namespace Core.Creditos.Adapters
 {
+    /// <summary>
+    /// Clase encargada de manejar las colas de responsables
+    /// </summary>
     public static class QueueResponsables
     {
         public static string CODIGO_ROL_COLA_ANALISTA { get; set; } = "";
         private static string CODIGO_ROL_COLA_EJECUTIVO { get; set; } = "";
         private static List<ObtenerColaUsuariosResult> QueueUsuarios { get; set; } = new List<ObtenerColaUsuariosResult>();
+
+        /// <summary>
+        /// Inicia el servicio de cola
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public static void StartQueueService()
         {
             CODIGO_ROL_COLA_ANALISTA = ObtenerParametrizacionCreditosDAL.Execute(DataAccess.General.ParametrizacionCreditos.CODIGO_ROL_COLA_ANALISTAS).Valor;
@@ -34,6 +42,10 @@ namespace Core.Creditos.Adapters
 
             ObtenerListaUsuariosCola();
         }
+
+        /// <summary>
+        /// Obtiene lista de usuarios desde BD
+        /// </summary>
         public static void ObtenerListaUsuariosCola()
         {
             var usuariosCola = ObtenerColaUsuariosDAL.Execute();
@@ -50,6 +62,13 @@ namespace Core.Creditos.Adapters
 
             usuariosCola.ForEach(w => QueueUsuarios.Add(w));
         }
+
+        /// <summary>
+        /// OBtiene responsable en cola segun el rol
+        /// </summary>
+        /// <param name="codigoRol">rol de usuario</param>
+        /// <param name="codigoConcesionario">Codigo interno concesionario</param>
+        /// <returns></returns>
         public static ObtenerColaUsuariosResult GetResponsableEnCola(string codigoRol, string? codigoConcesionario)
         {
             if (QueueUsuarios.Count == 0)
@@ -69,6 +88,14 @@ namespace Core.Creditos.Adapters
 
             return null;
         }
+
+        /// <summary>
+        /// Obtiene ejecutivo en cola
+        /// </summary>
+        /// <param name="codigoRol">codigo de rol</param>
+        /// <param name="codigoConcesionario">codigo interno concesionario</param>
+        /// <returns></returns>
+        /// <exception cref="ExcepcionServicio"></exception>
         private static ObtenerColaUsuariosResult ObtenerEjecutivoEnCola(string codigoRol, string? codigoConcesionario)
         {
             if (string.IsNullOrEmpty(codigoConcesionario))
@@ -97,7 +124,8 @@ namespace Core.Creditos.Adapters
 
                 if (usuarioConcesionarioDestino == null)
                 {
-                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No existe un ejecutivo para el concesionario {concesionarioDestino.ToJson()}");                    
+                    return ObtenerAnalistaEnCola(CODIGO_ROL_COLA_ANALISTA);
+                    //throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No existe un ejecutivo para el concesionario {concesionarioDestino.ToJson()}");                    
                 }
 
                 //4. Obtiene el responsable
@@ -105,7 +133,8 @@ namespace Core.Creditos.Adapters
 
                 if (usuarioResponsable == null)
                 {
-                    throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No se encuentra en cola el ejecutivo {usuarioConcesionarioDestino.UsuarioId}");
+                    return ObtenerAnalistaEnCola(CODIGO_ROL_COLA_ANALISTA);
+                    //throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorCampoObligatorio, $"No se encuentra en cola el ejecutivo {usuarioConcesionarioDestino.UsuarioId}");
                 }
 
                 return QueueUsuarios.First(f => f.NombreRed == usuarioResponsable.UsuarioRed);
@@ -113,6 +142,12 @@ namespace Core.Creditos.Adapters
 
             throw new ExcepcionServicio((int)ErroresSolicitudCredito.ErrorHomologacionCodigo, codigoConcesionario);
         }
+
+        /// <summary>
+        /// Obtiene analista en cola
+        /// </summary>
+        /// <param name="codigoRol">codigo de rol de analista</param>
+        /// <returns></returns>
         private static ObtenerColaUsuariosResult ObtenerAnalistaEnCola(string codigoRol)
         {
             var usuario = QueueUsuarios.FirstOrDefault(f => f.CodigoRol == codigoRol);
@@ -130,6 +165,12 @@ namespace Core.Creditos.Adapters
 
             return usuario;
         }
+
+        /// <summary>
+        /// Verifica si existen usuarios activos con el rol
+        /// </summary>
+        /// <param name="codigoRol"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         private static void ValidarExisteUsuarioRol(string codigoRol)
         {
             var ListaUsuarios = ObtenerUsuariosDAL.Execute();
@@ -147,6 +188,12 @@ namespace Core.Creditos.Adapters
                 usuariosCola.ForEach(w => QueueUsuarios.Add(w));
             }            
         }
+
+        /// <summary>
+        /// Actualiza el estado de un usuario en la cola
+        /// </summary>
+        /// <param name="usuarioId"></param>
+        /// <param name="activar"></param>
         public static void ActualizarUsuarioLista(int usuarioId, bool activar)
         {
             if (!activar)
@@ -155,7 +202,7 @@ namespace Core.Creditos.Adapters
 
                 if (usrInfo != null)
                 {
-                    var usrCola = QueueUsuarios.FirstOrDefault(f => f.NombreRed == usrInfo.UsuarioNombre);
+                    var usrCola = QueueUsuarios.FirstOrDefault(f => f.NombreRed == usrInfo.UsuarioNombreRed);
                     if (usrCola != null)
                     {
                         QueueUsuarios.Remove(usrCola);

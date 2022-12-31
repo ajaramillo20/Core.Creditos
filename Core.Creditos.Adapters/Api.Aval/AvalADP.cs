@@ -10,8 +10,19 @@ using Core.Common.Util.Helper.API;
 
 namespace Core.Creditos.Adapters.Api.Aval
 {
+    /// <summary>
+    /// API DE AVAL
+    /// </summary>
     public static class AvalADP
     {
+        /// <summary>
+        /// Metodo para obtener calificación AVAL
+        /// </summary>
+        /// <param name="cedula">CEDULA CLIENTE</param>
+        /// <param name="ingreso">Ingreso cliente</param>
+        /// <param name="monto">monto prestamo</param>
+        /// <param name="plazo">plazo prestamo</param>
+        /// <returns></returns>
         public static async Task<ResultadoBuro> ObtenerInformacionAVAL(string cedula, string ingreso, string monto, string plazo)
         {
             var url = SettingsHelper.ObtenerSettigsKey("AVALAPI.Url");

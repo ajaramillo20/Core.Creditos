@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.Roles
 {
+    /// <summary>
+    /// Entidad ROL
+    /// </summary>
     public class Rol
     {
         public int RolId { get; set; }

@@ -14,6 +14,13 @@ namespace Core.Creditos.DataAccess.Concesionarios
 {
     public static class ObtenerListaConcesionariosDAL
     {
+        /// <summary>
+        /// Obtener lista concesionarios
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="ruc"></param>
+        /// <param name="codigoCredencial"></param>
+        /// <returns></returns>
         public static List<Concesionario> Execute(string nombre = "", string ruc = "", string codigoCredencial = "")
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

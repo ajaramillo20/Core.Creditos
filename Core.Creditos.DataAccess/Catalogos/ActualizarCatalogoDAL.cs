@@ -14,6 +14,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class ActualizarCatalogoDAL
     {
+        /// <summary>
+        /// SP para actualizar un catálogo
+        /// </summary>
+        /// <param name="catalogo"></param>
+        /// <returns></returns>
         public static int Execute(Catalogo catalogo)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

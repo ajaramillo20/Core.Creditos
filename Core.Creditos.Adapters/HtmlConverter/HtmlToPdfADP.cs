@@ -17,15 +17,12 @@ namespace Core.Creditos.Adapters.HtmlConverter
         public static void ConvertHtmlStringToPdf(string source, string fileNme)
         {
             HtmlToPdf converter = new HtmlToPdf();
-
             // convert the url to pdf
             PdfDocument doc = converter.ConvertHtmlString(source);
             // save pdf document
             doc.Save(fileNme);
-
             // close pdf document
             doc.Close();
-
         }
     }
 }

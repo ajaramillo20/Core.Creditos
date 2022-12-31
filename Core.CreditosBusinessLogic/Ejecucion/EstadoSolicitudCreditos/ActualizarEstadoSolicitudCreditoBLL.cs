@@ -17,6 +17,9 @@ using Ubiety.Dns.Core;
 
 namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
 {
+    /// <summary>
+    /// Capa BL metodos para actualizar estados de solicitud de crédito
+    /// </summary>
     public class ActualizarEstadoSolicitudCreditoBLL
     {
         public static void ActualizarEstadoSolicitudCredito(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
@@ -36,9 +39,18 @@ namespace Core.CreditosBusinessLogic.Ejecucion.EstadoSolicitudCreditos
             AgregarHistorialSolicitudCreditoDAL.Execute(objetoTransaccional.UsuarioRed, objetoTransaccional.CodigoEstadoSolicitudCredito, Convert.ToInt32(objetoTransaccional.NumeroSolicitudCredito), objetoTransaccional.ComentarioCambioEstado ?? "");
         }
 
+        /// <summary>
+        /// Notifica cambio de estado a entidad externa
+        /// se tiene 3 constantes:
+        /// Error: indica mensaje de error capturado con try catch.
+        /// status: 0 si existe error, 1 para ok,
+        /// Ori-Response: Respuesta plana del resultado obtenido
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void NotificarCambioEstado(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
-            var resultado = NotificarCambioEstadoSolicitudCreditoAdapter.EnviarInformacionRequest(objetoTransaccional.NumeroSolicitudCredito, objetoTransaccional.ComentarioCambioEstado);
+            var resultado = NotificadorApiExternaADP.EnviarInformacionRequest(objetoTransaccional.NumeroSolicitudCredito, objetoTransaccional.ComentarioCambioEstado);
             var tieneError = resultado.FirstOrDefault(f => f.Key == "Error").Value;
             var estatus = resultado.FirstOrDefault(f => f.Key == "status").Value == "0";
             var responseOriginal = resultado.FirstOrDefault(f => f.Key == "Ori-Response");

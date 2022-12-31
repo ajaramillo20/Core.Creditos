@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Transaccion.Concesionarios
 {
+    /// <summary>
+    /// Obtero transaccional
+    /// </summary>
     public class ConcesionarioTrx : TransaccionBase
     {
         //Variables generales - consulta

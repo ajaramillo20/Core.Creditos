@@ -15,6 +15,11 @@ namespace Core.Creditos.DataAccess.Plantillas
 {
     public static class ObtenerPlantillaEmailDAL
     {
+        /// <summary>
+        /// Obtener plantilla de envío de email
+        /// </summary>
+        /// <param name="codigoPlantilla"></param>
+        /// <returns></returns>
         public static Plantilla Execute(string codigoPlantilla)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

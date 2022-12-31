@@ -16,6 +16,10 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
     public static class SolicitudCreditoAgregarInformacionBLL
     {
+        /// <summary>
+        /// convierte a json la solicitud
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
         public static void AgregarJsonPeticionSolicitudCredito(SolicitudCreditoTrx objetoTransaccional)
         {
             string jsonString = JsonSerializer.Serialize(objetoTransaccional.SolicitudCredito);

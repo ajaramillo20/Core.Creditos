@@ -1,0 +1,1 @@
+var breadcrumbs=[['-1',"",""],['2',"Core.Creditos Reference","topic_000000000000002E.html"],['4',"Core.Creditos.Controllers Namespace","topic_0000000000000000.html"],['48',"RolesController Class","topic_0000000000000026.html"],['49',"Methods","topic_0000000000000026_methods--.html"],['50',"ObtenerRoles Method","topic_0000000000000027.html"]];

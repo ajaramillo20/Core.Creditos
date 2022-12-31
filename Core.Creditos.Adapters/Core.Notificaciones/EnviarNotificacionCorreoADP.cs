@@ -27,11 +27,23 @@ using Core.Creditos.DataAccess.Plantillas;
 
 namespace Core.Creditos.Adapters.Core.Notificaciones
 {
+    /// <summary>
+    /// Clase para el uso de Core.Notificaciones
+    /// </summary>
     public static class EnviarNotificacionCorreoADP
     {
         private static string URLBASE = SettingsHelper.ObtenerSettigsKey("UrlBaseAdapters.CoreNotificaciones");
 
-        private const string _EnviarNotificacion = "/Correos/EnviarCorreo";
+        private const string _EnviarNotificacion = "/api/Correos/EnviarCorreo";
+
+        /// <summary>
+        /// Metodo para agregar un correo a la cola de envío
+        /// </summary>
+        /// <param name="correoDestino">correo o correos separados por coma</param>
+        /// <param name="asunto"></param>
+        /// <param name="contenido"></param>
+        /// <param name="nombreArchivo"></param>
+        /// <param name="encodeBytes"></param>
         private static void AgregarCorreo(string correoDestino, string asunto, string contenido,string? nombreArchivo, string? encodeBytes)
         {
             dynamic postBody = new ExpandoObject();
@@ -55,10 +67,15 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             }
         }
 
+        /// <summary>
+        /// Envía un correo de asignación
+        /// </summary>
+        /// <param name="responsable">usuariored</param>
+        /// <param name="numeroSolicitud">numerosolicitud</param>
         public static void EnviarCorreoAsignacion(string responsable, string numeroSolicitud)
         {
 
-            var usuario = ObtenerInformacionUsuarioADP.ObtenerInformacionBaseUsuario(responsable).Result;
+            var usuario = CoreSeguridadesADP.ObtenerInformacionBaseUsuario(responsable).Result;
 
             if (usuario == null)
             {
@@ -75,7 +92,11 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             ArmarEstructuraCorreo(usuarioCo, numeroSolicitud);
         }
 
-
+        /// <summary>
+        /// Arma la estrutura de un correo en base a la información obtenida de core.originarsa
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="numeroSolicitud"></param>
         public static void ArmarEstructuraCorreo(UsuarioCO usuario, string numeroSolicitud)
         {
             var informacionSolicitud = ObtenerInformacionCreditosDAL.Execute(numeroSolicitud);
@@ -107,6 +128,11 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             AgregarCorreo(destinatario, asunto, contenido,fileName,encodeFile);
         }
 
+        /// <summary>
+        /// Encripta los links de acceso
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         private static string GetUrlEncodeFromFile(string fileName)
         {
             byte[] file;
@@ -124,6 +150,12 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             return returnValue;
         }
 
+        /// <summary>
+        /// Genera los tokens de acceso
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="numeroSolicitud"></param>
+        /// <returns></returns>
         private static string GenerarToken(UsuarioCO usuario, string numeroSolicitud)
         {
             var fechaExpiracion = DateTime.Now.AddDays(10);
@@ -131,6 +163,12 @@ namespace Core.Creditos.Adapters.Core.Notificaciones
             return ConvertStringToHex(token, Encoding.Unicode);
         }
 
+        /// <summary>
+        /// Convierte los tokens a HEX para que sean admitidos en la URL
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="encoding"></param>
+        /// <returns></returns>
         public static string ConvertStringToHex(String input, System.Text.Encoding encoding)
         {
             Byte[] stringBytes = encoding.GetBytes(input);

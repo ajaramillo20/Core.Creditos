@@ -14,8 +14,16 @@ using System.Threading.Tasks;
 
 namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
 {
+    /// <summary>
+    /// Capa bl con metodos para agregar información de estados
+    /// </summary>
     public static class CambioEstadoSolicitudCreditoAgregarInformacionBLL
     {
+        /// <summary>
+        /// Obtiene la información de un estado de solicitud
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
+        /// <exception cref="ExcepcionServicio"></exception>
         public static void ObtenerInformacionCambioEstadoSolicitud(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
             var solicitud = ObtenerSolicitudCreditoPorNumeroDAL.Execute(objetoTransaccional.NumeroSolicitudCredito);
@@ -30,9 +38,13 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
             objetoTransaccional.CodigoEstadoSolicitudCreditoOrigen = solicitud.EstadoCodigo;
         }
 
+        /// <summary>
+        /// Obtiene informacion estado destino
+        /// </summary>
+        /// <param name="objetoTransaccional"></param>
         internal static void ObtenerInformacionEstadoDestino(CambiarEstadoSolicitudCreditoTrx objetoTransaccional)
         {
-            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(idEstado: objetoTransaccional.IdEstadoSolicitudCreditoDestino);
+            var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(idEstado: objetoTransaccional.IdEstadoSolicitudCreditoDestino).First();
             objetoTransaccional.CodigoEstadoSolicitudCreditoDestino = estado.CodigoEstado;
             objetoTransaccional.NombreEstadoSolicitudCreditoDestino = estado.NombreEstado;
         }

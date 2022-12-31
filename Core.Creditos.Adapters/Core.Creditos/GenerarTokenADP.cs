@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Adapters.GenerarTokens
 {
+    /// <summary>
+    /// Método para generar Token
+    /// </summary>
     internal class GenerarTokenADP
     {
     }

@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Core.Creditos.Model.Entidad.Usuarios
 {
+    /// <summary>
+    /// entidad usuario
+    /// </summary>
     public class Usuario
     {
         public int UsuarioBPMId { get; set; }

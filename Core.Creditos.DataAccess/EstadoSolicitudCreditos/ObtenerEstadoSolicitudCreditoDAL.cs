@@ -13,7 +13,7 @@ namespace Core.Creditos.DataAccess.EstadoSolicitudCreditos
 {
     public static class ObtenerEstadoSolicitudCreditoDAL
     {
-        public static ObtenerEstadoSolicitudCreditoResult Execute(int? idEstado=null, string codigoEstado="", string nombreEstado="")
+        public static List<ObtenerEstadoSolicitudCreditoResult> Execute(int? idEstado=null, string codigoEstado="", string nombreEstado="")
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));
             var dynamicParameters = new DynamicParameters();
@@ -24,7 +24,7 @@ namespace Core.Creditos.DataAccess.EstadoSolicitudCreditos
             dynamicParameters.Add(ConstantesPA.PA_CRE_OBTENER_ESTADO_SOLICITUD_CREDITO.PARAM_NOMBRE_ESTADO, string.IsNullOrEmpty(nombreEstado) ? null : nombreEstado, System.Data.DbType.String);            
 
             var resultado = coneccion.ObtenerListaDatos<ObtenerEstadoSolicitudCreditoResult>(ConstantesPA.PA_CRE_OBTENER_ESTADO_SOLICITUD_CREDITO.PA_NOMBRE, dynamicParameters);
-            return resultado.First();
+            return resultado;
         }
 
 

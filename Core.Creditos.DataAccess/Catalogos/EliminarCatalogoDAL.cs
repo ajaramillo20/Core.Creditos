@@ -13,6 +13,11 @@ namespace Core.Creditos.DataAccess.Catalogos
 {
     public static class EliminarCatalogoDAL
     {
+        /// <summary>
+        /// sp para eliminar un catalogo
+        /// </summary>
+        /// <param name="codigoCatalogo"></param>
+        /// <returns></returns>
         public static int Execute(string codigoCatalogo)
         {
             DBConnectionHelper coneccion = new DBConnectionHelper(Common.Model.General.EnumDBConnection.SqlConnection, SettingsHelper.ObtenerConnectionString("BD_CREDITOS"));

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Adapters.Core.Originarsa.Models
 {
+    /// <summary>
+    /// Modelol Micro Servicio Core.Originarsa
+    /// </summary>
     public class UsuarioCO
     {
         [JsonProperty("usU_USERNAME")]

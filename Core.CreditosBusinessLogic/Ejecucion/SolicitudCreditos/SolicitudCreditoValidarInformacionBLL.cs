@@ -34,20 +34,20 @@ namespace Core.CreditosBusinessLogic.Ejecucion.SolicitudCreditos
         {
             if (objetoTransaccional.ResultadoEvaluacionPoliticas.Where(w => w.Value == true).Count() > 0)
             {
-                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_NEGADO, objetoTransaccional.Credenciales.Codigo);
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_NEGADO);
                 var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
                                                                        codigoEstado: codigoEstado.Valor
-                                                                      );
+                                                                      ).First();
 
                 objetoTransaccional.MensajeRespuestaSolicitudCredito = estado.NombreEstado;
                 objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;
             }
             else
             {
-                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_PRE_APROBADO, objetoTransaccional.Credenciales.Codigo);
+                var codigoEstado = ObtenerParametrizacionCreditosDAL.Execute(ParametrizacionCreditos.ANALIS_RAPIDO_ESTADO_PRE_APROBADO);
                 var estado = ObtenerEstadoSolicitudCreditoDAL.Execute(
                                                                        codigoEstado: codigoEstado.Valor
-                                                                      );
+                                                                      ).First();
 
                 objetoTransaccional.MensajeRespuestaSolicitudCredito = estado.NombreEstado;
                 objetoTransaccional.CodigoEstadoSolicitudCredito = estado.CodigoEstado;                

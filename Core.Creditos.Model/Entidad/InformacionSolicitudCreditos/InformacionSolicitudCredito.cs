@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Creditos.Model.Entidad.InformacionSolicitudCreditos
 {
+    /// <summary>
+    /// Clase entidad información de solicitud de crédito
+    /// </summary>
     public class InformacionSolicitudCredito
     {
         public string NumeroSolicitud { get; set; }
